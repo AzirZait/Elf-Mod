@@ -1,0 +1,20 @@
+grand_magister = {
+	dynasty_opinion = 10
+	same_religion_opinion = 10
+	learning = 2
+	combat_rating = 10
+	health = 2
+	immortal = yes
+	random = no
+	ruler_designer_cost = 0
+	customizer = no
+}
+
+master_of_demon_flame = {
+	leader = yes
+	combat_rating = 10
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.2
+	}
+}

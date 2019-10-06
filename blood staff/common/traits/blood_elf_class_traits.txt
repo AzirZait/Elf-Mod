@@ -1,0 +1,8 @@
+subclass_blood_mage = {
+	intrigue = 2
+	learning = 2
+
+	random = no
+	ruler_designer_cost = 0
+	customizer = no
+}

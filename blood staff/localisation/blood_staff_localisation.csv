@@ -1,0 +1,432 @@
+f;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+#Make sure that this file in encoded in ANSI;;;;;;;;;;;;;;
+#The society name;;;;;;;;;;;;;;
+blood_staff;The Blood Staff;;;;;;;;;;;;;x
+string_blood_staff;blood_staff;;;;;;;;;;;;;x
+#Rank up button name;;;;;;;;;;;;;;
+request_to_rank_up_within_blood_staff;Request to rank up.;;;;;;;;;;;;;x
+request_to_rank_up_within_blood_staff_tt;[GetAltSocietyRankUpTooltip];;;;;;;;;;;;;x
+#The society description;;;;;;;;;;;;;;
+blood_staff_desc;Mystical heroes, blood mages are high elves adept at controlling magic, blood and life. The Prince received predictions of the future and decided to change the fate of the elves. The high elves began to turn to the darkest parts of magic, abandoning the water and frost spells of the Kirin Tor for the fire and blood of what some people fear to be demonic magic. The most famous and the first of the blood mages was Kael'thas Sunstrider. All hail Kael'thas!;;;;;;;;;;;;;x
+#Leader description;;;;;;;;;;;;;;
+blood_staff_leader_desc;Grand Blood Magister(Magistrix). Strongest magician. He will destroy the world for Quel'Thalas. The great defender of Quel'Thalas.;;;;;;;;;;;;;x
+#Name of the ranks;;;;;;;;;;;;;;
+blood_staff_rank_1_female;Disciple;;;;;;;;;;;;;x
+blood_staff_rank_2_female;Mage;;;;;;;;;;;;;x
+blood_staff_rank_3_female;High Mage;;;;;;;;;;;;;x
+blood_staff_rank_4_female;Archmage;;;;;;;;;;;;;x
+blood_staff_rank_5_female;Grand  Magistrix;;;;;;;;;;;;;x
+blood_staff_rank_1_male;Disciple;;;;;;;;;;;;;x
+blood_staff_rank_2_male;Mage;;;;;;;;;;;;;x
+blood_staff_rank_3_male;High Mage;;;;;;;;;;;;;x
+blood_staff_rank_4_male;Archmage;;;;;;;;;;;;;x
+blood_staff_rank_5_male;Grand  Magister;;;;;;;;;;;;;x
+#Name of the currency;;;;;;;;;;;;;;
+blood_staff_currency;Life Energy;;;;;;;;;;;;;x
+GetBloodStaffRankUpTooltip_Standard_Rank1;Has §YLife Energy§! greater or equal to 750 and is at least an Mage.;;;;;;;;;;;;;x
+GetBloodStaffRankUpTooltip_Standard_Rank2;Has §YLife Energy§! greater or equal to 1000 and is at least an High Mage.;;;;;;;;;;;;;x
+GetBloodStaffRankUpTooltip_Standard_Rank3;Has §YLife Energy§! greater or equal to 2000 and is at least an Archmage.;;;;;;;;;;;;;x
+GetBloodStaffRankUpTooltip_Standard_Rank4;Has §YLife Energy§! greater or equal to 3500 and is at least an Grand  Magister.;;;;;;;;;;;;;x
+#The localization for the currency gain;;;;;;;;;;;;;;
+society_gain_blood_staff_tooltip;Is a Elf: §G+10.0§!;;;;;;;;;x # §G mean green;;;;
+# quests;;;;;;;;;;;;;;
+quest_blood_staff_induct_child;Induct Descendant;;;;;;;;;;;;;x
+quest_blood_staff_induct_child_desc;As the blood of dragons flows through your veins, it follows that your descendants do as well. Choose one from among them and induct them into the society.;;;;;;;;;;;;;x
+quest_blood_staff_induct_child_tooltip;To complete this mission you need to §Gright-click§! on the portrait of your target and choose to §YInduct§! them.;;;;;;;;;;;;;x
+quest_blood_staff_intrigue_focus;Pick the Intrigue Focus;;;;;;;;;;;;;x
+quest_blood_staff_intrigue_focus_desc;While all dragons guard their secrets and treasure vaults carefully, there comes a time when even the most meticulous must focus on staying one step ahead of would-be pursuers. It is time for you to focus on intrigue.;;;;;;;;;;;;;x
+quest_blood_staff_intrigue_focus_tooltip;To complete this mission, pick the §Y'Intrigue'§! focus in the Character screen.;;;;;;;;;;;;;x
+quest_blood_staff_amass_wealth;Amass Arcane Energy;;;;;;;;;;;;;x
+quest_blood_staff_amass_wealth_desc;Nothing matters more to mages than the energy. Power and knowlege is ours way. Do whatever it takes to fill your labaratory with arcane cristals.;;;;;;;;;;;;;x
+quest_blood_staff_amass_wealth_tooltip;To complete this mission, amass 500 gold and select §Y'Everything is ready to start the ritual'§! in the Intrigue Menu.;;;;;;;;;;;;;x
+quest_blood_staff_become_grand_magister;Become Grand Magister!;;;;;;;;;;;;;x
+quest_blood_staff_become_grand_magister_desc;Everything you have been working towards for years has been leading up to this moment. You are at last ready to unleash your true ambitions.;;;;;;;;;;;;;x
+quest_blood_staff_become_grand_magister_tooltip;To complete this mission, select §Y'Become Grand Magister!'§! in the Intrigue Menu.;;;;;;;;;;;;;x
+quest_blood_staff_become_blood_mage;Become Blood Mage!;;;;;;;;;;;;;x
+quest_blood_staff_become_blood_mage_desc;Everything you have been working towards for years has been leading up to this moment. You are at last ready to unleash your true ambitions.;;;;;;;;;;;;;x
+quest_blood_staff_become_blood_mage_tooltip;To complete this mission, select §Y'Become Blood Mage!'§! in the Intrigue Menu.;;;;;;;;;;;;;x
+quest_blood_staff_avoid_disease;Outlast Disease;;;;;;;;;;;;;x
+quest_blood_staff_avoid_disease_desc;Harmless to ordinary humans, a lethal virus is spreading towards your realm. Anybody could be a carrier... only by going into seclusion is there a chance of surviving this invisible killer.;;;;;;;;;;;;;x
+quest_blood_staff_avoid_disease_tooltip;To complete this mission, remain in seclusion until [Root.Society.GetName] contact you again.;;;;;;;;;;;;;x
+quest_blood_staff_resist_evil;Resist Evil;;;;;;;;;;;;;x
+quest_blood_staff_resist_evil_desc;Dragons are persecuted by many as beings of great evil. Why validate these accusations by clinging to moral insanity? You must cleanse your mind so that you will be flawless before [Root.Religion.GetHighGodName].;;;;;;;;;;;;;x
+quest_blood_staff_resist_evil_tooltip;To complete this mission, select §Y'Resist Evil'§! in the Intrigue Menu.;;;;;;;;;;;;;x
+quest_blood_staff_decipher_secrets;Decipher Secrets;;;;;;;;;;;;;x
+quest_blood_staff_decipher_secrets_desc;The history of Dragons is long and storied. Many secrets and powers await those patient enough to study the dusty tomes of old. [Root.Society.GetName] have entrusted you with an encyphered scroll. Decipher its secrets and the knowledge of the ancients will be yours.;;;;;;;;;;;;;x
+quest_blood_staff_decipher_secrets_tooltip;To complete this mission you have to carefully study the provided scrolls to reveal new insights.;;;;;;;;;;;;;x
+# decisions;;;;;;;;;;;;;;
+blood_staff_prolong_life;Prolong Life;;;;;;;;;;;;;x
+blood_staff_prolong_life_desc;Absorb nature 's life energy.;;;;;;;;;;;;;x
+blood_staff_prolong_life_power_desc;Enables §Gright-clicking§! on character's portrait, in order to rejuvenate, in exchange for §Y[Root.Society.GetCurrency]§!. Chances of side effects scale with mage level.;;;;;;;;;;;;;x
+blood_staff_prolong_life_spell_tooltip;Using the magic of blood, you seek an opportunity to add 1 health the organism of someone.\nThis very strong spell to rejuvenate the friends.;;;;;;;;;;;;;x
+blood_staff_life_purification_spell;Life Purification;;;;;;;;;;;;;x
+blood_staff_life_purification_spell_desc;Cleaning the body with vital energy and blood.;;;;;;;;;;;;;x
+blood_staff_life_purification_spell_power_desc;Enables §Gright-clicking§! on character's portrait, in order to purificate, in exchange for §Y[Root.Society.GetCurrency]§!. Chances of side effects scale with mage level.;;;;;;;;;;;;;x
+blood_staff_life_purification_spell_tooltip;Using the magic of blood, you seek an opportunity to heal the organism of someone.\nThis very strong spell purificate the health of the friends.;;;;;;;;;;;;;x
+blood_staff_jealousy_spell;Spell to fight rivals.;;;;;;;;;;;;;x
+blood_staff_jealousy_spell_desc;Using the magic of blood, you seek an opportunity to weaken the organism of the enemy. This very strong curse undermines the health of the rival.;;;;;;;;;;;;;x
+blood_staff_jealousy_spell_power_desc;Enables §Gright-clicking§! on character's portrait, in order to gain curse, in exchange for §Y[Root.Society.GetCurrency]§!. Chances of side effects scale with mage level.;;;;;;;;;;;;;x
+blood_staff_jealousy_spell_tooltip;Using the magic of blood, you seek an opportunity to weaken the organism of the enemy.\nThis very strong curse undermines the health of the rival.;;;;;;;;;;;;;x
+blood_staff_life_purification_spell;Purificate Body;;;;;;;;;;;;;x
+blood_staff_life_purification_spell_desc;Cleaning the body with vital energy and blood.;;;;;;;;;;;;;x
+blood_staff_prolong_life;Spell to increase lifespawn and health.;;;;;;;;;;;;;x
+blood_staff_prolong_life_desc;Using the energy of life obtained from the blood of enemies you prolong life and enhance health.;;;;;;;;;;;;;x
+blood_staff_write_magic_theory;Write Magic Theory;;;;;;;;;;;;;x
+blood_staff_write_magic_theory_desc;As an experienced blood mage, you can use your knowlege and skills to write a great magic book.;;;;;;;;;;;;;x
+blood_staff_artefact_hunt;Search for Magic Artifact;;;;;;;;;;;;;x
+blood_staff_artefact_hunt_desc;By poring over ancient tomes you can attempt to uncover a new magic artifact.;;;;;;;;;;;;;x
+blood_staff_write_magic_theory_tooltip;Determine the area of magic you wish write to the book.;;;;;;;;;;;;;x
+blood_staff_artefact_hunt_tooltip;Determine the degree of effort you wish to devote to the search.\nSuccess varies depending on the amount of §Y[Root.Society.GetCurrency]§! invested.;;;;;;;;;;;;;x
+blood_staff_write_magic_theory_power_desc;Determine the area of magic you wish write to the book.;;;;;;;;;;;;;x
+blood_staff_artefact_hunt_power_desc;Enables the decision to search for a elf artifact, in exchange for §Y[Root.Society.GetCurrency]§!. Chances of success and failure vary depending on the amount of §Y[Root.Society.GetCurrency]§! invested. Characters of Blood elf culture can discover additional artifacts.;;;;;;;;;;;;;x
+blood_staff_magic_fortress;Construct Magic Fortress;;;;;;;;;;;;;x
+blood_staff_magic_fortress_desc;Begin construction of magic fortress. It will be the perfect place to store gold and other artifacts...;;;;;;;;;;;;;x
+blood_staff_magic_fortress_power_desc;Enables §Gright-clicking§! any Castle holdings you own to increase their gold income for fifty years, in exchange for §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
+blood_staff_resist_fel;Resist Fel;;;;;;;;;;;;;x
+blood_staff_resist_fel_desc;[Root.Society.GetName] pride themselves on mental fortitude, often taking time to resist any fel influences that seek to taint them.;;;;;;;;;;;;;x
+blood_staff_resist_fel_tooltip;Go into meditation for a short time to purge your mind of stress and insanity.;;;;;;;;;;;;;x
+blood_staff_resist_fel_power_desc;Enables the decision to go into seclusion for a short time to remove negative traits.;;;;;;;;;;;;;x
+blood_staff_amass_wealth_complete;Everything is ready to start the ritual;;;;;;;;;;;;;x
+blood_staff_amass_wealth_complete_desc;With enough magic your labaratory will be the envy of blood dragons and gods alike.;;;;;;;;;;;;;x
+blood_staff_amass_wealth_complete_tooltip;Completes the §Y'Amass Arcane'§! mission.;;;;;;;;;;;;;x
+blood_staff_master_of_flame;Unlock Demonic Fire;;;;;;;;;;;;;x
+blood_staff_master_of_flame_desc;Your diligent research into demonic secrets allows you to use new magic abilities on the battlefield.;;;;;;;;;;;;;x
+blood_staff_master_of_flame_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain a special Commander trait, in exchange for §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
+blood_staff_dragonheart;Unlock Dragonheart;;;;;;;;;;;;;x
+blood_staff_dragonheart_desc;Your patient study of draconic secrets allows you to tap into your ancestry for increased endurance.;;;;;;;;;;;;;x
+blood_staff_dragonheart_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain a powerful character modifier, in exchange for §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
+blood_staff_become_grand_magister;Become Grand Magister;;;;;;;;;;;;;x
+blood_staff_become_grand_magister_desc;Everything you have been working towards for years has been leading up to this moment. You are at last ready to unleash your true ambition.;;;;;;;;;;;;;x
+blood_staff_become_grand_magister_tooltip;Become Grand Magister!;;;;;;;;;;;;;x
+blood_staff_become_grand_magister_passive;Grand Magister;;;;;;;;;;;;;x
+blood_staff_become_grand_magister_passive_power_desc;Upon reaching rank 5, your next mission will allow you to become grand magister.;;;;;;;;;;;;;x
+blood_staff_become_blood_mage;Unleash True Ambition;;;;;;;;;;;;;x
+blood_staff_become_blood_mage_desc;Everything you have been working towards for years has been leading up to this moment. You are at last ready to unleash your true ambition.;;;;;;;;;;;;;x
+blood_staff_become_blood_mage_tooltip;Become Blood Mage!;;;;;;;;;;;;;x
+blood_staff_become_blood_mage_passive;Blood Mage;;;;;;;;;;;;;x
+blood_staff_become_blood_mage_passive_power_desc;Upon reaching rank 3, your next mission will allow you to become blood mage.;;;;;;;;;;;;;x
+blood_staff_magic_tattoo;Put a magic tattoo.;;;;;;;;;;;;;x
+blood_staff_magic_tattoo_desc;By following the ancient instructions precisely you can put a special magic tattoo that will empower your mental acuity and abilities. Side effects may vary…;;;;;;;;;;;;;x
+blood_staff_magic_tattoo_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain Martial, Intrigue, Learning or Fertility, in exchange for §Y[Root.Society.GetCurrency]§!. Chances of side effects scale with Intrigue.;;;;;;;;;;;;;x
+blood_staff_magic_tattoo_tooltip;Select a rune and prepare the instruments for putting tattoo.\nChances of side effects scale with Intrigue.;;;;;;;;;;;;;x
+blood_staff_culture_convert_county;Enforce Blood Elf Culture;;;;;;;;;;;;;x
+blood_staff_culture_convert_county_desc;It is time for [From.Society.GetName] to take land and assert their dominance over this county.;;;;;;;;;;;;;x
+blood_staff_culture_convert_county_power_desc;Enables §Gright-clicking§! the title shield of a county to convert the local population to Blood Elf culture.;;;;;;;;;;;;;x
+blood_staff_improve_province;Remove Lawless Presence;;;;;;;;;;;;;x
+blood_staff_improve_province_desc;Send out some magic guards to rout the thieves and smugglers that infest this province.;;;;;;;;;;;;;x
+blood_staff_improve_province_power_desc;Enables §Gright-clicking§! the title shield of a Blood Elf culture province to remove negative modifiers.;;;;;;;;;;;;;x
+blood_staff_induct_descendant;Induct Descendant;;;;;;;;;;;;;x
+blood_staff_induct_descendant_desc;Attempt to induct this character into [From.Society.GetName]. [Root.GetHerHisCap] opinion of you will no doubt influence [Root.GetHerHis] decision...;;;;;;;;;;;;;x
+# tooltips;;;;;;;;;;;;;;
+write_magic_theory_cooldown_timer_tooltip;Has NOT writed magic books recently;;;;;;;;;;;;;x
+artefact_hunt_cooldown_timer_tooltip;Has NOT searched for artifacts recently;;;;;;;;;;;;;x
+resist_fel_decision_necessary_tooltip;Has trait that can be resisted;;;;;;;;;;;;;x
+resist_fel_decision_cooldown_timer_tooltip;Has NOT resisted fel recently;;;;;;;;;;;;;x
+induct_descendant_not_in_society_tooltip;Shows no interest in joining a Society;;;;;;;;;;;;;x
+blood_staff_grimoire_of_protection_writing;Write copy of Grimoire of Protection;;;;;;;;;;;;;x
+blood_staff_grimoire_of_blood_writing;Write copy of Grimoire of Blood;;;;;;;;;;;;;x
+blood_staff_grimoire_of_fel_writing;Write copy of Grimoire of Fel;;;;;;;;;;;;;x
+blood_staff_grimoire_of_shadow_writing;Write copy of Grimoire of Shadow;;;;;;;;;;;;;x
+blood_staff_grimoire_of_souls_writing;Write copy of Grimoire of Souls;;;;;;;;;;;;;x
+blood_staff_artefact_tier_1_tt;Search for a low-quality artifact with a moderate chance of failure.;;;;;;;;;;;;;x
+blood_staff_artefact_tier_2_tt;Search for a medium-quality artifact with a small chance of failure.;;;;;;;;;;;;;x
+blood_staff_artefact_tier_3_tt;Search for a high-quality artifact with no chance of failure.;;;;;;;;;;;;;x
+blood_staff_tattoo_martial_tooltip;Prepare incense to boost §YMartial§!. Possible side effects include gigantism.;;;;;;;;;;;;;x
+blood_staff_tattoo_intrigue_tooltip;Prepare incense to boost §YIntrigue§!. Possible side effects include paranoia.;;;;;;;;;;;;;x
+blood_staff_tattoo_learning_tooltip;Prepare incense to boost §YLearning§!. Possible side effects include headaches.;;;;;;;;;;;;;x
+blood_staff_tattoo_fertility_tooltip;Prepare incense to boost §YFertility§!. Possible side effects include hypersexuality.;;;;;;;;;;;;;x
+BLOODMAGE_decipher_success_tooltip;You make progress in deciphering the ancient scroll.;;;;;;;;;;;;;x
+BLOODMAGE_decipher_setback_tooltip;You struggle to make progress in deciphering the ancient scroll.;;;;;;;;;;;;;x
+BLOODMAGE_decipher_failure_tooltip;You suffer a major setback in deciphering the ancient scroll.;;;;;;;;;;;;;x
+# triggered events;;;;;;;;;;;;;;
+#This event is for joining;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_102;Blood Staff magic association welcome you. We use some magic theories about life, fel, void, blood and souls. This is for power. For Quel'Thalas. As such, you are entitled to join [From.Society.GetName] and learn more about forbidden magic. All hail Kael'thas, All hail Quel'Thalas.\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_102;Tell me more about blood magic...;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_102;This is fel magic.;;;;;;;;;;;;;x
+# stat pooling;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_700;Although you have yet to be formally inducted into The Blood Staff, you have been training and honing your abilities. Decoding cyphers, eavesdropping, learning how to move silently without being followed, there are many such necessities when operating in a secret society.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_700;Every new skill brings me closer to the truth.;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_700;I'm not cut out for this...;;;;;;;;;;;;;x
+# induct descendant;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_131;[Root.GetSocietyRank] [Root.GetFirstName],\n\nThe time has come for us to expand our influence. It has not escaped our notice that your descendants have the same blood magic heritage as you. Induct one of them into [Root.Society.GetName].\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_134;[Root.GetSocietyRank] [Root.GetFirstName],\n\nYour success in inducting a new member into the society has been noted. They show much promise and will make a valuable contribution to [Root.Society.GetName].\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_134;My legacy shall endure for all time.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_800;With great care, you scribe a letter to [new_recruit.GetFirstName]. You are sure to include several reasons that [From.GetSubjectPronoun] should take this invitation seriously, as well as detailed instructions on how to contact [Root.Society.GetName]. You then send the letter on its way, leaving no indication of your involvement.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_800;Now we wait.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_801;A letter arrived for you today from an unknown sender. Opening it in private, you discover that it seems to be a personal invitation to join a secret society calling themselves [From.Society.GetName]. Enclosed are instructions on how to respond if you so choose.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_801;Send the reply as instructed.;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_801;Destroy it before anybody else sees it.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_802;Already the letter you sent to [From.GetFirstName] is bearing fruits. Your agents report that [From.GetSubjectPronoun] has delivered a reply indicating an expression of interest to [Root.Society.GetName].;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_802;Excellent.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_803;It seems the letter you sent to [From.GetFirstName] was for nothing. There has been no reply of any kind.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_803;I was a fool to think [From.GetSubjectPronoun] could be trusted.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_804;Arranging for some private time with [new_recruit.GetFirstName], you secretly bring along several other blood mages [From.GetPossPronoun] age, encouraging them to have fun playing in the secluded garden you have set aside for this encounter.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_804;This shall be a special memory for [From.GetObjectPronoun].;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_805;Today one of your relatives brought you to a small grove where there were two blood mages waiting for you. For hours the three of you played and roughhoused in the secluded clearing.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_805;Yay! These blood mages are fun!;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_805;They are far too rough for me...;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_806;The blood mages gathering you arranged for [From.GetFirstName] was a great success. Once [From.GetSubjectPronoun] and the blood mages had settled down after a few hours of play, you take [From.GetFirstName] aside and explain the nature of [Root.Society.GetName], as well as the importance of secrecy.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_806;Welcome to your people, [From.GetFirstName].;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_807;Despite your best efforts, [From.GetFirstName] did not enjoy [From.GetPossPronoun] time with the other blood mages, who played far too rough for [From.GetObjectPronoun].;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_807;Those darn disciples!;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_808;Having gained access to your [new_recruit.GetFirstName]'s bedchamber, you open up an old story book filled with all manner of fables and legends. Illuminated by the soft glow of a candle, you read a tale to [new_recruit.GetFirstName], enthralling [new_recruit.GetObjectPronoun] with a story about a powerful mage that rescued a demon hunter girl from a tyrannical druid.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_808;Once upon a time, there lived a beautiful demon hunter girl...;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_809;Last night one of your relatives showed up and read to you a story from an old elf book... It was about a beautiful demon hunter girl, an evil druid... and a powerful mage who died for the demon hunter girl! After hearing the demon hunter girl's name, you 're sad to realize it 's a true story. Sad story about Illysanna...;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_809;I should find out more about demon magic!;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_809;What a nightmare! Demon hunters are scary...;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_810;[From.GetFirstName] is completely enraptured by your storytelling, hanging on your every word. Once you finish, you tell [From.GetObjectPronoun] to keep this story a secret, and to seek out the demon's magic once [From.GetSubjectPronoun] comes of age.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_810;[From.GetFirstName] will do me proud.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_811;As you read the storybook to [From.GetFirstName], you observe [From.GetObjectPronoun] visibly fidgeting and squirming. Pausing, you ask what is wrong, only for [From.GetObjectPronoun] to start tearing up, terrified at the very thought of demon's magic.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_811;And it was my best story too!;;;;;;;;;;;;;x
+# resist fel;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_141;[Root.GetSocietyRank] [Root.GetFirstName],\n\nAs you know, many label us as evil and immoral mages. Why should we validate these accusations by harbouring abhorrent and unstable tendencies? We would like you to meditate for a time and purge your soul of fel corruption.\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_144;[Root.GetSocietyRank] [Root.GetFirstName],\n\nIt pleases [Root.Society.GetName] to see your spirit purified and uplifted after your recent meditation. Such efforts help pave the way for future acceptance of blood magic and our destiny.\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_144;Fel just energy like arcane [Root.Religion.GetHighGodName].;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_250;Magic is my instrument. It 's not a gift from the gods or a fanaticism of priest. This is my art, which has been reinforced by my effort! Forbidden magic? What fools came up with that word. With diligent meditation, consultation of [Root.Religion.GetScriptureName] and deep thought I will be able to manipulate the darkness that lies within fel magic.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_250;My story just begins.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_252;After several weeks dedicated to my meditation, I feel I am ready to direct my efforts towards resolving my inner conflict in a specific area.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_252;A magician who 's afraid of fel magic is weak. Warlock without ambition is worm.;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_252;I must learn to restrain my cravings.;;;;;;;;;;;;;x
+EVTOPTC_BLOODMAGE_252;Get out of my head demons!;;;;;;;;;;;;;x
+EVTOPTD_BLOODMAGE_252;These dark thoughts are holding me back!;;;;;;;;;;;;;x
+EVTOPTE_BLOODMAGE_252;I shall strive to serve Quel'thalas as a pious blood mage.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_253;It seems that word has got to [Root.Society.GetName] that I did not perform the meditation they expected of me.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_253;What's with them anyway? There's nothing wrong with me.;;;;;;;;;;;;;x
+# amass wealth;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_151;[Root.GetSocietyRank] [Root.GetFirstName],\n\nDo you ignore arcane energy? Amass a hoard of arcane energy immediately so that you cease to be an embarrassment to [Root.Society.GetName].\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_152;After several years of effort your ritual is finally complete. As the final step that will make you more stronger, you feel a rising energy within you, knowing that so much arcane energy is all yours to use or admire as you see fit.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_152;No one can stop me now!;;;;;;;;;;;;;x
+# convert province;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE230;The majority of the population in [From.GetName] have embraced [Root.Culture.GetName] culture.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE231;Elves have been spotted killing discordant people [From.GetName]! Strangely, the majority of the population have chosen to welcome their new [FromFrom.Culture.GetName] overlords, leaving only a token resistance that has since gone to ground.;;;;;;;;;;;;;x
+# improve province;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE280;The title of [Root.GetSocietyRank] certainly has its perks. With only a suggestion, the Mages that inhabit [From.GetName] razed every thieves guild and robber hideout in sight. Already the commoners feel safer knowing the lawless elements have been purged from the region.;;;;;;;;;;;;;x
+# intrigue focus;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_161;[Root.GetSocietyRank] [Root.GetFirstName],\n\nIt has been brought to our attention that you are perhaps not spending the appropriate effort on matters of intrigue. We would like to encourage you to set aside matters of state and focus on covering your tracks from any would-be pursuers.\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_164;[Root.GetSocietyRank] [Root.GetFirstName],\n\nWe are happy to hear that you have devoted your time to matters of intrigue. May the coming years of secrecy reward you with a longer life than those who would seek to harm [Root.Society.GetName].\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_164;Nobody shall be the wiser.;;;;;;;;;;;;;x
+#blood mage;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_171;[Root.GetSocietyRank] [Root.GetFirstName],\n\nYou are ready to assume your true ambition. Embrace your destiny and be blood mage!\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_223;Everything has been leading up to this. Yet, at the critical moment, you hesitate. Fondling the reagens in your hands, thoughts rush through your mind. What will the courtiers think? How will the people react? A blood mage ruling over them?;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_223;With a few choice words the people will embrace this change.;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_223;Hire more guards to keep the peace.;;;;;;;;;;;;;x
+EVTOPTC_BLOODMAGE_223;I cannot let such fears obstruct my destiny.;;;;;;;;;;;;;x
+EVTOPTD_BLOODMAGE_223;Perhaps this is not the time...;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_224;Having learned the theory of blood magic and many other forbidden schools of magic you were ready for a long time. The power, ambition and prosperity of the elf people is what drives you.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_224;Now you can feel blood in creatures!;;;;;;;;;;;;;x
+# grand magister;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_300;[Root.GetSocietyRank] [Root.GetFirstName],\n\nYou are ready to assume your true ambition. Embrace your destiny and be grand magister!\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_303;Everything has been leading up to this. Yet, at the critical moment, you hesitate. Do I want that kind of responsibility?;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_303;Power and responsibility are quite a normal reward for the worthy.;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_303;Perhaps this is not the time...;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_304;Having learned the theory of blood magic and many other forbidden schools of magic you were ready for a long time. The power, ambition and prosperity of the elf people is what drives you.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_304;Now you are the most powerfull mage in Quel'thalas!;;;;;;;;;;;;;x
+# magic fortress;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_240;As your trusted labourers finish work on the magic fortress at [From.GetName], you personally arrange for a myriad of traps to be set up to secure the arcane vault, as well as a magic canons that protect the fortress from low races. Soon the work is complete and you admire the finished result.;;;;;;;;;;;;;x
+# write magic theories;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_360;As a master of blood magic you can use your knowlege to create a grimoire. It will strengthen you and you will be able to channel your powers throught it.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_360;Grimoire of Protection;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_360;Grimoire Of Blood;;;;;;;;;;;;;x
+EVTOPTC_BLOODMAGE_360;Grimoire Of Fel;;;;;;;;;;;;;x
+EVTOPTD_BLOODMAGE_360;Grimoire Of Shadow;;;;;;;;;;;;;x
+EVTOPTE_BLOODMAGE_360;Grimoire Of Souls;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_364;My attempt to write a book ended in failure. I need to study magic more carefully.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_364;Where did I was wrong?;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_371;Bad copy of Grimoire of Protection;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_371;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about defense against damnation.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_372;Copy of Grimoire of Protection;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_372;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about defense against damnation.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_373;Good copy of Grimoire of Protection;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_373;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about defense against damnation.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_374;Bad copy of Grimoire of Blood;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_374;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about blood magic and life manipulation.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_375;Copy of Grimoire of Blood;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_375;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about blood magic and life manipulation.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_376;Good copy of Grimoire of Blood;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_376;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about blood magic and life manipulation.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_377;Bad copy of Grimoire of Fel;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_377;This grimoire is among the blood mages most ancient relics. It was given to [Prev.GetDynName] by [libram_giver.GetDynName], who challenged [Prev.GetHerHim] to become the living embodiment of true mage. The book uses Nathrezim theories about fel magic and demonology.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_378;Copy of Grimoire of Fel;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_378;This grimoire is among the blood mages most ancient relics. It was given to [Prev.GetDynName] by [libram_giver.GetDynName], who challenged [Prev.GetHerHim] to become the living embodiment of true mage. The book uses Nathrezim theories about fel magic and demonology.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_379;Good copy of Grimoire of Fel;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_379;This grimoire is among the blood mages most ancient relics. It was given to [Prev.GetDynName] by [libram_giver.GetDynName], who challenged [Prev.GetHerHim] to become the living embodiment of true mage. The book uses Nathrezim theories about fel magic and demonology.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_380;Bad copy of Grimoire of Shadow;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_380;This grimoire is among the blood mages most ancient relics. It was given to [Prev.GetDynName] by [libram_giver.GetDynName], who challenged [Prev.GetHerHim] to become the living embodiment of true mage. The book uses Nathrezim theories about shadow magic and void.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_381;Copy of Grimoire of Shadow;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_381;This grimoire is among the blood mages most ancient relics. It was given to [Prev.GetDynName] by [libram_giver.GetDynName], who challenged [Prev.GetHerHim] to become the living embodiment of true mage. The book uses Nathrezim theories about shadow magic and void.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_382;Good copy of Grimoire of Shadow;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_382;This grimoire is among the blood mages most ancient relics. It was given to [Prev.GetDynName] by [libram_giver.GetDynName], who challenged [Prev.GetHerHim] to become the living embodiment of true mage. The book uses Nathrezim theories about shadow magic and void.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_383;Bad copy of Grimoire of Souls;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_383;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about souls energy manipulations and necromancy.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_384;Copy of Grimoire of Souls;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_384;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about souls energy manipulations and necromancy.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_385;Good copy of Grimoire of Souls;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_385;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about souls energy manipulations and necromancy.;;;;;;;;;;;;;x
+# artefact hunt;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_260;Investigating vague rumours and forgotten libraries to find ancient relics is no simple task. The question is how much of my resources should I devote to this search?;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_260;I shall make a modicum of effort.;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_260;This warrants a serious investigation.;;;;;;;;;;;;;x
+EVTOPTC_BLOODMAGE_260;I shall delve into the most cryptic scrolls I have!;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_264;Despite my best efforts, my search for the night elf relic has come up with nothing. Were the rumours false? Did somebody else find the artifact before me? Was my translation of the scrolls inaccurate?;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_264;Where did I go wrong?;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_265;Your investigation into the artifact has turned up a mysterious key made out of a strange unknown metal. Inscribed with magic runes along the key, it reminds you of a certain chest you found some time ago…;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_266;Your search has uncovered a strange chest made of an unknown metal. Try as you might, you haven't been able to force the chest open and its contents remain a mystery.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_267;Your search for night elf relics has turned up a skull full with fel energy. Although small, it carries the air of ancient war.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_267;How cute.;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_268;Your search for a troll artifact has come up with a strange loa totem. You can feel strange energy inside.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_268;It 's worth studying troll magic artefact.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_269;Ugly old cloak of ancient war times. A magic massive can be found on the inside side. Artefact can be useful.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_269;"You read the inscription on the inside. ""Your father loves you dear Illysanna..."" What this mean?";;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_270;Your artifact investigation has uncovered several old highborn magic book. Some pages in good conditions.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_270;This was worth all the effort.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_271;Your search into elf artifacts has uncovered notes on ancient magic. Although simplistic, it could still be of some use in future translation work.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_271;Might come in handy one day.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_272;Nice magic dagger. A very long time ago, these weapon killed many demons.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_272;Cool!;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_273;This is strange staff. This is not night elf artefact.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_273;Good weapon.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_274;Ancient elf sword. Very qualitative work done for elite highborne. An incredibly powerful arcane aura. These weapon not influenced by time.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_274;Quel'sin. This sword will help to restore greatness to the elves!;;;;;;;;;;;;;x
+# curse;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_321;You have successfully cursed your enemy.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_321;The bastard will suffer!;;;;;;;;;;;;;x
+# fel flame;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_221;After studying the impact of fel, you found a way to open the channel to the fire plan without arcana. By replacing arcana, you have achieved the enriching of the power of fire spells and spend much less energy! By talking about it with the comrades, you 've found a new way to create fiery spells. Now you have a demonic fire.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_221;My foes will scamper before me!;;;;;;;;;;;;;x
+# demon blood;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_222;Comparing your blood to the various samples given to you by [Root.Society.GetName] has been a painstaking progress. Taking various potions, abstaining from certain foods, yet now you have it: you were able to successfully assimilate the blood of the eredar.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_222;The blood of eredar flows through me!;;;;;;;;;;;;;x
+# dragon incense;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_290;The ancient scrolls tell of special titan rune that boosts mental and physical prowess. There are several recipes, each boosting a different faculty. This poses a question: which of the incenses will you attempt to recreate?;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_290;Powder of Strength.;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_290;Smoke of Shadows.;;;;;;;;;;;;;x
+EVTOPTC_BLOODMAGE_290;Vapours of Insight.;;;;;;;;;;;;;x
+EVTOPTD_BLOODMAGE_290;Midnight Musk.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_291;After carefully preparing the incense according to the ancient recipe you ignite it and begin to inhale the thick aroma emanating from the powder. Within moments you feel your mind awaken with new insights while your body swells with renewed strength.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_292;After carefully preparing the rune according to the ancient recipe you put it on hand and begin to full it with arcane. Within moments you feel your mind awaken with new insights while your body swells with renewed strength.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_293;After carefully preparing the rune according to the ancient recipe you put it on hand and begin to full it with arcane. Within moments you feel your mind awaken, racing through logical problems that once stumped you.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_294;After carefully preparing the rune according to the ancient recipe you put it on hand and begin to full it with arcane. Within moments you feel your body covered in a soft warmth, ready for breeding.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_291;My eyes are opened.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_295;After the initial burst of power you first felt after rune in hand was full of arcane, your mind has begun to grow increasingly clouded and confused. Something must have gone wrong... perhaps you somehow mistranslated the recipe?;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_295;Ugh... my head...;;;;;;;;;;;;;x
+# decipher secrets;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_201;[Root.GetSocietyRank] [Root.GetFirstName],\n\nThere is much about our ancient history we have yet to understand. Decipher the scrolls we have sent you so that we know the secrets of the demon magic that roamed the world long ago.\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_203;Late nights of study have begun to prey on your concentration. It's hard to keep focused when you're underslept. Catching yourself yawning, you wonder if you will ever understand this archaic writing.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_203;Perhaps I should try some sort of draught...;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_203;I cannot neglect my limits any longer.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_204;Hour after hour stretches by with no result. The scroll is as alien to you as when you started, with the various markings on the parchment seemingly random to you.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_204;If I focus I can decipher this!;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_204;I should take it easy.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_205;As you continue to work on the ancient scroll, you hear a cry coming from outside the window. You peer down and see a boy being pushed to the ground, surrounded by a few older boys. It's clear the young boy is being bullied by the others.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_205;The bullies must be stopped.;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_205;I must focus. Someone else will come to his aid.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_206;Buried away in your study you find yourself surrounded by books of all kinds. Although dusty, each of them calls out to you with interesting titles and presentation. Surely it wouldn't hurt to take a break from the translation work?;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_206;I've been meaning to get to these...;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_206;Another time perhaps.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_207;After many fruitless nights staring at the strange symbols that cover the scroll provided to you by [Root.Society.GetName], the true meaning of a key phrase suddenly jumps out at you, allowing you to translate several more areas of the text.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_207;Finally starting to get somewhere!;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_209;[Root.GetSocietyRank] [Root.GetFirstName],\n\nWe note your fine work in deciphering the nathrezim scrolls we sent you. All of [Root.Society.GetName] are enriched with the discovery of this new knowledge.\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_209;Another step closer to our heritage.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_210;[Root.GetSocietyRank] [Root.GetFirstName],\n\nWord has reached us that you have been neglecting the important translation work that we assigned to you. It seems we must find someone more invested in our cause to do the work instead.\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_210;They dare to accuse me of inactivity?!;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_211;Those dusty scrolls that I had abandoned went missing today.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_211;Whatever.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_212;Many have noticed your absence from court of late. People are beginning to speculate what might be consuming your time and energy with the many nights spent out of sight, deciphering the ancient scroll.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_212;I shall fool everyone with a convincing cover story!;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_212;These rumours shall soon pass.;;;;;;;;;;;;;x
+# modifiers;;;;;;;;;;;;;;
+blood_staff_demonblood;Eredar blood!;;;;;;;;;;;;;x
+blood_staff_demonblood_desc;The blood of eredar pumps through this character's veins.;;;;;;;;;;;;;x
+blood_staff_tattoo_martial;Titan Rune!;;;;;;;;;;;;;x
+blood_staff_tattoo_martial_desc;Ancient titan rune fuels this character's mind and body.;;;;;;;;;;;;;x
+blood_staff_tattoo_intrigue;Titan Rune!;;;;;;;;;;;;;x
+blood_staff_tattoo_intrigue_desc;Ancient titan rune fuels this character's mind and body.;;;;;;;;;;;;;x
+blood_staff_tattoo_learning;Titan Rune!;;;;;;;;;;;;;x
+blood_staff_tattoo_learning_desc;Ancient titan rune fuels this character's mind and body.;;;;;;;;;;;;;x
+blood_staff_tattoo_fertility;Titan Rune!;;;;;;;;;;;;;x
+blood_staff_tattoo_fertility_desc;Ancient titan rune fuels this character's mind and body.;;;;;;;;;;;;;x
+blood_staff_tattoo_fail;Headache. Something went wrong. Magic require skills.;;;;;;;;;;;;;x
+blood_staff_tattoo_fail_desc;Rune gone wrong clouds this character's judgement.;;;;;;;;;;;;;x
+blood_staff_magic_fortress;Magic Fortress;;;;;;;;;;;;;x
+blood_staff_magic_fortress_desc;Guarded by many soldiers and traps fort is full of gold and artifacts.;;;;;;;;;;;;;x
+BLOODMAGE_infection;Infection;Infection;Infektion;;Infección.;;;;;;;;;x
+BLOODMAGE_infection_desc;This character has an infection - it looks and smells bad, but it feels even worse.;Ce personnage a une infection. Ce n'est pas beau à voir et cela sent mauvais, mais il se sent encore plus mal que ça en a l'air.;Diese Person leidet an einer Infektion. Es sieht übel aus und riecht auch so, aber die Schmerzen sind noch schlimmer.;;Este personaje tiene una infección, parece y huele mal, pero se siente aún peor.;;;;;;;;;x
+BLOODMAGE_infection_death;of an infected wound;d'une blessure infectée;an einer entzündeten Wunde;;de una herida infectada;;;;;;;;;x
+blood_staff_traps;Devious Traps;;;;;;;;;;;;;x
+blood_staff_traps_desc;A meticulous array of traps secures this character's treasure vault.;;;;;;;;;;;;;x
+# random events;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_500;Somehow thieves broke into your labaratory last night and made off with as much magic items as they could carry.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_500;How did they disarm my magic traps?! Where my guard? Ranger General!!!;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_510;As you inspect your labaratory you come across a corpse, some impetuous fellow who attempted to break in, only to perish thanks to your devious traps.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_510;Perhaps I should make an example out of this one...;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_510;Another one bites the dust.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_520;Within the dusty tomes of eredar lore lie many esoteric rituals: promises of forbidden knowledge with words of warning scrawled alongside. Is it really worth summoning these spirits over vague promises of power?;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_520;I must go deeper!;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_520;I'm a good [Root.Religion.GetName].;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_530;Everywhere I look I see courtiers whispering. Do they suspect me? How could they know of my connections with [Root.Society.GetName]? Or maybe they do know and they are mocking me!;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_530;I'm surrounded by enemies everywhere!;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_540;Much artifacts lies in your labaratory. Is it truly safe from thieves? Although well hidden from prying eyes and protected with several magic traps, one can never be too careful…;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_540;No one will get their hands on my magic items and gold!;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_540;My existing defences are more than adequate.;;;;;;;;;;;;;x
+#artifacts;;;;;;;;;;;;;;
+grimoire_of_protection_01;Bad copy of Grimoire of Protection;;;;;;;;;;;;;x
+grimoire_of_protection_02;Copy of Grimoire of Protection;;;;;;;;;;;;;x
+grimoire_of_protection_03;Good copy of Grimoire of Protection;;;;;;;;;;;;;x
+grimoire_of_blood_01;Bad copy of Grimoire of Blood;;;;;;;;;;;;;x
+grimoire_of_blood_02;Copy of Grimoire of Blood;;;;;;;;;;;;;x
+grimoire_of_blood_03;Good copy of Grimoire of Blood;;;;;;;;;;;;;x
+grimoire_of_fel_01;Bad copy of Grimoire of Fel;;;;;;;;;;;;;x
+grimoire_of_fel_02;Copy of Grimoire of Fel;;;;;;;;;;;;;x
+grimoire_of_fel_03;Good copy of Grimoire of Fel;;;;;;;;;;;;;x
+grimoire_of_shadow_01;Bad copy of Grimoire of Shadow;;;;;;;;;;;;;x
+grimoire_of_shadow_02;Copy of Grimoire of Shadow;;;;;;;;;;;;;x
+grimoire_of_shadow_03;Good copy of Grimoire of Shadow;;;;;;;;;;;;;x
+grimoire_of_souls_01;Bad copy of Grimoire of Souls;;;;;;;;;;;;;x
+grimoire_of_souls_02;Copy of Grimoire of Souls;;;;;;;;;;;;;x
+grimoire_of_souls_03;Good copy of Grimoire of Souls;;;;;;;;;;;;;x
+bs_grimoire_of_protection;Grimoire of Protection;;;;;;;;;;;;;x
+bs_grimoire_of_protection_desc;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about defense against damnation.;;;;;;;;;;;;;x
+bs_grimoire_of_blood;Grimoire Of Blood;;;;;;;;;;;;;x
+bs_grimoire_of_blood_desc;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about blood magic and life manipulation.;;;;;;;;;;;;;x
+bs_grimoire_of_fel;Grimoire Of Fel;;;;;;;;;;;;;x
+bs_grimoire_of_fel_desc;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about fel magic and demonology.;;;;;;;;;;;;;x
+bs_book_shadow;Grimoire Of Shadow;;;;;;;;;;;;;x
+bs_book_shadow_desc;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about shadow magic and void.;;;;;;;;;;;;;x
+bs_grimoire_of_souls;Grimoire Of Souls;;;;;;;;;;;;;x
+bs_grimoire_of_souls_desc;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about souls energy manipulations and necromancy.;;;;;;;;;;;;;x
+bs_quel'delar;Elf Magic rune sword Quel'delar;;;;;;;;;;;;;x
+bs_quel'delar_desc;Quel'Delar, the Sister Blade is a prismatic blade forged by the night elves and the five dragonflights along with its sibling, Quel'Serrar. Quel'Delar serves as an idol of opposition against the Scourge, and the elven factions of Dalaran would therefore like to see the blade play a pivotal role in the assault on Icecrown Citadel.;;;;;;;;;;;;;x
+bs_loa_totem;Loa Totem;;;;;;;;;;;;;x
+bs_loa_totem_desc;Totems are tools used by a shaman as an instrument of war. Characterized by their immobility and area of effect, the totems embody the shaman's mastery over the elements.;;;;;;;;;;;;;x
+bs_fel_skull;Skull of Warlock;;;;;;;;;;;;;x
+bs_fel_skull_desc;This Skull is a powerful demonic artifact created from the skull of  warlock.;;;;;;;;;;;;;x
+magic_raincoat;Magic Raincoat;;;;;;;;;;;;;x
+magic_raincoat_desc;Moon Guard Raincoat. Illysanna Ravencrest?;;;;;;;;;;;;;x
+bs_staff_of_the_shadow_flame;Staff of the shadow flame;;;;;;;;;;;;;x
+bs_staff_of_the_shadow_flame_desc;Warlock's staff;;;;;;;;;;;;;x
+bs_verdant_spheres;Verdant Spheres;;;;;;;;;;;;;x
+bs_verdant_spheres_desc;Prince Kael'thas Sunstrider's verdant spheres.;;;;;;;;;;;;;x
+magic_book;Elf Magic Book;;;;;;;;;;;;;x
+magic_book_desc;Magic arcane theories.;;;;;;;;;;;;;x
+bs_scroll_arcane;Arcane theories;;;;;;;;;;;;;x
+bs_scroll_arcane_desc;Magic arcane theories. Interesting runes.;;;;;;;;;;;;;x
+bs_rune_knife;Elf Rune Knife;;;;;;;;;;;;;x
+bs_rune_knife_desc;Runeblades are blades inscribed with runes, symbols that hold magical power. They are particularly wielded by death knights, but they are not unique to the Scourge. Notably, demons and high elves are known to forge rune-etched blades as well, such as Felo'melorn, the sword of the Sunstrider dynasty.;;;;;;;;;;;;;x
+bs_ravens_eye;Raven's Eye;;;;;;;;;;;;;x
+bs_ravens_eye_desc;"The Raven's eye is according to Vrykul Legends created by Havi to allow Huginn and Muninn to read ""anything your little bird brains desire"", only to later be stolen by the sly elf Ravencrest. With the eye, Ravencrest nearly perfected espionage to the point that the tale of raven's eye became an ""ol' wives' tale to scare little rogues who are wantin' to keep their secrets hidden.""";;;;;;;;;;;;;x
+bs_quel'sin;Elf Magic rune sword Quel'sin;;;;;;;;;;;;;x
+bs_quel'sin_desc;Time anomalies? Whose sword is that?;;;;;;;;;;;;;x
+#class;;;;;;;;;;;;;;
+subclass_blood_mage;Blood Mage;;;;;;;;;;;;;x
+subclass_blood_mage_desc;Mystical heroes, blood mages are blood elves adept at controlling magic and ranged assault. While they were still members of the Alliance, the blood elves began to turn to the darkest parts of magic, abandoning the water and frost spells of the Kirin Tor for the fire and heat of what some people fear to be demonic magic.;;;;;;;;;;;;;x
+grand_magister;Grand Magister;;;;;;;;;;;;;x
+grand_magister_desc;The Grand Magister is the title traditionally held by the leader of the Thalassian magisters. It is an extremely high and prestigious rank to hold in Quel'Thalas, above even the Ranger-general of Silvermoon. Like the ranger-general, the grand magister is an elected position.;;;;;;;;;;;;;x
+master_of_demon_flame;Fel Fire Mage;;;;;;;;;;;;;x
+master_of_demon_flame_desc;The highly destructive fel magic is the magic of disorder. It is stated to be a brutal and extremely addictive energy fueled by drawing life from living beings.;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+# Rank up text;;;;;;;;;;;;;;
+EVTDESC_RANK_122;I congratulate you on your magical successes.;;;;;;;;;;;;;x
+EVTOPTA_RANK_122;Now I have a deeper knowledge of magic.;;;;;;;;;;;;;x
+#requet;;;;;;;;;;;;;;
+blood_staff_recruit;Recruit Mage;;;;;;;;;;;;;x
+blood_staff_recruit_desc;Students gifted with a keen intellect and unwavering discipline may walk the path of the Mage.A blood magician is a more dangerous path.;;;;;;;;;;;;;x

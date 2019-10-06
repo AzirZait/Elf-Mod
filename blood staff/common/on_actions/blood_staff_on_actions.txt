@@ -1,0 +1,33 @@
+on_character_switch_society_interest = { #when pressing the button to join
+	events = {
+		BLOODMAGE.000
+	}
+}
+
+on_five_year_pulse = {
+	events = {
+		BLOODMAGE.110 #force AI characters join the society
+	}
+}
+
+# Fires every two years for characters who are members of any society
+on_society_bi_yearly_pulse = {
+	events = { #all of these will trigger every 2 years
+		BLOODMAGE.120 #Quest tombola
+	}
+	random_events = { #only one of these will trigger, the number before the = is the odds that this event is selected if there is more than one event in the list.
+		100 = BLOODMAGE.500
+		100 = BLOODMAGE.510
+		100 = BLOODMAGE.520
+		100 = BLOODMAGE.530
+		100 = BLOODMAGE.540
+		100 = BLOODMAGE.181
+		1000 = BLOODMAGE.550
+	}
+}
+
+on_character_leave_society = {
+	events = {
+		BLOODMAGE.002
+	}
+}

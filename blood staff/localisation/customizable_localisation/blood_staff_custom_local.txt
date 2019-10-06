@@ -1,0 +1,92 @@
+defined_text = {
+	name = GetSocietyCurrency #use [Root.Society.GetSocietyCurrency] or [From.Society.GetSocietyCurrency] to refere to any society currency in your localization
+
+	text = {
+		localisation_key = blood_staff_currency #the currency name seen in the society and localization file
+		trigger = { society_member_of = blood_staff }
+	}
+}
+
+defined_text = {
+	name = GetBloodStaffRankUpTooltip #if you change the rank up requirement, these are the tooltips you need to change, this is the "common" part
+
+	text = {
+		trigger = {  society_rank == 1 }
+		localisation_key = GetBloodStaffRankUpTooltip_Standard_Rank1 #these are the individual requirements
+	}
+	text = {
+		trigger = { society_rank == 2 }
+		localisation_key = GetBloodStaffRankUpTooltip_Standard_Rank2
+	}
+	text = {
+		trigger = { society_rank == 3 }
+		localisation_key = GetBloodStaffRankUpTooltip_Standard_Rank3
+	}
+	text = {
+		trigger = { society_rank == 4 }
+		localisation_key = GetBloodStaffRankUpTooltip_Standard_Rank4
+	}
+}
+
+defined_text = { #the various ranks names, use [From.GetSocietyRank] or [Root.GetSocietyRank]
+	name = GetSocietyRank
+
+	text = {
+		localisation_key = blood_staff_rank_1_female #all of these need to be the sames as the code rank names in localization
+		trigger = { is_female = yes society_rank = { society = blood_staff rank == 1 } }
+	}
+	text = {
+		localisation_key = blood_staff_rank_1_male
+		trigger = { is_female = no society_rank = { society = blood_staff rank == 1 } }
+	}
+	text = {
+		localisation_key = blood_staff_rank_2_female
+		trigger = { is_female = yes society_rank = { society = blood_staff rank == 2 } }
+	}
+	text = {
+		localisation_key = blood_staff_rank_2_male
+		trigger = { is_female = no society_rank = { society = blood_staff rank == 2 } }
+	}
+	text = {
+		localisation_key = blood_staff_rank_3_female
+		trigger = { is_female = yes society_rank = { society = blood_staff rank == 3 } }
+	}
+	text = {
+		localisation_key = blood_staff_rank_3_male
+		trigger = { is_female = no society_rank = { society = blood_staff rank == 3 } }
+	}
+	text = {
+		localisation_key = blood_staff_rank_4_female
+		trigger = { is_female = yes society_rank = { society = blood_staff rank == 4 } }
+	}
+	text = {
+		localisation_key = blood_staff_rank_4_male
+		trigger = { is_female = no society_rank = { society = blood_staff rank == 4 } }
+	}
+	text = {
+		localisation_key = blood_staff_rank_5_female
+		trigger = { is_female = yes society_rank = { society = blood_staff rank == 5 } }
+	}
+	text = {
+		localisation_key = blood_staff_rank_5_male
+		trigger = { is_female = no society_rank = { society = blood_staff rank == 5 } }
+	}
+}
+
+defined_text = {
+	name = GetSocietyName # Returns the name of target's society, with [From.GetSocietyName] for example
+	
+	text = {
+		localisation_key = string_blood_staff #the word to localize
+		trigger = { society_member_of = blood_staff }
+	}
+}
+
+defined_text = {
+	name = GetSocietyNameCap # Returns the name of target's society with inital Capital letter, use [From.GetSocietyNameCap]
+
+	text = {
+		localisation_key = blood_staff #should be the society name
+		trigger = { society_member_of = blood_staff }
+	}
+}

@@ -1,0 +1,23 @@
+#Look at the vanilla folder for the other society pictures which will be more appropriate than my smiley faces.
+spriteTypes = {
+	spriteType = {
+		name = "GFX_trait_master_of_demon_flame"
+		texturefile = "gfx/traits/master_of_demon_flame.dds"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		}
+	spriteType = {
+ 		name = "GFX_trait_subclass_blood_mage"
+ 		texturefile = "gfx/traits/subclass_blood_mage.dds"
+ 		noOfFrames = 1
+ 		norefcount = yes
+ 		effectFile = "gfx/FX/buttonstate.lua"
+		}
+	spriteType = {
+ 		name = "GFX_trait_grand_magister"
+ 		texturefile = "gfx/traits/grand_magister.dds"
+ 		noOfFrames = 1
+ 		norefcount = yes
+ 		effectFile = "gfx/FX/buttonstate.lua"
+		}

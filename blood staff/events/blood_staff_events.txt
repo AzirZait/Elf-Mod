@@ -1,0 +1,4037 @@
+namespace = BLOODMAGE
+
+########################JOINING############################
+
+#Back up event for showing interest
+character_event = {
+	id = BLOODMAGE.000
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_in_society = no
+		interested_in_society = blood_staff
+	}
+
+	immediate = {
+		character_event = { id = BLOODMAGE.001 days = 90 random = 640 }
+	}
+}
+
+character_event = {
+	id = BLOODMAGE.001
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_in_society = no
+		interested_in_society = blood_staff
+	}
+
+	immediate = {
+		if = {
+			# if not allowed into the society, call the event again later
+			limit =
+			{
+				OR = {
+					is_adult = no
+					NOT = { intrigue = 10 }
+					prisoner = yes
+				}
+			}
+			# if induced into society as a kid then stat pool towards eligibility
+			if = {
+				limit = {
+					is_adult = yes
+					has_character_flag = blood_staff_inducted_into_society
+					NOT = { intrigue = 10 }
+				}
+				random_list = {
+					100 = {
+						trigger = {
+							diplomacy = 4
+						}
+						character_event = { id = BLOODMAGE.700 }
+					}
+					100 = {
+						trigger = {
+							martial = 4
+						}
+						character_event = { id = BLOODMAGE.710 }
+					}
+					100 = {
+						trigger = {
+							stewardship = 4
+						}
+						character_event = { id = BLOODMAGE.720 }
+					}
+					100 = {
+						trigger = {
+							learning = 4
+						}
+						character_event = { id = BLOODMAGE.730 }
+					}
+					100 = {
+						trigger = {
+							trait = kind
+						}
+						character_event = { id = BLOODMAGE.750 }
+					}
+					100 = {
+						trigger = {
+							trait = wroth
+						}
+						character_event = { id = BLOODMAGE.760 }
+					}
+					100 = {
+						trigger = {
+							trait = content
+						}
+						character_event = { id = BLOODMAGE.770 }
+					}
+					100 = {
+						trigger = {
+							trait = honest
+						}
+						character_event = { id = BLOODMAGE.780 }
+					}
+					100 = {
+						trigger = {
+							trait = trusting
+						}
+						character_event = { id = BLOODMAGE.790 }
+					}
+					1 = {
+						character_event = { id = BLOODMAGE.740 }
+					}
+				}
+			}
+			repeat_event = { id = BLOODMAGE.001 days = 90 random = 180 }
+			break = yes
+		}
+		random_society_member = {
+			limit = {
+				society_member_of = blood_staff
+				is_society_grandmaster = no
+			}
+			character_event = { id = BLOODMAGE.101 }
+		}
+	}
+}
+
+# Fired from on_character_leave_society (meant to clear any society related flags and effects)
+character_event = {
+    id = BLOODMAGE.002
+    is_triggered_only = yes
+    hide_window = yes
+    
+    immediate = {
+		clr_character_flag = blood_staff_inducted_into_society
+		clr_character_flag = blood_staff_decipher_secrets_deceit
+		clr_character_flag = blood_staff_decipher_secrets_potion
+		clr_character_flag = blood_staff_decipher_secrets_tryhard
+		clr_character_flag = blood_staff_decipher_secrets_bully
+		clr_character_flag = blood_staff_decipher_secrets_distraction
+		clr_character_flag = becoming_blood_mage
+		clr_character_flag = becoming_grand_magister
+		clr_character_flag = choosing_warrior_training
+		clr_character_flag = gaining_dragonheart
+		clr_character_flag = burning_dragon_incense
+		remove_character_modifier = induct_into_society_cooldown_timer
+		remove_character_modifier = resist_fel_decision_cooldown_timer
+		remove_character_modifier = artefact_hunt_decision_cooldown_timer
+		remove_character_modifier = write_magic_theory_decision_cooldown_timer
+		remove_character_modifier = avoid_disease_cooldown_timer
+    }
+}
+
+#From on_character_ask_to_join_society
+character_event = {
+    id = BLOODMAGE.100
+	hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+    	FROM = { leader = { society_member_of = blood_staff } }
+    }
+    immediate = {
+    	FROM = { leader = { character_event = { id = BLOODMAGE.101 } } } #target is the leader of the society
+    }
+}
+
+#Ping event
+character_event = {
+    id = BLOODMAGE.101
+	hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+    	FROM = { letter_event = { id = BLOODMAGE.102 } } #send event back 
+    }
+}
+
+#Welcome letter
+letter_event = {
+    id = BLOODMAGE.102
+    desc = EVTDESC_BLOODMAGE_102
+    border = GFX_event_letter_frame_intrigue
+	
+    is_triggered_only = yes
+
+    option = { #join the society
+        name = EVTOPTA_BLOODMAGE_102
+		join_society = blood_staff
+		clr_character_flag = blood_staff_inducted_into_society # no longer needed once in
+		if = {
+			limit = { ai = yes }
+			clr_character_flag = society_join_block
+		}
+    }
+    option = { #don't
+        name = EVTOPTB_BLOODMAGE_102
+		set_interested_society = none
+		ai_chance = { factor = 0 }
+    }
+}
+
+########################AI JOIN AND AI RANK UP###########################
+
+character_event = { #force the AI to join a society
+	id = BLOODMAGE.110
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { #if he's already a member, will force a rank up 25% of the time
+				ai = yes
+				prisoner = no
+				NOT = { trait = incapable }
+				society_member_of = blood_staff
+				society_rank <= 4
+				society_can_rank_up = yes
+			}
+			random_list = {
+				75 = {}
+				25 = {
+					society_rank_up = 1					
+				}
+			}
+		}
+		any_courtier = {  #if you want courtier in the society enable this part
+			limit = {
+				ai = yes
+				prisoner = no
+				NOT = { trait = incapable }
+				is_adult = yes
+				is_in_society = no
+				controls_religion = no
+				block_general_event_trigger = no
+			}
+			character_event = { id = BLOODMAGE.111 }
+		}
+		if = { #force the joining event on AI
+			limit = {
+				ai = yes
+				prisoner = no
+				NOT = { trait = incapable }
+				is_adult = yes
+				is_in_society = no
+				controls_religion = no
+				block_general_event_trigger = no
+			}
+			character_event = { id = BLOODMAGE.111 }
+		}
+	}
+}
+
+character_event = { #AI join event
+	id = BLOODMAGE.111
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			90 = { # do nothing
+			}
+			10 = { # try to join a society 10% of the time
+				trigger = { #meet the requirement
+					can_join_society = blood_staff
+				}
+				modifier = {
+					factor = 12
+					culture = blood_elf
+				}
+				modifier = { #things that will make that 10% of the time bigger, can be anything 
+					factor = 2
+					prestige = 200
+				}
+				join_society = blood_staff #join the society
+				if = { # Make grandmaster if there is none
+					limit = {
+						NOT = {
+							society = {
+								any_society_member = {
+									is_society_grandmaster = yes
+								}
+							}
+						}
+					}
+					set_society_grandmaster = yes
+				}
+			}
+		}
+	}
+}
+
+#######################Rank UP#############################
+
+# Hidden start: Send the rank-up request to the current Grandmaster (delayed event on self, from decision to rank up)
+character_event = {
+	id = RANK.120
+
+	hide_window = yes
+
+	trigger = { #has pressed the button
+		has_character_flag = has_sent_request_to_rank_up
+	}
+	
+	is_triggered_only = yes
+
+	immediate = {
+		if = { #if he's still a member
+			limit = { is_in_society = yes }
+			random_society_member = { #will send the request to a random top rank member of the same society
+				limit = {
+					is_society_grandmaster = yes
+					same_society_as = ROOT
+				}
+				character_event = { id = RANK.121 } # send request to Grand Master.
+			}
+		}
+		if = { #if he's not a member
+			limit = { is_in_society = no }
+			clr_character_flag = has_sent_request_to_rank_up
+		}
+	}
+}
+
+# Grandmaster gets the rank-up request
+character_event = {
+	id = RANK.121
+	
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:rank_up_target = { letter_event = { id = RANK.122 } } #send it back
+	}
+}
+
+#Grand master approves my request
+letter_event = {
+	id = RANK.122
+	desc = EVTDESC_RANK_122
+	border = GFX_event_letter_frame_war
+
+	trigger = {
+		society_rank < 5 #cannot rank up past 4
+		has_character_flag = has_sent_request_to_rank_up
+	}
+	
+	is_triggered_only = yes
+
+	#Rank up approved
+	option = {
+		name = EVTOPTA_RANK_122
+		if = { limit = { society_rank < 5 } #if not max rank, rank up
+			society_rank_up = 1
+		}
+		clr_character_flag = has_sent_request_to_rank_up
+	}
+}
+
+#################################MISSIONS######################################
+
+#Mission tombola, this is where an hidden event choose a quest. I have made only one quest, do look for other mission tombola in the vanilla files for more example.
+character_event = {
+    id = BLOODMAGE.120
+    hide_window = yes
+
+    is_triggered_only = yes
+    
+	is_in_society = yes
+
+	trigger = {
+		society_member_of = blood_staff
+		has_any_quest = no #cannot have more than 1 shown
+		NOT = { has_character_modifier = quest_cooldown_timer } #to avoid spam and delay it for people who refused a quest.
+		NOT = { is_inaccessible_trigger = yes }
+		prisoner = no
+		society = { #look if there is a close member to give you the quest
+			any_society_member = {
+				NOT = { character = ROOT }
+				prisoner = no
+				is_within_diplo_range = ROOT
+				opinion = { who = ROOT value = 0 }
+			}
+		}
+	}
+
+    immediate = {
+    	#Picks out mission giver
+    	random_list = {
+    		20 = { #International society member
+    			society = {
+    				random_society_member = {
+    					limit = { 	
+							NOT = { character = ROOT }
+							prisoner = no
+    						is_within_diplo_range = ROOT
+							opinion = { who = ROOT value = 0 }
+    					}
+    					save_event_target_as = quest_collaborator
+    				}
+    			}
+    		}
+    		40 = { #Realm society member is there is any
+    			trigger = {
+    				society = {
+    					any_society_member = {
+    						NOT = { character = ROOT }
+    						prisoner = no
+    						is_within_diplo_range = ROOT
+							opinion = { who = ROOT value = 0 }
+							same_realm = ROOT
+    					}
+    				}
+    			}
+    			society = {
+    				random_society_member = {
+    					limit = { 	
+    						NOT = { character = ROOT }
+    						prisoner = no
+    						is_within_diplo_range = ROOT
+							opinion = { who = ROOT value = 0 }
+							same_realm = ROOT
+    					}
+    					save_event_target_as = quest_collaborator
+    				}
+    			}
+    		}
+    	}
+
+    	#Randomizes mission
+    	random_list = {
+			1 = { # blood mage
+				trigger = {
+					society_rank >= 3
+					NOT = { has_character_flag = becoming_blood_mage }
+					NOT = { trait = subclass_blood_mage}
+				}
+				event_target:quest_collaborator = {
+					character_event = { id = BLOODMAGE.170 }
+				}
+			}
+			2 = { # magister
+				trigger = {
+					society_rank == 5
+					NOT = { has_character_flag = becoming_grand_magister }
+					NOT = { trait = grand_magister}
+					trait = subclass_blood_mage
+				}
+				event_target:quest_collaborator = {
+					character_event = { id = BLOODMAGE.299 }
+				}
+			}
+			5 = { # resist fel, rare unless necessary
+				modifier = {
+					factor = 0
+					society_rank >= 3
+				}
+				modifier = {
+					factor = 20
+					OR = {
+						trait = craven
+						trait = paranoid
+						trait = possessed
+						trait = lunatic
+						trait = cannibal
+						trait = depressed
+						trait = stressed
+					}
+				}
+				event_target:quest_collaborator = {
+					character_event = { id = BLOODMAGE.140 }
+				}
+			}
+			150 = { # amass wealth
+				trigger = {
+					is_playable = yes
+					OR = {
+						is_patrician = yes
+						is_landed = yes
+					}
+					NOT = {
+						wealth = 200
+					}
+				}
+				modifier = {
+					factor = 0
+					society_rank >= 3
+				}
+				event_target:quest_collaborator = {
+					character_event = { id = BLOODMAGE.150 }
+				}
+			}
+			100 = { # lose weak focus
+				trigger = {
+					has_dlc = "Way of Life"
+					OR = {
+						is_patrician = yes
+						is_landed = yes
+					}
+					NOR = {
+						has_focus = focus_intrigue
+						has_focus = focus_scholarship
+					}
+				}
+				modifier = {
+					factor = 0
+					society_rank >= 3
+				}
+				event_target:quest_collaborator = {
+					character_event = { id = BLOODMAGE.160 }
+				}
+			}
+			100 = { # induct child
+				trigger = {
+					NOT = { has_character_modifier = induct_into_society_cooldown_timer }
+					any_close_relative = {
+	        			is_grandchild_of = PREV
+	        			is_in_society = no
+	        			is_alive = yes
+	        			age = 6
+					    prisoner = no
+	        			NOT = { has_character_flag = blood_staff_inducted_into_society }
+	        		}
+				}
+				modifier = {
+					factor = 0
+					society_rank >= 3
+				}
+				event_target:quest_collaborator = {
+					character_event = { id = BLOODMAGE.130 }
+				}
+			}
+			50 = { # decipher secrets
+				modifier = {
+					factor = 0
+					society_rank >= 3
+				}
+				event_target:quest_collaborator = {
+					character_event = { id = BLOODMAGE.200 }
+				}
+			}
+			100 = { #AI 
+				trigger = {
+					ai = yes
+				}
+				modifier = {
+					factor = 0
+					society_rank >= 3
+				}
+			}
+    	}
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.130
+    hide_window = yes #instant event, no need to show it
+    is_triggered_only = yes
+    immediate = { FROM = { society_quest_event = { id = BLOODMAGE.131 days = 7 random = 7 } } }
+}
+
+society_quest_event = {
+    id = BLOODMAGE.131
+    desc = EVTDESC_BLOODMAGE_131
+
+    is_triggered_only = yes
+   
+    option = { 
+		name = ACCEPT
+		set_quest = quest_blood_staff_induct_child
+	}
+
+	option = {
+		name = DECLINE
+		custom_tooltip = { text = decline_quest_tooltip }
+
+		add_character_modifier = { #will delay the next quest for a while
+			name = quest_cooldown_timer
+			hidden = yes
+			days = 1000
+		}
+
+		ai_chance = { factor = 0 }
+	}
+}
+
+#send to grandmaster for Ping
+character_event = {
+	id = BLOODMAGE.132
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		random_society_member = {
+			limit = {
+				same_society_as = ROOT
+				is_society_grandmaster = yes
+			}
+			character_event = {
+				id = BLOODMAGE.133
+			}
+		}
+	}
+}
+
+#Ping
+character_event = {
+	id = BLOODMAGE.133
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		FROM = {
+			letter_event = {
+				id = BLOODMAGE.134
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = BLOODMAGE.134
+	desc = EVTDESC_BLOODMAGE_134
+	border = GFX_event_letter_frame_intrigue
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_BLOODMAGE_134
+		
+		clr_quest = quest_blood_staff_induct_child
+		sound_effect = time_forward
+		add_society_currency_minor_effect = yes
+	}
+}
+
+#This is the quest_collaborator receiving the mission and giving it back to you.
+character_event = {
+    id = BLOODMAGE.140
+    hide_window = yes #instant event, no need to show it
+    is_triggered_only = yes
+    immediate = { FROM = { society_quest_event = { id = BLOODMAGE.141 days = 7 random = 7 } } }
+}
+
+#This event is set as a society_quest_event, not character_event. This is the accept or refuse the quest event, the next parts of the quest use the regular character_event.
+society_quest_event = {
+    id = BLOODMAGE.141
+    desc = EVTDESC_BLOODMAGE_141
+
+    is_triggered_only = yes
+   
+    option = {
+		name = ACCEPT
+
+		hidden_tooltip = {
+			if = {
+				limit = { has_character_modifier = resist_fel_decision_cooldown_timer }
+				remove_character_modifier = resist_fel_decision_cooldown_timer
+			}
+		}
+		
+		set_quest = quest_blood_staff_resist_fel
+	}
+
+	option = {
+		name = DECLINE
+		custom_tooltip = { text = decline_quest_tooltip }
+
+		add_character_modifier = { #will delay the next quest for a while
+			name = quest_cooldown_timer
+			hidden = yes
+			days = 1000
+		}
+
+		ai_chance = { factor = 0 }
+	}
+}
+
+#send to grandmaster for Ping
+character_event = {
+	id = BLOODMAGE.142
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		random_society_member = {
+			limit = {
+				same_society_as = ROOT
+				is_society_grandmaster = yes
+			}
+			character_event = {
+				id = BLOODMAGE.143
+			}
+		}
+	}
+}
+
+#Ping
+character_event = {
+	id = BLOODMAGE.143
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		FROM = {
+			letter_event = {
+				id = BLOODMAGE.144
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = BLOODMAGE.144
+	desc = EVTDESC_BLOODMAGE_144
+	border = GFX_event_letter_frame_intrigue
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_BLOODMAGE_144
+		
+		clr_quest = quest_blood_staff_resist_fel
+		sound_effect = time_forward
+		add_society_currency_minor_effect = yes
+	}
+}
+
+#MISSION: Amass Wealth
+#This is the quest_collaborator receiving the mission and giving it back to you.
+character_event = {
+    id = BLOODMAGE.150
+    hide_window = yes #instant event, no need to show it
+    is_triggered_only = yes
+    immediate = { FROM = { society_quest_event = { id = BLOODMAGE.151 days = 7 random = 7 } } }
+}
+
+#This event is set as a society_quest_event, not character_event. This is the accept or refuse the quest event, the next parts of the quest use the regular character_event.
+society_quest_event = {
+    id = BLOODMAGE.151
+    desc = EVTDESC_BLOODMAGE_151
+
+    is_triggered_only = yes
+   
+    option = { 
+		name = ACCEPT
+		set_quest = quest_blood_staff_amass_wealth
+	}
+
+	option = {
+		name = DECLINE
+		custom_tooltip = { text = decline_quest_tooltip }
+
+		add_character_modifier = { #will delay the next quest for a while
+			name = quest_cooldown_timer
+			hidden = yes
+			days = 1000
+		}
+
+		ai_chance = { factor = 0 }
+	}
+}
+
+character_event = {
+    id = BLOODMAGE.152
+    desc = EVTDESC_BLOODMAGE_152
+    picture = GFX_evt_castle_garden
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+
+    option = { #Quest will success
+        name = EVTOPTA_BLOODMAGE_152
+		
+		if = { 
+			limit = { NOT = { trait = charitable } }
+			if = {
+				limit = { trait = greedy }
+				change_stewardship = 1
+			}
+			if = {
+				limit = { trait = sorcerer }
+				change_learning = 1
+				change_martial = 1
+			}
+			if = {
+				limit = { NOT = { trait = greedy } }
+				add_trait = greedy
+			}
+			if = {
+				limit = { NOT = { trait = sorcerer } }
+				add_trait = sorcerer 
+			}
+		}
+		if = {
+			limit = { trait = charitable } 
+			remove_trait = charitable
+		}
+		
+		clr_quest = quest_blood_staff_amass_wealth
+		sound_effect = time_forward
+		add_society_currency_minor_effect = yes
+    }
+}
+
+#MISSION: Intrigue focus
+#This is the quest_collaborator receiving the mission and giving it back to you.
+character_event = {
+    id = BLOODMAGE.160
+    hide_window = yes #instant event, no need to show it
+    is_triggered_only = yes
+    immediate = { FROM = { society_quest_event = { id = BLOODMAGE.161 days = 7 random = 7 } } }
+}
+
+society_quest_event = {
+	id = BLOODMAGE.161
+	desc = EVTDESC_BLOODMAGE_161
+	picture = GFX_evt_secluded_in_prayer
+	border = GFX_event_letter_frame_religion
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOR = {
+			has_focus = focus_intrigue
+			has_any_quest = yes
+		}
+	}
+
+	option = {
+		name = ACCEPT
+		set_quest = quest_blood_staff_intrigue_focus
+	}
+
+	option = {
+		name = DECLINE
+		custom_tooltip = { text = decline_quest_tooltip }
+
+		add_character_modifier = {
+			name = quest_cooldown_timer
+			hidden = yes
+			days = 1000
+		}
+
+		ai_chance = { factor = 0 }
+	}
+}
+
+#send to grandmaster for Ping
+character_event = {
+	id = BLOODMAGE.162
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		random_society_member = {
+			limit = {
+				same_society_as = ROOT
+				is_society_grandmaster = yes
+			}
+			character_event = {
+				id = BLOODMAGE.163
+			}
+		}
+	}
+}
+
+#Ping
+character_event = {
+	id = BLOODMAGE.163
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		FROM = {
+			letter_event = {
+				id = BLOODMAGE.164
+			}
+		}
+	}
+}
+
+letter_event = {
+	id = BLOODMAGE.164
+	desc = EVTDESC_BLOODMAGE_164
+	border = GFX_event_letter_frame_intrigue
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_BLOODMAGE_164
+		
+		clr_quest = quest_blood_staff_intrigue_focus
+		sound_effect = time_forward
+		add_society_currency_minor_effect = yes
+	}
+}
+
+#MISSION: Embrace True Form
+#This is the quest_collaborator receiving the mission and giving it back to you.
+character_event = {
+    id = BLOODMAGE.170
+    hide_window = yes #instant event, no need to show it
+    is_triggered_only = yes
+    immediate = { FROM = { society_quest_event = { id = BLOODMAGE.171 days = 7 random = 7 } } }
+}
+
+character_event = {
+    id = BLOODMAGE.299
+    hide_window = yes #instant event, no need to show it
+    is_triggered_only = yes
+    immediate = { FROM = { society_quest_event = { id = BLOODMAGE.300 days = 7 random = 7 } } }
+}
+
+#This event is set as a society_quest_event, not character_event. This is the accept or refuse the quest event, the next parts of the quest use the regular character_event.
+society_quest_event = {
+    id = BLOODMAGE.300
+    desc = EVTDESC_BLOODMAGE_300
+
+    is_triggered_only = yes
+   
+    option = { 
+		name = ACCEPT
+		set_quest = quest_blood_staff_become_grand_magister
+	}
+
+	option = {
+		name = DECLINE
+		custom_tooltip = { text = decline_quest_tooltip }
+
+		add_character_modifier = { #will delay the next quest for a while
+			name = quest_cooldown_timer
+			hidden = yes
+			days = 1000
+		}
+
+		ai_chance = { factor = 0 }
+	}
+}
+
+society_quest_event = {
+    id = BLOODMAGE.171
+    desc = EVTDESC_BLOODMAGE_171
+
+    is_triggered_only = yes
+   
+    option = { 
+		name = ACCEPT
+		set_quest = quest_blood_staff_become_blood_mage
+	}
+
+	option = {
+		name = DECLINE
+		custom_tooltip = { text = decline_quest_tooltip }
+
+		add_character_modifier = { #will delay the next quest for a while
+			name = quest_cooldown_timer
+			hidden = yes
+			days = 1000
+		}
+
+		ai_chance = { factor = 0 }
+	}
+}
+
+#MISSION: Decipher Secrets
+#This is the quest_collaborator receiving the mission and giving it back to you.
+character_event = {
+    id = BLOODMAGE.200
+    hide_window = yes #instant event, no need to show it
+    is_triggered_only = yes
+    immediate = { FROM = { society_quest_event = { id = BLOODMAGE.201 days = 7 random = 7 } } }
+}
+
+society_quest_event = {
+    id = BLOODMAGE.201
+    desc = EVTDESC_BLOODMAGE_201
+
+    is_triggered_only = yes
+   
+    option = { 
+		name = ACCEPT
+		set_quest = quest_blood_staff_decipher_secrets
+		hidden_tooltip = {
+			set_variable = { which = dragonkin_decipher_secrets_points value = 0 }
+			character_event = { id = BLOODMAGE.202 days = 40 random = 30 } 
+		}
+	}
+
+	option = {
+		name = DECLINE
+		custom_tooltip = { text = decline_quest_tooltip }
+
+		add_character_modifier = { #will delay the next quest for a while
+			name = quest_cooldown_timer
+			hidden = yes
+			days = 1000
+		}
+
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Tombola & outcome evaluator for decipher secrets
+character_event = {
+	id = BLOODMAGE.202
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	#trigger = {
+	#	society_member_of = blood_staff
+	#	has_quest = quest_blood_staff_decipher_secrets
+	#}
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					NOT = { society_member_of = blood_staff }
+					NOT = { has_quest = quest_blood_staff_decipher_secrets }
+				}
+			}
+			character_event = { id = BLOODMAGE.211 }
+			break = yes
+		}
+		if = {
+			limit = { 
+				has_quest = quest_blood_staff_decipher_secrets
+			}
+			if = {
+				limit = { 
+					NOR = {
+						check_variable = { which = dragonkin_decipher_secrets_points value = 4 } 
+						NOT = { check_variable = { which = dragonkin_decipher_secrets_points value = -2 } }
+					}
+				}
+				random_list = { #Next mission
+					25 = { #potion
+						modifier = {
+							factor = 0
+							has_character_flag = blood_staff_decipher_secrets_potion
+						}
+						set_character_flag = blood_staff_decipher_secrets_potion
+						character_event = { id = BLOODMAGE.203 }
+					}
+					25 = { #tryhard
+						modifier = {
+							factor = 0
+							has_character_flag = blood_staff_decipher_secrets_tryhard
+						}
+						set_character_flag = blood_staff_decipher_secrets_tryhard
+						character_event = { id = BLOODMAGE.204 }
+					}
+					25 = { #bully
+						modifier = {
+							factor = 0
+							has_character_flag = blood_staff_decipher_secrets_bully
+						}
+						set_character_flag = blood_staff_decipher_secrets_bully
+						character_event = { id = BLOODMAGE.205 }
+					}
+					25 = { #distraction
+						modifier = {
+							factor = 0
+							has_character_flag = blood_staff_decipher_secrets_distraction
+						}
+						set_character_flag = blood_staff_decipher_secrets_distraction
+						character_event = { id = BLOODMAGE.206 }
+					}
+					25 = { #deceit
+						modifier = {
+							factor = 0
+							has_character_flag = blood_staff_decipher_secrets_deceit
+						}
+						set_character_flag = blood_staff_decipher_secrets_deceit
+						character_event = { id = BLOODMAGE.212 }
+					}
+					10 = { #General success
+						modifier = {
+							is_virtous = yes
+							factor = 1.5
+						}
+						modifier = {
+							is_wicked = yes
+							factor = 0.7
+						}
+						modifier = {
+							is_learned_trigger = yes
+							factor = 1.5
+						}
+						character_event = { id = BLOODMAGE.207 }
+					}
+					20 = { #If all missions have been done already....
+						modifier = {
+							factor = 0
+							NAND = {
+								has_character_flag = blood_staff_decipher_secrets_deceit
+								has_character_flag = blood_staff_decipher_secrets_potion
+								has_character_flag = blood_staff_decipher_secrets_tryhard
+								has_character_flag = blood_staff_decipher_secrets_bully
+								has_character_flag = blood_staff_decipher_secrets_distraction
+							}
+						}
+						clr_character_flag = blood_staff_decipher_secrets_deceit
+						clr_character_flag = blood_staff_decipher_secrets_potion
+						clr_character_flag = blood_staff_decipher_secrets_tryhard
+						clr_character_flag = blood_staff_decipher_secrets_bully
+						clr_character_flag = blood_staff_decipher_secrets_distraction
+					}
+				}
+				character_event = { id = BLOODMAGE.202 days = 40 random = 30 } #Sends the tombola again
+			}
+			if = {
+				limit = { 
+					OR = {
+						check_variable = { which = dragonkin_decipher_secrets_points value = 4 } 
+						NOT = { check_variable = { which = dragonkin_decipher_secrets_points value = -2 } }
+					}
+				} 
+
+				random_society_member = {
+					limit = {
+						is_society_grandmaster = yes
+						same_society_as = ROOT
+					}
+					character_event = { id = BLOODMAGE.208 } #Mission success/fail
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+    id = BLOODMAGE.203
+    desc = EVTDESC_BLOODMAGE_203
+    picture = GFX_evt_scientist
+    border = GFX_event_normal_frame_religion
+	hide_from = yes
+
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_203
+		
+		add_trait = vomiting
+		set_character_flag = disease_not_serious
+		hidden_effect = { character_event = { id = HFP.14005 days = 10 random = 30 } } #remove vomiting
+		
+		custom_tooltip = {
+			text = dragonkin_decipher_success_tooltip
+			change_variable = { which = dragonkin_decipher_secrets_points value = 1 }
+		}
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_203
+		
+		custom_tooltip = {
+			text = dragonkin_decipher_setback_tooltip
+			change_variable = { which = dragonkin_decipher_secrets_points value = -1 }
+		}
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.204
+    desc = EVTDESC_BLOODMAGE_204
+    picture = GFX_evt_ritual_scroll
+    border = GFX_event_normal_frame_religion
+	hide_from = yes
+
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_204
+		
+		random_list = {
+			50 = {
+				modifier = {
+					is_smart_trigger = yes
+					factor = 1.4
+				}
+				modifier = {
+					learning = 14
+					factor = 1.4
+				}
+				modifier = {
+					learning = 16
+					factor = 1.4
+				}
+				modifier = {
+					is_learned_trigger = yes
+					factor = 2
+				}
+				custom_tooltip = {
+					text = dragonkin_decipher_success_tooltip
+					change_variable = { which = dragonkin_decipher_secrets_points value = 1 }
+				}
+			}
+			50 = {
+				modifier = {
+					is_dumb_trigger = yes
+					factor = 1.5
+				}
+				modifier = {
+					NOT = { learning = 8 }
+					factor = 1.5
+				}
+				custom_tooltip = {
+					text = dragonkin_decipher_setback_tooltip
+					change_variable = { which = dragonkin_decipher_secrets_points value = -1 }
+				}
+			}
+		}
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_204
+		trigger = {
+			trait = stressed
+		}
+		tooltip_info = stressed
+		random = {
+			chance = 70
+			remove_trait = stressed
+		}
+		
+		custom_tooltip = {
+			text = dragonkin_decipher_setback_tooltip
+			change_variable = { which = dragonkin_decipher_secrets_points value = -1 }
+		}
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.205
+    desc = EVTDESC_BLOODMAGE_205
+    picture = GFX_evt_child_bully
+    border = GFX_event_normal_frame_diplomacy
+	hide_from = yes
+
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_205
+		
+		if = {
+			limit = { trait = kind }
+			if = {
+				limit = { diplomacy = 13 }
+				random = {
+					chance = 30
+					change_diplomacy = 1
+				}
+			}
+			if = {
+				limit = { NOT = { diplomacy = 13 } }
+				change_diplomacy = 1
+			}
+		}
+		if = {
+			limit = { NOT = { trait = kind } }
+			add_trait = kind
+			hidden_tooltip = {
+				remove_trait = wroth
+			}
+		}
+		
+		custom_tooltip = {
+			text = dragonkin_decipher_failure_tooltip
+			change_variable = { which = dragonkin_decipher_secrets_points value = -3 }
+		}
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_205
+		custom_tooltip = {
+			text = dragonkin_decipher_success_tooltip
+			change_variable = { which = dragonkin_decipher_secrets_points value = 1 }
+		}
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.206
+    desc = EVTDESC_BLOODMAGE_206
+    picture = GFX_evt_book_carolingian_script
+    border = GFX_event_normal_frame_religion
+	hide_from = yes
+
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_206
+		
+		if = {
+			limit = { trait = erudite }
+			if = {
+				limit = { learning = 13 }
+				random = {
+					chance = 30
+					change_learning = 1
+				}
+			}
+			if = {
+				limit = { NOT = { learning = 13 } }
+				change_learning = 1
+			}
+		}
+		if = {
+			limit = { NOT = { trait = erudite } }
+			add_trait = erudite
+		}
+		
+		custom_tooltip = {
+			text = dragonkin_decipher_failure_tooltip
+			change_variable = { which = dragonkin_decipher_secrets_points value = -3 }
+		}
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_206
+		custom_tooltip = {
+			text = dragonkin_decipher_success_tooltip
+			change_variable = { which = dragonkin_decipher_secrets_points value = 1 }
+		}
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.207
+    desc = EVTDESC_BLOODMAGE_207
+    picture = GFX_evt_ritual_scroll
+    border = GFX_event_normal_frame_religion
+	hide_from = yes
+
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_207
+		custom_tooltip = {
+			text = dragonkin_decipher_success_tooltip
+			change_variable = { which = dragonkin_decipher_secrets_points value = 1 }
+		}
+    }
+}
+
+character_event = {
+	id = BLOODMAGE.208
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { FROM = { check_variable = { which = dragonkin_decipher_secrets_points value = 4 } } }
+			FROM = { letter_event = { id = BLOODMAGE.209 } }
+		}
+		if = {
+			limit = { FROM = { NOT = { check_variable = { which = dragonkin_decipher_secrets_points value = -2 } } } }
+			FROM = { letter_event = { id = BLOODMAGE.210 } }
+		}
+	}
+}
+
+letter_event = {
+	id = BLOODMAGE.209
+	desc = EVTDESC_BLOODMAGE_209
+	border = GFX_event_letter_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_BLOODMAGE_209
+		
+		clr_quest = quest_blood_staff_decipher_secrets
+		sound_effect = time_forward
+		add_society_currency_medium_effect = yes
+		
+		hidden_tooltip = {
+			clr_character_flag = blood_staff_decipher_secrets_deceit
+			clr_character_flag = blood_staff_decipher_secrets_potion
+			clr_character_flag = blood_staff_decipher_secrets_tryhard
+			clr_character_flag = blood_staff_decipher_secrets_bully
+			clr_character_flag = blood_staff_decipher_secrets_distraction
+		}
+	}
+}
+
+letter_event = {
+	id = BLOODMAGE.210
+	desc = EVTDESC_BLOODMAGE_210
+	border = GFX_event_letter_frame_religion
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_BLOODMAGE_210
+		
+		clr_quest = { id = quest_blood_staff_decipher_secrets failure = yes }
+		
+		hidden_tooltip = {
+			clr_character_flag = blood_staff_decipher_secrets_deceit
+			clr_character_flag = blood_staff_decipher_secrets_potion
+			clr_character_flag = blood_staff_decipher_secrets_tryhard
+			clr_character_flag = blood_staff_decipher_secrets_bully
+			clr_character_flag = blood_staff_decipher_secrets_distraction
+		}
+	}
+}
+
+character_event = {
+    id = BLOODMAGE.211
+    picture = GFX_evt_ritual_scroll
+    border = GFX_event_normal_frame_learning
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_211
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_211
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.212
+    desc = EVTDESC_BLOODMAGE_212
+    picture = GFX_evt_book_shadowy_cabal
+    border = GFX_event_normal_frame_intrigue
+	hide_from = yes
+
+    is_triggered_only = yes
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_212
+		
+		if = {
+			limit = { trait = deceitful }
+			if = {
+				limit = { intrigue = 16 }
+				random = {
+					chance = 30
+					change_intrigue = 1
+				}
+			}
+			if = {
+				limit = { NOT = { intrigue = 16 } }
+				change_intrigue = 1
+			}
+		}
+		if = {
+			limit = { NOT = { trait = deceitful } }
+			add_trait = deceitful
+		}
+		
+		custom_tooltip = {
+			text = dragonkin_decipher_failure_tooltip
+			change_variable = { which = dragonkin_decipher_secrets_points value = -3 }
+		}
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_212
+		custom_tooltip = {
+			text = dragonkin_decipher_success_tooltip
+			change_variable = { which = dragonkin_decipher_secrets_points value = 1 }
+		}
+    }
+}
+
+#################################POWERS######################################
+ 
+# Way of the Dragon
+character_event = {
+    id = BLOODMAGE.221
+    picture = GFX_evt_ritual_scroll
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_221
+
+    option = { #Finally!
+        name = EVTOPTA_BLOODMAGE_221
+        add_trait = master_of_demon_flame
+        clr_character_flag = choosing_warrior_training
+    }
+}
+
+# curse
+character_event = {
+    id = BLOODMAGE.321
+    picture = GFX_evt_ritual_scroll
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_321
+    option = { #Finally!
+        name = EVTOPTA_BLOODMAGE_321
+			piety = -10
+		hidden_tooltip = { 
+
+    }
+}
+}
+# Dragonheart
+character_event = {
+    id = BLOODMAGE.222
+    picture = GFX_evt_ritual_scroll
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_222
+
+    option = { #Finally!
+        name = EVTOPTA_BLOODMAGE_222
+        add_character_modifier = 
+		{
+			name = blood_staff_demonblood
+			duration = -1
+		}
+        clr_character_flag = gaining_demonblood
+    }
+}
+
+# Become Dragon
+character_event = {
+	id = BLOODMAGE.220
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			character_event = { id = BLOODMAGE.223 }
+		}
+		}
+}
+
+character_event = {
+	id = BLOODMAGE.298
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+			character_event = { id = BLOODMAGE.303 }
+		}
+	}
+
+character_event = {
+    id = BLOODMAGE.303
+    picture = GFX_evt_scandal
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_303
+
+    option = { # convince everyone
+        name = EVTOPTA_BLOODMAGE_303
+		tooltip_info = diplomacy
+		trigger = {
+			diplomacy = 20
+			learning = 20
+			intrigue = 20
+		}
+		character_event = { id = BLOODMAGE.304 days = 7 random = 7 }
+		ai_chance = {
+			factor = 100
+		}
+    }
+    option = { # chicken out
+        name = EVTOPTB_BLOODMAGE_303
+		ai_chance = {
+			factor = 0
+		}
+		if = {
+			limit = { has_quest = quest_blood_staff_become_blood_mage }
+			clr_quest = { id = quest_blood_staff_become_blood_mage failure = yes }
+		}
+        clr_character_flag = becoming_blood_mage
+		detract_society_currency_medium_effect = yes
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.304
+    picture = GFX_evt_scandal
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_304
+
+    option = { #Finally!
+        name = EVTOPTA_BLOODMAGE_304
+		add_trait = grand_magister
+		add_artifact = bs_ravens_eye
+		if = {
+			limit = { has_quest = quest_blood_staff_become_grand_magister }
+			clr_quest = quest_blood_staff_become_grand_magister
+			sound_effect = time_forward
+			add_society_currency_minor_effect = yes
+		}
+        clr_character_flag = becoming_grand_magister
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.223
+    picture = GFX_evt_scandal
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_223
+
+    option = { # convince everyone
+        name = EVTOPTA_BLOODMAGE_223
+		tooltip_info = diplomacy
+		trigger = {
+			diplomacy = 20
+		}
+		character_event = { id = BLOODMAGE.224 days = 7 random = 7 }
+		ai_chance = {
+			factor = 100
+		}
+    }
+    option = { # hire more guards to keep the peace
+        name = EVTOPTB_BLOODMAGE_223
+		scaled_wealth = { value = -2 min = 200 }
+		character_event = { id = BLOODMAGE.224 days = 7 random = 7 }
+    }
+    option = { # all non-dragon demesne counties get penalty
+        name = EVTOPTC_BLOODMAGE_223
+		any_demesne_province = {
+			limit = {
+				NOT = { culture = blood_elf }
+			}
+			add_province_modifier = {
+				name = peasant_unrest
+				years = 10
+			}
+		}
+		character_event = { id = BLOODMAGE.224 days = 7 random = 7 }
+    }
+    option = { # chicken out
+        name = EVTOPTD_BLOODMAGE_223
+		ai_chance = {
+			factor = 0
+		}
+		if = {
+			limit = { has_quest = quest_blood_staff_become_blood_mage }
+			clr_quest = { id = quest_blood_staff_become_blood_mage failure = yes }
+		}
+        clr_character_flag = becoming_blood_mage
+		detract_society_currency_medium_effect = yes
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.224
+    picture = GFX_evt_scandal
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_224
+
+    option = { #Finally!
+        name = EVTOPTA_BLOODMAGE_224
+		add_trait = subclass_blood_mage 
+		if = {
+			limit = { has_quest = quest_blood_staff_become_blood_mage }
+			clr_quest = quest_blood_staff_become_blood_mage
+			sound_effect = time_forward
+			add_society_currency_minor_effect = yes
+		}
+        clr_character_flag = becoming_blood_mage
+    }
+}
+
+
+#POWER: Culture Convert County
+#Notification for ruler who performs the power
+character_event = {
+    id = BLOODMAGE.230
+	picture = GFX_evt_burning_castle_hf
+	desc = EVTDESC_BLOODMAGE230
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+#Notification event for county owner if different from user
+character_event = {
+    id = BLOODMAGE.231
+	picture = GFX_evt_burning_castle_hf
+	desc = EVTDESC_BLOODMAGE231
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = INTERESTING
+	}
+}
+
+# POWER: Magic Fortress
+character_event = {
+    id = BLOODMAGE.240
+    picture = GFX_evt_treasure_chamber
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_240
+
+    option = {
+        name = EXCELLENT
+    }
+}
+
+# POWER: Resist fel
+character_event = {
+    id = BLOODMAGE.250
+    picture = GFX_evt_secluded_in_prayer
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_250
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_250
+		piety = 20
+		add_character_modifier = {
+			name = in_meditation
+			duration = -1
+		}
+		character_event = { id = BLOODMAGE.251 days = 14 random = 30 }
+    }
+}
+
+character_event = { # logic event for the resist
+    id = BLOODMAGE.251
+    hide_window = yes
+    is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { has_character_modifier = in_meditation }
+			character_event = { id = BLOODMAGE.252 }
+		}
+		if = {
+			limit = {
+				NOT = { has_character_modifier = in_meditation }
+				has_quest = quest_blood_staff_resist_fel
+			}
+			character_event = { id = BLOODMAGE.253 }
+		}
+	}
+}
+
+character_event = { # choose something to purge
+    id = BLOODMAGE.252
+    picture = GFX_evt_secluded_in_prayer
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_252
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_252
+		trigger = {
+			OR = {
+				trait = craven
+				trait = paranoid
+			}
+		}
+		if = {
+			limit = { NOT = { trait = paranoid } }
+			remove_trait = craven
+		}
+		if = {
+			limit = { trait = paranoid }
+			remove_trait = paranoid
+		}
+		remove_character_modifier = in_meditation
+		if = {
+			limit = {
+				has_quest = quest_blood_staff_resist_fel
+			}
+			character_event = { id = BLOODMAGE.142 days = 20 }
+		}
+    }
+
+    option = {
+        name = EVTOPTC_BLOODMAGE_252
+		trigger = {
+			OR = {
+				trait = possessed
+				trait = lunatic
+			}
+		}
+		if = {
+			limit = { NOT = { trait = possessed } }
+			remove_trait = lunatic
+		}
+		if = {
+			limit = { trait = possessed }
+			remove_trait = possessed
+		}
+		remove_character_modifier = in_meditation
+		if = {
+			limit = {
+				has_quest = quest_blood_staff_resist_fel
+			}
+			character_event = { id = BLOODMAGE.142 days = 20 }
+		}
+    }
+
+    option = {
+        name = EVTOPTB_BLOODMAGE_252
+		trigger = {
+			trait = cannibal
+		}
+		remove_trait = cannibal
+		remove_character_modifier = in_meditation
+		if = {
+			limit = {
+				has_quest = quest_blood_staff_resist_fel
+			}
+			character_event = { id = BLOODMAGE.142 days = 20 }
+		}
+    }
+
+    option = {
+        name = EVTOPTD_BLOODMAGE_252
+		trigger = {
+			NOR = {
+				trait = craven
+				trait = paranoid
+				trait = possessed
+				trait = lunatic
+				trait = cannibal
+			}
+			OR = {
+				trait = stressed
+				trait = depressed
+			}
+		}
+		if = {
+			limit = { NOT = { trait = stressed } }
+			remove_trait = depressed
+		}
+		if = {
+			limit = { trait = stressed }
+			remove_trait = stressed
+		}
+		remove_character_modifier = in_meditation
+		if = {
+			limit = {
+				has_quest = quest_blood_staff_resist_fel
+			}
+			character_event = { id = BLOODMAGE.142 days = 20 }
+		}
+    }
+
+    option = {
+        name = EVTOPTE_BLOODMAGE_252
+		trigger = {
+			NOR = {
+				trait = craven
+				trait = paranoid
+				trait = possessed
+				trait = lunatic
+				trait = cannibal
+				trait = depressed
+				trait = stressed
+			}
+		}
+		piety = 30
+		remove_character_modifier = in_meditation
+		if = {
+			limit = {
+				has_quest = quest_blood_staff_resist_fel
+			}
+			character_event = { id = BLOODMAGE.142 days = 20 }
+		}
+    }
+}
+
+character_event = { # failed mission
+    id = BLOODMAGE.253
+    picture = GFX_evt_lunatic
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_253
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_253
+		clr_quest = { id = quest_blood_staff_resist_fel failure = yes }
+    }
+}
+
+# POWER: Artefact Hunt
+character_event = {
+    id = BLOODMAGE.260
+    picture = GFX_evt_ritual_scroll
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_260
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_260
+		detract_society_currency_minor_effect = yes
+		custom_tooltip = {
+			text = blood_staff_artefact_tier_1_tt
+		}
+		increase_visibility_minor_effect = yes
+		character_event = { id = BLOODMAGE.261 days = 90 random = 60 }
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_260
+		trigger = {
+			has_society_currency_medium_trigger = yes
+		}
+		detract_society_currency_medium_effect = yes
+		custom_tooltip = {
+			text = blood_staff_artefact_tier_2_tt
+		}
+		increase_visibility_effect = yes
+		character_event = { id = BLOODMAGE.262 days = 90 random = 60 }
+    }
+    option = {
+        name = EVTOPTC_BLOODMAGE_260
+		tooltip_info = learning
+		trigger = {
+			has_society_currency_major_trigger = yes
+			learning = 13
+		}
+		detract_society_currency_major_effect = yes
+		custom_tooltip = {
+			text = blood_staff_artefact_tier_3_tt
+		}
+		increase_visibility_effect = yes
+		character_event = { id = BLOODMAGE.263 days = 90 random = 60 }
+    }
+}
+
+character_event = { # tier 1 roll
+    id = BLOODMAGE.261
+    hide_window = yes
+    is_triggered_only = yes
+	
+	trigger = { society_member_of = blood_staff }
+	
+	immediate = {
+		random_list = {
+			100 = { # dragon sculpture
+				modifier = {
+					factor = 0
+					has_artifact = bs_fel_skull
+				}
+				character_event = { id = BLOODMAGE.267 }
+			}
+			100 = { # gold bracelets
+				modifier = {
+					factor = 0
+					has_artifact = bs_loa_totem
+				}
+				character_event = { id = BLOODMAGE.268 }
+			}
+			100 = { # gold bracelets
+				modifier = {
+					factor = 0
+					has_artifact = magic_raincoat
+				}
+				character_event = { id = BLOODMAGE.269 }
+			}
+			100 = { # gold bracelets
+				modifier = {
+					factor = 0
+					has_artifact = magic_book
+				}
+				character_event = { id = BLOODMAGE.270 }
+			}
+			100 = { # strange chest
+				if = {
+					limit = { has_artifact = strange_chest }
+					character_event = { id = BLOODMAGE.265 } # find key
+				}
+				if = {
+					limit = { NOT = { has_artifact = strange_chest } }
+					character_event = { id = BLOODMAGE.266 } # find chest
+				}
+			}
+			100 = { # fail
+				character_event = { id = BLOODMAGE.264 }
+			}
+		}
+	}
+}
+
+character_event = { # tier 2 roll
+    id = BLOODMAGE.262
+    hide_window = yes
+    is_triggered_only = yes
+	
+	trigger = { society_member_of = blood_staff }
+	
+	immediate = {
+		random_list = {
+			100 = { # ruby bracelets
+				modifier = {
+					factor = 0
+					has_artifact = magic_raincoat
+				}
+				character_event = { id = BLOODMAGE.269 }
+			}
+			100 = { # dragon sculpture
+				modifier = {
+					factor = 0
+					has_artifact = bs_fel_skull
+				}
+				character_event = { id = BLOODMAGE.267 }
+			}
+			100 = { # gold bracelets
+				modifier = {
+					factor = 0
+					has_artifact = bs_loa_totem
+				}
+				character_event = { id = BLOODMAGE.268 }
+			}
+			100 = { # dragon language vol 3
+				modifier = {
+					factor = 0
+					has_artifact = bs_staff_of_the_shadow_flame
+				}
+				character_event = { id = BLOODMAGE.273 }
+			}
+			100 = { # dragon language vol 2
+				modifier = {
+					factor = 0
+					has_artifact = bs_rune_knife
+				}
+				character_event = { id = BLOODMAGE.272 }
+			}
+			100 = { # dragon language vol 1
+				modifier = {
+					factor = 0
+					has_artifact = bs_scroll_arcane
+				}
+				character_event = { id = BLOODMAGE.271 }
+			}
+			100 = { # strange chest
+				if = {
+					limit = { has_artifact = strange_chest }
+					character_event = { id = BLOODMAGE.265 } # find key
+				}
+				if = {
+					limit = { NOT = { has_artifact = strange_chest } }
+					character_event = { id = BLOODMAGE.266 } # find chest
+				}
+			}
+			50 = { # fail
+				character_event = { id = BLOODMAGE.264 }
+			}
+		}
+	}
+}
+
+character_event = { # tier 3 roll
+    id = BLOODMAGE.263
+    hide_window = yes
+    is_triggered_only = yes
+	
+	trigger = { society_member_of = blood_staff }
+	
+	immediate = {
+		random_list = {
+			100 = { # dragon amulet
+				modifier = {
+					factor = 0
+					has_artifact = magic_book
+				}
+				character_event = { id = BLOODMAGE.270 }
+			}
+			100 = { # ruby bracelets
+				modifier = {
+					factor = 0
+					has_artifact = magic_raincoat
+				}
+				character_event = { id = BLOODMAGE.269 }
+			}
+			100 = { # dragon sculpture
+				modifier = {
+					factor = 0
+					has_artifact = bs_fel_skull
+				}
+				character_event = { id = BLOODMAGE.267 }
+			}
+			100 = { # gold bracelets
+				modifier = {
+					factor = 0
+					has_artifact = bs_loa_totem
+				}
+				character_event = { id = BLOODMAGE.268 }
+			}
+			100 = { # dragon language vol 4
+				modifier = {
+					factor = 0
+					has_artifact = bs_quel'sin
+				}
+				character_event = { id = BLOODMAGE.274 }
+			}
+			100 = { # dragon language vol 3
+				modifier = {
+					factor = 0
+					has_artifact = bs_staff_of_the_shadow_flame
+				}
+				character_event = { id = BLOODMAGE.273 }
+			}
+			100 = { # dragon language vol 2
+				modifier = {
+					factor = 0
+					has_artifact = bs_rune_knife
+				}
+				character_event = { id = BLOODMAGE.272 }
+			}
+			100 = { # dragon language vol 1
+				modifier = {
+					factor = 0
+					has_artifact = bs_scroll_arcane
+				}
+				character_event = { id = BLOODMAGE.271 }
+			}
+			100 = { # strange chest
+				if = {
+					limit = { has_artifact = strange_chest }
+					character_event = { id = BLOODMAGE.265 } # find key
+				}
+				if = {
+					limit = { NOT = { has_artifact = strange_chest } }
+					character_event = { id = BLOODMAGE.266 } # find chest
+				}
+			}
+		}
+	}
+}
+
+# Failed
+character_event = {
+    id = BLOODMAGE.264
+    picture = GFX_evt_performing_experiments
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_264
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_264
+		prestige = -5
+    }
+}
+
+# Find key
+character_event = {
+    id = BLOODMAGE.265
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_265
+
+    option = {
+        name = EVTOPTA_TOG_3302
+		custom_tooltip = {
+			text = opens_chest
+			hidden_tooltip = {
+				random_list = {
+					40 = { character_event = { id = TOG.3306 } }
+					40 = { character_event = { id = TOG.3307 } }
+					40 = { character_event = { id = TOG.3308 } }
+					5 = { character_event = { id = TOG.3309 } }
+				}
+			}
+		}
+    }
+}
+
+# Find strange chest
+character_event = {
+    id = BLOODMAGE.266
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_266
+
+    option = {
+        name = EVTOPTA_TOG_3301
+		add_artifact = strange_chest
+		new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# Find sculpture
+character_event = {
+    id = BLOODMAGE.267
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_267
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_267
+		add_artifact = bs_fel_skull
+		new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# Find gold bracelets
+character_event = {
+    id = BLOODMAGE.268
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_268
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_268
+		add_artifact = bs_loa_totem
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# Find ruby bracelets
+character_event = {
+    id = BLOODMAGE.269
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_269
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_269
+		add_artifact = magic_raincoat
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# Find dragon amulet
+character_event = {
+    id = BLOODMAGE.270
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_270
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_270
+		add_artifact = magic_book
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# Find dragon language vol 1
+character_event = {
+    id = BLOODMAGE.271
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_271
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_271
+		add_artifact = bs_scroll_arcane
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# Find dragon language vol 2
+character_event = {
+    id = BLOODMAGE.272
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_272
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_272
+		add_artifact = bs_rune_knife
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# Find dragon language vol 3
+character_event = {
+    id = BLOODMAGE.273
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_273
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_273
+		add_artifact = bs_staff_of_the_shadow_flame
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# Find dragon language vol 4
+character_event = {
+    id = BLOODMAGE.274
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_274
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_274
+		add_artifact = bs_quel'sin
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+#POWER: Remove Lawless Presence
+character_event = {
+    id = BLOODMAGE.280
+	picture = GFX_evt_end_of_days
+	desc = EVTDESC_BLOODMAGE280
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		
+		FROM = {
+			location = {
+				add_province_modifier = {
+					name = peasants_protected
+					years = 2
+				}
+			}
+		}
+	}
+}
+
+#POWER: Burn Dragon Incense
+character_event = {
+    id = BLOODMAGE.290
+	picture = GFX_evt_ritual_scroll
+	desc = EVTDESC_BLOODMAGE_290
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_BLOODMAGE_290
+		character_event = { id = BLOODMAGE.291 }
+		custom_tooltip = {
+			text = blood_staff_tattoo_martial_tooltip
+		}
+
+		ai_chance = {
+            factor = 10
+			modifier = {
+				factor = 2
+				NOT = { martial = 8 }
+			}
+            modifier = {
+                factor = 0.5
+                martial = 13
+            }
+		}
+	}
+	option = {
+		name = EVTOPTB_BLOODMAGE_290
+		character_event = { id = BLOODMAGE.292 }
+		custom_tooltip = {
+			text = blood_staff_tattoo_intrigue_tooltip
+		}
+
+		ai_chance = {
+            factor = 10
+            modifier = {
+                factor = 0.5
+                intrigue = 16
+            }
+		}
+	}
+	option = {
+		name = EVTOPTC_BLOODMAGE_290
+		character_event = { id = BLOODMAGE.293 }
+		custom_tooltip = {
+			text = blood_staff_tattoo_learning_tooltip
+		}
+
+		ai_chance = {
+            factor = 10
+			modifier = {
+				factor = 2
+				NOT = { learning = 8 }
+			}
+            modifier = {
+                factor = 0.5
+                learning = 13
+            }
+		}
+	}
+	option = {
+		name = EVTOPTD_BLOODMAGE_290
+		character_event = { id = BLOODMAGE.294 }
+		custom_tooltip = {
+			text = blood_staff_tattoo_fertility_tooltip
+		}
+
+		ai_chance = {
+            factor = 10
+			modifier = {
+				factor = 2
+				NOT = { has_character_modifier = dragonkin_incense_fertility }
+			}
+            modifier = {
+                factor = 0.5
+                trait = lustful
+            }
+		}
+	}
+}
+
+character_event = {
+    id = BLOODMAGE.291
+	picture = GFX_evt_secluded_in_prayer
+	desc = EVTDESC_BLOODMAGE_291
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_BLOODMAGE_291
+		
+		add_character_modifier = {
+			name = blood_staff_tattoo_martial
+			years = 2
+			stacking = yes
+		}
+		
+		random = {
+			chance = 25
+			if = {
+				limit = { NOT = { trait = dwarf } }
+				add_trait = giant
+			}
+			if = {
+				limit = { trait = dwarf }
+				remove_trait = dwarf
+			}
+		}
+		
+		hidden_tooltip = {
+			clr_character_flag = putting_magic_tattoo
+			random = {
+				chance = 60
+				character_event = { id = BLOODMAGE.295 days = 7 }
+				modifier = {
+					factor = 0.5
+					intrigue = 13
+				}
+				modifier = {
+					factor = 0.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 0.5
+					intrigue = 18
+				}
+				modifier = {
+					factor = 0
+					intrigue = 20
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+    id = BLOODMAGE.292
+	picture = GFX_evt_secluded_in_prayer
+	desc = EVTDESC_BLOODMAGE_292
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_BLOODMAGE_291
+		
+		add_character_modifier = {
+			name = blood_staff_tattoo_intrigue
+			years = 2
+			stacking = yes
+		}
+		
+		random = {
+			chance = 25
+			if = {
+				limit = { NOT = { trait = trusting } }
+				add_trait = paranoid
+			}
+			if = {
+				limit = { trait = trusting }
+				remove_trait = trusting
+			}
+		}
+		
+		hidden_tooltip = {
+			clr_character_flag = putting_magic_tattoo
+			random = {
+				chance = 60
+				character_event = { id = BLOODMAGE.295 days = 7 }
+				modifier = {
+					factor = 0.5
+					intrigue = 13
+				}
+				modifier = {
+					factor = 0.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 0.5
+					intrigue = 18
+				}
+				modifier = {
+					factor = 0
+					intrigue = 20
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+    id = BLOODMAGE.293
+	picture = GFX_evt_secluded_in_prayer
+	desc = EVTDESC_BLOODMAGE_293
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_BLOODMAGE_291
+		
+		add_character_modifier = {
+			name = blood_staff_tattoo_learning
+			years = 2
+			stacking = yes
+		}
+		
+		random = {
+			chance = 25
+			if = {
+				limit = { NOT = { trait = imbecile } }
+				add_trait = sorcerer
+			}
+			if = {
+				limit = { trait = imbecile }
+				remove_trait = imbecile
+			}
+		}
+
+		hidden_tooltip = {
+			clr_character_flag = putting_magic_tattoo
+			random = {
+				chance = 60
+				character_event = { id = BLOODMAGE.295 days = 7 }
+				modifier = {
+					factor = 0.5
+					intrigue = 13
+				}
+				modifier = {
+					factor = 0.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 0.5
+					intrigue = 18
+				}
+				modifier = {
+					factor = 0
+					intrigue = 20
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+    id = BLOODMAGE.294
+	picture = GFX_evt_secluded_in_prayer
+	desc = EVTDESC_BLOODMAGE_294
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_BLOODMAGE_291
+		
+		add_character_modifier = {
+			name = blood_staff_tattoo_fertility
+			years = 2
+			stacking = yes
+		}
+		
+		random = {
+			chance = 25
+			if = {
+				limit = { NOT = { trait = chaste } }
+				add_trait = lustful
+			}
+			if = {
+				limit = { trait = chaste }
+				remove_trait = chaste
+			}
+		}
+		
+		hidden_tooltip = {
+			clr_character_flag = putting_magic_tattoo
+			random = {
+				chance = 60
+				character_event = { id = BLOODMAGE.295 days = 7 }
+				modifier = {
+					factor = 0.5
+					intrigue = 13
+				}
+				modifier = {
+					factor = 0.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 0.5
+					intrigue = 18
+				}
+				modifier = {
+					factor = 0
+					intrigue = 20
+				}
+			}
+		}
+	}
+}
+
+# incense goes wrong!
+character_event = {
+    id = BLOODMAGE.295
+    picture = GFX_evt_performing_experiments
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_295
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_295
+		
+		add_character_modifier = {
+			name = blood_staff_tattoo_fail
+			years = 2
+			stacking = yes
+		}
+    }
+}
+
+#################################EVENTS######################################
+
+# thief steals money
+character_event = {
+    id = BLOODMAGE.500
+    desc = EVTDESC_BLOODMAGE_500
+    picture = GFX_evt_treasure_chamber
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+
+	trigger = {
+		society_member_of = blood_staff
+		wealth = 50
+		NOT = { has_character_modifier = dragonkin_traps }
+	}
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_500
+		scaled_wealth = -0.2
+    }
+}
+
+# thief caught
+character_event = {
+    id = BLOODMAGE.510
+    desc = EVTDESC_BLOODMAGE_510
+    picture = GFX_evt_treasure_chamber
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+
+	trigger = {
+		society_member_of = blood_staff
+	}
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_510
+		trigger = {
+			NOT = {
+				has_artifact = rival_skull
+			}
+		}
+		add_artifact = rival_skull
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+		increase_visibility_minor_effect = yes
+    }
+	
+    option = {
+        name = EVTOPTB_BLOODMAGE_510
+		prestige = 25
+    }
+}
+
+# go deeper?
+character_event = {
+    id = BLOODMAGE.520
+    desc = EVTDESC_BLOODMAGE_520
+    picture = GFX_evt_ritual_scroll
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+	trigger = {
+		society_member_of = blood_staff
+	}
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_520
+		random = {
+		  chance = 45
+		  add_trait = possessed
+		}
+		change_learning = 1
+		increase_visibility_minor_effect = yes
+    }
+	
+    option = {
+        name = EVTOPTB_BLOODMAGE_520
+		piety = 25
+    }
+}
+
+# get paranoid
+character_event = {
+    id = BLOODMAGE.530
+    desc = EVTDESC_BLOODMAGE_530
+    picture = GFX_evt_suspicious_noble
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+
+	trigger = {
+		society_member_of = blood_staff
+		OR = {
+			NOT = { trait = lunatic }
+			NOT = { trait = paranoid }
+		}
+	}
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_530
+		if = {
+			limit = { trait = paranoid }
+			add_trait = lunatic
+		}
+		if = {
+			limit = { NOT = { trait = paranoid } }
+			add_trait = paranoid
+		}
+    }
+}
+
+# repair traps?
+character_event = {
+    id = BLOODMAGE.540
+    desc = EVTDESC_BLOODMAGE_540
+    picture = GFX_evt_treasure_chamber
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+
+	trigger = {
+		society_member_of = blood_staff
+		NOT = { has_character_modifier = dragonkin_traps }
+	}
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_540
+		scaled_wealth = -0.1
+		add_character_modifier = {
+			name = dragonkin_traps
+			years = 5
+		}
+		increase_visibility_minor_effect = yes
+    }
+	
+    option = {
+        name = EVTOPTB_BLOODMAGE_540
+    }
+}
+
+# force AI to convert culture
+character_event = {
+    id = BLOODMAGE.550
+    picture = GFX_evt_burning_castle_hf
+	only_playable = yes
+
+    is_triggered_only = yes
+
+	trigger = {
+		society_member_of = blood_staff
+		ai = yes
+		society_rank = 4
+		culture = blood_elf
+		society_currency >= 1000
+		any_demesne_province = { NOT = { culture = blood_elf } }
+	}
+	
+    option = {
+		change_society_currency = -1000
+		increase_visibility_effect = yes
+		random_demesne_province = {
+			limit = {
+				NOT = { culture = blood_elf }
+			}
+			culture = blood_elf
+			add_province_modifier = {
+				name = peasant_unrest
+				years = 10
+			}
+		}
+    }
+}
+
+
+# stat pooling
+character_event = {
+    id = BLOODMAGE.700
+    desc = EVTDESC_BLOODMAGE_700
+    picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_700
+		change_diplomacy = -1
+		change_intrigue = 1
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_700
+		set_interested_society = none
+		clr_character_flag = blood_staff_inducted_into_society
+		if = {
+			limit = { ai = yes }
+			clr_character_flag = society_join_block
+		}
+		ai_chance = { factor = 0 }
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.710
+    desc = EVTDESC_BLOODMAGE_700
+    picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_700
+		change_martial = -1
+		change_intrigue = 1
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_700
+		set_interested_society = none
+		clr_character_flag = blood_staff_inducted_into_society
+		if = {
+			limit = { ai = yes }
+			clr_character_flag = society_join_block
+		}
+		ai_chance = { factor = 0 }
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.720
+    desc = EVTDESC_BLOODMAGE_700
+    picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_700
+		change_stewardship = -1
+		change_intrigue = 1
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_700
+		set_interested_society = none
+		clr_character_flag = blood_staff_inducted_into_society
+		if = {
+			limit = { ai = yes }
+			clr_character_flag = society_join_block
+		}
+		ai_chance = { factor = 0 }
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.730
+    desc = EVTDESC_BLOODMAGE_700
+    picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_700
+		change_intrigue = 1
+		change_learning = -1
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_700
+		set_interested_society = none
+		clr_character_flag = blood_staff_inducted_into_society
+		if = {
+			limit = { ai = yes }
+			clr_character_flag = society_join_block
+		}
+		ai_chance = { factor = 0 }
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.740
+    desc = EVTDESC_BLOODMAGE_700
+    picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_700
+		change_intrigue = 1
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.750
+    desc = EVTDESC_BLOODMAGE_700
+    picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_700
+		remove_trait = kind
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_700
+		set_interested_society = none
+		clr_character_flag = blood_staff_inducted_into_society
+		if = {
+			limit = { ai = yes }
+			clr_character_flag = society_join_block
+		}
+		ai_chance = { factor = 0 }
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.760
+    desc = EVTDESC_BLOODMAGE_700
+    picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_700
+		remove_trait = wroth
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_700
+		set_interested_society = none
+		clr_character_flag = blood_staff_inducted_into_society
+		if = {
+			limit = { ai = yes }
+			clr_character_flag = society_join_block
+		}
+		ai_chance = { factor = 0 }
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.770
+    desc = EVTDESC_BLOODMAGE_700
+    picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_700
+		remove_trait = content
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_700
+		set_interested_society = none
+		clr_character_flag = blood_staff_inducted_into_society
+		if = {
+			limit = { ai = yes }
+			clr_character_flag = society_join_block
+		}
+		ai_chance = { factor = 0 }
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.780
+    desc = EVTDESC_BLOODMAGE_700
+    picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_700
+		remove_trait = honest
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_700
+		set_interested_society = none
+		clr_character_flag = blood_staff_inducted_into_society
+		if = {
+			limit = { ai = yes }
+			clr_character_flag = society_join_block
+		}
+		ai_chance = { factor = 0 }
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.790
+    desc = EVTDESC_BLOODMAGE_700
+    picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_700
+		remove_trait = trusting
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_700
+		set_interested_society = none
+		clr_character_flag = blood_staff_inducted_into_society
+		if = {
+			limit = { ai = yes }
+			clr_character_flag = society_join_block
+		}
+		ai_chance = { factor = 0 }
+    }
+}
+
+#induct into society
+# society member sends letter to target
+character_event = {
+    id = BLOODMAGE.800
+    desc = EVTDESC_BLOODMAGE_800
+    picture = GFX_evt_princess_byzantine
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_800
+		event_target:new_recruit = { character_event = { id = BLOODMAGE.801 days = 7 } }
+    }
+}
+
+#target receives letter
+character_event = {
+    id = BLOODMAGE.801
+    desc = EVTDESC_BLOODMAGE_801
+    picture = GFX_evt_recieve_letter
+    border = GFX_event_normal_frame_intrigue
+	hide_from = yes
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_801
+		FROM = { character_event = { id = BLOODMAGE.802 days = 7 } }
+		set_character_flag = blood_staff_inducted_into_society
+		set_interested_society = blood_staff
+		character_event = { id = BLOODMAGE.001 days = 90 }
+		clear_event_target = new_recruit
+		if = {
+			limit = { ai = no }
+			clr_character_flag = society_join_block
+		}
+		ai_chance = {
+			factor = 1
+		}
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_801
+		FROM = { character_event = { id = BLOODMAGE.803 days = 7 } }
+		clear_event_target = new_recruit
+		clr_character_flag = society_join_block
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				NOT = { opinion = { who = FROM value = -25 } }
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.5
+				trait = trusting
+			}
+			modifier = {
+				factor = 0.125
+				opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 0
+				opinion = { who = FROM value = 75 }
+			}
+		}
+    }
+}
+
+# target agrees to join
+character_event = {
+    id = BLOODMAGE.802
+    desc = EVTDESC_BLOODMAGE_802
+    picture = GFX_evt_pleasing_letter
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_802
+		if = {
+			limit = {
+				has_quest = quest_blood_staff_induct_child
+			}
+			character_event = { id = BLOODMAGE.132 days = 20 }
+		}
+    }
+}
+
+# target refuses
+character_event = {
+    id = BLOODMAGE.803
+    desc = EVTDESC_BLOODMAGE_803
+    picture = GFX_evt_upsetting_letter
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_803
+		if = {
+			limit = {
+				has_quest = quest_blood_staff_induct_child
+			}
+			clr_quest = { id = quest_blood_staff_induct_child failure = yes }
+		}
+    }
+}
+
+# society member influences the egg to join dragon kin
+character_event = {
+    id = BLOODMAGE.804
+    desc = EVTDESC_BLOODMAGE_804
+    picture = GFX_evt_book_carolingian_script
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_804
+		event_target:new_recruit = { character_event = { id = BLOODMAGE.805 days = 7 } }
+    }
+}
+
+# egg "reacts"
+character_event = {
+    id = BLOODMAGE.805
+    desc = EVTDESC_BLOODMAGE_805
+    picture = GFX_evt_book_carolingian_script
+    border = GFX_event_normal_frame_intrigue
+	hide_from = yes
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_805
+		FROM = { character_event = { id = BLOODMAGE.806 days = 7 } }
+		set_character_flag = blood_staff_inducted_into_society
+		set_interested_society = blood_staff
+		character_event = { id = BLOODMAGE.001 days = 90 }
+		clear_event_target = new_recruit
+		if = {
+			limit = { ai = no }
+			clr_character_flag = society_join_block
+		}
+		ai_chance = {
+			factor = 1
+		}
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_805
+		FROM = { character_event = { id = BLOODMAGE.807 days = 7 } }
+		clear_event_target = new_recruit
+		clr_character_flag = society_join_block
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				NOT = { opinion = { who = FROM value = -25 } }
+			}
+			modifier = {
+				factor = 2
+				trait = timid
+			}
+			modifier = {
+				factor = 0.5
+				trait = curious
+			}
+			modifier = {
+				factor = 0.125
+				opinion = { who = FROM value = 10 }
+			}
+			modifier = {
+				factor = 0
+				opinion = { who = FROM value = 35 }
+			}
+		}
+    }
+}
+
+# egg "accepts"
+character_event = {
+    id = BLOODMAGE.806
+    desc = EVTDESC_BLOODMAGE_806
+    picture = GFX_evt_book_carolingian_script
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_806
+		if = {
+			limit = {
+				has_quest = quest_blood_staff_induct_child
+			}
+			character_event = { id = BLOODMAGE.132 days = 20 }
+		}
+    }
+}
+
+# egg "refuses"
+character_event = {
+    id = BLOODMAGE.807
+    desc = EVTDESC_BLOODMAGE_807
+    picture = GFX_evt_bad_news
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_807
+		if = {
+			limit = {
+				has_quest = quest_blood_staff_induct_child
+			}
+			clr_quest = { id = quest_blood_staff_induct_child failure = yes }
+		}
+    }
+}
+
+# society member opens up a story book with the kid
+character_event = {
+    id = BLOODMAGE.808
+    desc = EVTDESC_BLOODMAGE_808
+    picture = GFX_evt_open_book_hf
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_808
+		event_target:new_recruit = { character_event = { id = BLOODMAGE.809 days = 7 } }
+    }
+}
+
+# hey kid it's story time!
+character_event = {
+    id = BLOODMAGE.809
+    desc = EVTDESC_BLOODMAGE_809
+    picture = GFX_evt_open_book_hf
+    border = GFX_event_normal_frame_intrigue
+	hide_from = yes
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_809
+		FROM = { character_event = { id = BLOODMAGE.810 days = 7 } }
+		set_character_flag = blood_staff_inducted_into_society
+		set_interested_society = blood_staff
+		character_event = { id = BLOODMAGE.001 days = 90 }
+		clear_event_target = new_recruit
+		if = {
+			limit = { ai = no }
+			clr_character_flag = society_join_block
+		}
+		ai_chance = {
+			factor = 1
+		}
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_809
+		FROM = { character_event = { id = BLOODMAGE.811 days = 7 } }
+		clear_event_target = new_recruit
+		clr_character_flag = society_join_block
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 10
+				NOT = { opinion = { who = FROM value = -25 } }
+			}
+			modifier = {
+				factor = 2
+				trait = timid
+			}
+			modifier = {
+				factor = 0.5
+				trait = curious
+			}
+			modifier = {
+				factor = 0.125
+				opinion = { who = FROM value = 10 }
+			}
+			modifier = {
+				factor = 0
+				opinion = { who = FROM value = 35 }
+			}
+		}
+    }
+}
+
+# kid agrees to join
+character_event = {
+    id = BLOODMAGE.810
+    desc = EVTDESC_BLOODMAGE_810
+    picture = GFX_evt_child_reading_arabic
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_810
+		if = {
+			limit = {
+				has_quest = quest_blood_staff_induct_child
+			}
+			character_event = { id = BLOODMAGE.132 days = 20 }
+		}
+    }
+}
+
+# kid freaks out
+character_event = {
+    id = BLOODMAGE.811
+    desc = EVTDESC_BLOODMAGE_811
+    picture = GFX_evt_bad_news
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_811
+		if = {
+			limit = {
+				has_quest = quest_blood_staff_induct_child
+			}
+			clr_quest = { id = quest_blood_staff_induct_child failure = yes }
+		}
+    }
+}
+
+# write gremuars
+character_event = {
+    id = BLOODMAGE.360
+    picture = GFX_evt_grimoire
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_360
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_360
+		detract_society_currency_minor_effect = yes
+		custom_tooltip = {
+			text = blood_staff_grimoire_of_protection_writing
+		}
+		increase_visibility_minor_effect = yes
+		character_event = { id = BLOODMAGE.361 days = 90 random = 60 }
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_360
+		trigger = {
+			has_society_currency_medium_trigger = yes
+		}
+		detract_society_currency_medium_effect = yes
+		custom_tooltip = {
+			text = blood_staff_grimoire_of_blood_writing
+		}
+		increase_visibility_effect = yes
+		character_event = { id = BLOODMAGE.362 days = 90 random = 60 }
+    }
+    option = {
+        name = EVTOPTC_BLOODMAGE_360
+		tooltip_info = learning
+		trigger = {
+			has_society_currency_major_trigger = yes
+			learning = 13
+		}
+		detract_society_currency_major_effect = yes
+		custom_tooltip = {
+			text = blood_staff_grimoire_of_fel_writing
+		}
+		increase_visibility_effect = yes
+		character_event = { id = BLOODMAGE.363 days = 90 random = 60 }
+    }
+    option = {
+        name = EVTOPTD_BLOODMAGE_360
+		tooltip_info = learning
+		trigger = {
+			has_society_currency_major_trigger = yes
+			learning = 13
+		}
+		detract_society_currency_major_effect = yes
+		custom_tooltip = {
+			text = blood_staff_grimoire_of_shadow_writing
+		}
+		increase_visibility_effect = yes
+		character_event = { id = BLOODMAGE.364 days = 90 random = 60 }
+    }
+    option = {
+        name = EVTOPTE_BLOODMAGE_360
+		tooltip_info = learning
+		trigger = {
+			has_society_currency_major_trigger = yes
+			learning = 13
+		}
+		detract_society_currency_major_effect = yes
+		custom_tooltip = {
+			text = blood_staff_grimoire_of_souls_writing
+		}
+		increase_visibility_effect = yes
+		character_event = { id = BLOODMAGE.365 days = 90 random = 60 }
+    }
+}
+
+character_event = { # 1 roll protection
+    id = BLOODMAGE.361
+    hide_window = yes
+    is_triggered_only = yes
+	
+	trigger = { society_member_of = blood_staff 
+			OR = {
+				has_mage_trait_trigger = yes
+				is_necromancer_class_trigger = yes
+				is_warlock_class_trigger = yes
+		    }
+	}
+	
+	immediate = {
+		random_list = {
+			60 = {
+				character_event = { id = BLOODMAGE.371 }
+			}
+			25 = {
+				character_event = { id = BLOODMAGE.372 }
+				mage_half_score = yes
+				warlock_score = yes
+				necromancer_score = yes	
+			}
+			15 = {
+				character_event = { id = BLOODMAGE.373 }
+				mage_half_score = yes
+				warlock_score = yes
+				necromancer_score = yes	
+			}
+		}
+	}
+}
+
+character_event = { # 2 roll blood
+    id = BLOODMAGE.362
+    hide_window = yes
+    is_triggered_only = yes
+	
+	trigger = { society_member_of = blood_staff 
+			OR = {
+				has_mage_trait_trigger = yes
+				is_necromancer_class_trigger = yes
+				is_warlock_class_trigger = yes
+		    }
+	}
+	
+	immediate = {
+		random_list = {
+			60 = {
+				character_event = { id = BLOODMAGE.374 }
+			}
+			25 = {
+				character_event = { id = BLOODMAGE.375 }
+				mage_half_score = yes
+				warlock_score = yes
+				necromancer_score = yes	
+			}
+			15 = {
+				character_event = { id = BLOODMAGE.376 }
+				mage_half_score = yes
+				warlock_score = yes
+				necromancer_score = yes	
+			}
+		}
+	}
+}
+
+character_event = { # 3 roll fel
+    id = BLOODMAGE.363
+    hide_window = yes
+    is_triggered_only = yes
+	
+	trigger = { society_member_of = blood_staff 
+			OR = {
+				has_mage_trait_trigger = yes
+				is_necromancer_class_trigger = yes
+				is_warlock_class_trigger = yes
+		    }
+	}
+	
+	immediate = {
+		random_list = {
+			60 = {
+				character_event = { id = BLOODMAGE.377 }
+			}
+			25 = {
+				character_event = { id = BLOODMAGE.378 }
+				mage_half_score = yes
+				warlock_score = yes
+				necromancer_score = yes	
+			}
+			15 = {
+				character_event = { id = BLOODMAGE.379 }
+				mage_half_score = yes
+				warlock_score = yes
+				necromancer_score = yes	
+			}
+		}
+	}
+}
+
+character_event = { # 4 roll shadow
+    id = BLOODMAGE.364
+    hide_window = yes
+    is_triggered_only = yes
+	
+	trigger = { society_member_of = blood_staff 
+			OR = {
+				has_mage_trait_trigger = yes
+				is_necromancer_class_trigger = yes
+				is_warlock_class_trigger = yes
+		    }
+	}
+	
+	immediate = {
+		random_list = {
+			60 = {
+				character_event = { id = BLOODMAGE.380 }
+			}
+			25 = {
+				character_event = { id = BLOODMAGE.381 }
+				mage_half_score = yes
+				warlock_score = yes
+				necromancer_score = yes	
+			}
+			15 = {
+				character_event = { id = BLOODMAGE.382 }
+				mage_half_score = yes
+				warlock_score = yes
+				necromancer_score = yes	
+			}
+		}
+	}
+}
+
+character_event = { # 5 roll souls
+    id = BLOODMAGE.365
+    hide_window = yes
+    is_triggered_only = yes
+	
+	trigger = { society_member_of = blood_staff 
+			OR = {
+				has_mage_trait_trigger = yes
+				is_necromancer_class_trigger = yes
+				is_warlock_class_trigger = yes
+		    }
+	}
+	
+	immediate = {
+		random_list = {
+			60 = {
+				character_event = { id = BLOODMAGE.383 }
+			}
+			25 = {
+				character_event = { id = BLOODMAGE.384 }
+				mage_half_score = yes
+				warlock_score = yes
+				necromancer_score = yes	
+			}
+			15 = {
+				character_event = { id = BLOODMAGE.385 }
+				mage_half_score = yes
+				warlock_score = yes
+				necromancer_score = yes	
+			}
+		}
+	}
+}
+
+# Failed
+character_event = {
+    id = BLOODMAGE.364
+    picture = GFX_evt_performing_experiments
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_364
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_364
+		prestige = -5
+    }
+}
+
+# writed gremuare of protection 1
+character_event = {
+    id = BLOODMAGE.371
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_371
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_371
+		add_artifact = grimoire_of_protection_01
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of protection 2
+character_event = {
+    id = BLOODMAGE.372
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_372
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_372
+		add_artifact = grimoire_of_protection_02
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of protection 3
+character_event = {
+    id = BLOODMAGE.373
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_373
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_373
+		add_artifact = grimoire_of_protection_03
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of blood 1
+character_event = {
+    id = BLOODMAGE.374
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_374
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_374
+		add_artifact = grimoire_of_blood_01
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of blood 2
+character_event = {
+    id = BLOODMAGE.375
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_375
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_375
+		add_artifact = grimoire_of_blood_02
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of blood 3
+character_event = {
+    id = BLOODMAGE.376
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_376
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_376
+		add_artifact = grimoire_of_blood_03
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of fel 1
+character_event = {
+    id = BLOODMAGE.377
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_377
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_377
+		add_artifact = grimoire_of_fel_01
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of protection 2
+character_event = {
+    id = BLOODMAGE.378
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_378
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_378
+		add_artifact = grimoire_of_fel_02
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of fel 3
+character_event = {
+    id = BLOODMAGE.379
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_379
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_379
+		add_artifact = grimoire_of_fel_03
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of shadow 1
+character_event = {
+    id = BLOODMAGE.380
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_380
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_380
+		add_artifact = grimoire_of_shadow_01
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of shadow 2
+character_event = {
+    id = BLOODMAGE.381
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_381
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_381
+		add_artifact = grimoire_of_shadow_02
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of shadow 3
+character_event = {
+    id = BLOODMAGE.382
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_382
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_382
+		add_artifact = grimoire_of_shadow_03
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of souls 1
+character_event = {
+    id = BLOODMAGE.383
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_383
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_383
+		add_artifact = grimoire_of_souls_01
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of souls 2
+character_event = {
+    id = BLOODMAGE.384
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_384
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_384
+		add_artifact = grimoire_of_souls_02
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}
+
+# writed gremuare of shadow 3
+character_event = {
+    id = BLOODMAGE.385
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_385
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_385
+		add_artifact = grimoire_of_souls_03
+        new_artifact = {
+			set_creation_date = 1.1.1
+			set_original_owner = none
+		}
+    }
+}

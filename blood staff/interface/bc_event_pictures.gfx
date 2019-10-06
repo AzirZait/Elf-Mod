@@ -1,0 +1,5 @@
+	spriteType = {
+		name = "GFX_evt_grimoire"
+		texturefile = "gfx\\interface\\event_pictures\\grimoire.tga"
+		allwaystransparent = yes
+	}

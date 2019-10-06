@@ -1,0 +1,26 @@
+mage_half_score = {
+	modifier = {
+		factor = 1.5
+		trait = class_mage_2
+	}
+	modifier = {
+		factor = 2
+		trait = class_mage_3
+	}
+	modifier = {
+		factor = 2.5
+		trait = class_mage_4
+	}
+	modifier = {
+		factor = 3
+		trait = class_mage_5
+	}
+	modifier = {
+		factor = 3.5
+		trait = class_mage_6
+	}
+	modifier = {
+		factor = 4
+		trait = class_mage_7
+	}
+}

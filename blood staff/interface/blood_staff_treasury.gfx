@@ -1,0 +1,130 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_bs_loa_totem"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_loa_totem.tga"
+	}
+	spriteType = {
+		name = "GFX_bs_loa_totem_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_loa_totem_small.tga"
+	}
+	spriteType = {
+		name = "GFX_bs_fel_skull"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_fel_skull.tga"
+	}
+	spriteType = {
+		name = "GFX_bs_fel_skull_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_fel_skull_small.tga"
+	}
+	spriteType = {
+		name = "GFX_magic_raincoat_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\magic_raincoat_small.dds"
+	}
+	spriteType = {
+		name = "GFX_magic_raincoat"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\magic_raincoat.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_staff_of_the_shadow_flame_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_staff_of_the_shadow_flame_small.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_staff_of_the_shadow_flame"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_staff_of_the_shadow_flame.dds"
+	}
+	spriteType = {
+        name = "GFX_bs_verdant_spheres_small"
+        texturefile = "gfx\interface\inventory\artifacts\bs_verdant_spheres_small.dds"
+    }
+	spriteType = {
+        name = "GFX_bs_verdant_spheres"
+        texturefile = "gfx\interface\inventory\artifacts\bs_verdant_spheres.dds"
+    }
+	spriteType = {
+		name = "GFX_magic_book_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\magic_book_small.dds"
+	}
+	spriteType = {
+		name = "GFX_magic_book"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\magic_book.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_scroll_arcane_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_scroll_arcane_small.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_scroll_arcane"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_scroll_arcane.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_rune_knife_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_rune_knife_small.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_rune_knife"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_rune_knife.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_ravens_eye_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_ravens_eye_small.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_ravens_eye"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_ravens_eye.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_quel'sin"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_quel'sin.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_quel'sin_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_quel'sin_small.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_quel'delar_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_quel'delar_small.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_quel'delar"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_quel'delar.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_grimoire_of_souls"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_grimoire_of_souls.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_grimoire_of_souls_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_grimoire_of_souls_small.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_grimoire_of_protection"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_grimoire_of_protection.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_grimoire_of_protection_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_grimoire_of_protection_small.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_grimoire_of_fel"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_grimoire_of_fel.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_grimoire_of_fel_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_grimoire_of_fel_small.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_grimoire_of_blood"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_grimoire_of_blood.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_grimoire_of_blood_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_grimoire_of_blood_small.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_book_shadow_small"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_book_shadow_small.dds"
+	}
+	spriteType = {
+		name = "GFX_bs_book_shadow"
+		texturefile = "gfx\\interface\\inventory\\artifacts\\bs_book_shadow.dds"
+	}
+}

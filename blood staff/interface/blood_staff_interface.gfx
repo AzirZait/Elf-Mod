@@ -1,0 +1,63 @@
+#Look at the vanilla folder for the other society pictures which will be more appropriate than my smiley faces.
+spriteTypes = {
+	
+	## decisions
+	
+	spriteType = {
+		name = "GFX_blood_staff_artefact_hunt"
+		texturefile = "gfx\\interface\\decision_icon_blood_staff_artefact_hunt.tga"
+	}
+	
+	spriteType = {
+		name = "GFX_blood_staff_resist_fel"
+		texturefile = "gfx\\interface\\decision_icon_do_penance.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_blood_staff_amass_wealth_complete"
+		texturefile = "gfx\\interface\\decision_icon_borrow_money.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_blood_staff_become_blood_mage"
+		texturefile = "gfx\\interface\\decision_icon_blood_staff_become_blood_mage.tga"
+	}
+
+	##### blood_staff #####
+	
+	spriteType = { #the background of the society menu
+		name = "GFX_society_main_background_blood_staff"
+		texturefile = "gfx\\interface\\societies\\society_bg_blood_staff.tga"
+	}
+	
+	spriteType = { #the background of the side menu with the members/other societies
+		name = "GFX_society_expansion_background_blood_staff"
+		texturefile = "gfx\\interface\\societies\\society_exp_bg_blood_staff.tga"
+	}
+	
+	spriteType = { #icons on the socities list
+		name = "GFX_icon_small_blood_staff"
+		texturefile = "gfx\\interface\\societies\\symbol_small_blood_staff.tga"
+		noOfFrames = 2
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_blood_staff"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_blood_staff.dds"
+	}
+	
+	spriteType = { #circle around members
+		name = "GFX_society_portrait_ring_small_blood_staff"
+		texturefile = "gfx\\interface\\societies\\portrait_ring_small_blood_staff.dds"
+	}
+	
+	spriteType = { #where your society currency is written
+		name = "GFX_society_currency_blood_staff"
+		texturefile = "gfx\\interface\\societies\\society_currency_blood_staff.tga"
+	}
+	
+	spriteType = { #the background for the society event
+		name = "GFX_event_window_society_quest_background_blood_staff"
+		textureFile = "gfx/interface/society_quest/mission_bg_blood_staff.tga"
+	}
+}

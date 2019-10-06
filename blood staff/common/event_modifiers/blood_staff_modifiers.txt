@@ -1,0 +1,118 @@
+blood_staff_demonblood = {
+	is_visible = { 
+		OR = {
+			society_member_of = blood_staff
+			character = FROM
+		}
+	}
+	health = 1
+	diplomacy = 1
+	stewardship = 1
+	martial = 1
+	intrigue = 1
+	learning = 1
+	icon = 75
+}
+
+blood_staff_magic_fortress = {
+	is_visible = { 
+		OR = {
+			society_member_of = blood_staff
+			character = FROM
+		}
+	}
+	icon = 13
+	tax_income = 1
+	garrison_size = 1
+	fort_level = 1
+}
+
+blood_staff_tattoo_martial = {
+	is_visible = { 
+		OR = {
+			society_member_of = blood_staff
+			character = FROM
+		}
+	}
+	icon = 52
+	martial = 2
+}
+
+blood_staff_tattoo_intrigue = {
+	is_visible = { 
+		OR = {
+			society_member_of = blood_staff
+			character = FROM
+		}
+	}
+	icon = 52
+	intrigue = 2
+}
+
+blood_staff_tattoo_learning = {
+	is_visible = { 
+		OR = {
+			society_member_of = blood_staff
+			character = FROM
+		}
+	}
+	icon = 52
+	learning = 2
+}
+
+blood_staff_tattoo_fertility = {
+	is_visible = { 
+		OR = {
+			society_member_of = blood_staff
+			character = FROM
+		}
+	}
+	icon = 52
+	fertility = 0.25
+}
+
+blood_staff_tattoo_fail = {
+	is_visible = { 
+		OR = {
+			society_member_of = blood_staff
+			character = FROM
+		}
+	}
+	icon = 53
+	health = -0.5
+	diplomacy = -1
+	stewardship = -1
+	martial = -1
+	intrigue = -1
+	learning = -1
+}
+
+blood_staff_traps = {
+	is_visible = { 
+		OR = {
+			society_member_of = blood_staff
+			character = FROM
+		}
+	}
+	icon = 14
+	defensive_plot_power_modifier = 0.2
+	intrigue = 1
+}
+
+induct_into_society_cooldown_timer = { icon = 1 }
+
+resist_fel_decision_cooldown_timer = { icon = 1 }
+
+resist_fel_decision_cooldown_timer_2 = { icon = 1 }
+
+artefact_hunt_decision_cooldown_timer = { icon = 1 }
+
+write_magic_theory_decision_cooldown_timer = { icon = 1 }
+
+dark_spell_cooldown_timer = { icon = 1 }
+
+life_spell_cooldown_timer = { icon = 1 }
+
+light_spell_cooldown_timer = { icon = 1 }
+
+avoid_disease_cooldown_timer = { icon = 1 }

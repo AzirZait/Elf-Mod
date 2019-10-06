@@ -1,0 +1,508 @@
+blood_staff = { #society code name
+	primary_attribute = learning
+	society_ranks_gfx = five_ranks
+	opinion_to_other_members = +10
+	opinion_per_rank_above = +10
+	opinion_to_pretenders = -40
+	opinion_to_perceived_members = -40
+	society_rank_up_decision = request_to_rank_up_within_blood_staff
+	sound = hermetic_society_interface
+	is_secret = yes
+	criminal = no
+	is_religious = no
+	devil_worshipper = no
+	society_influence = yes
+	non_interference = { #AI will avoid messing with each others
+		always = no
+	}
+	
+	active = { #if its on by default or not
+		#default to always active, will start empty unless "indestructible = yes" and "startup_populate" are filled.
+	}
+	
+	indestructible = yes #if it can be destroyed and if not will add members up to the start-up limit
+	
+	can_join_society = { #add restriction for joining
+		hidden_trigger = {
+			NAND = { #AI cannot join if the society first rank is full
+				ai = yes
+				NOT = { has_character_flag = blood_staff_inducted_into_society }
+				is_society_rank_full = { 
+					society = blood_staff
+					rank = 1
+				}
+			}
+		}
+		OR = {	trait = creature_blood_elf
+		trait = creature_felblood_elf
+		trait = creature_banshee
+		OR = {
+			AND = {
+				is_female = yes
+				OR = { trait = creature_human
+					  trait = being_demon
+				}
+			}
+		trait = creature_high_elf
+		trait = creature_highborne
+		trait = creature_night_elf
+			}
+	}
+		OR = {
+				has_mage_trait_trigger = yes
+				is_necromancer_class_trigger = yes
+				is_warlock_class_trigger = yes
+				is_death_knight_class_trigger = yes
+		    }
+		OR = {
+				religion = arcane_religion
+				religion = illidari
+				religion = shadowlander
+				religion = cult_of_sunwell	
+		}
+		age = 16
+		any_society_member = { society_member_of = blood_staff }
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
+		}
+		hidden_trigger = {
+			OR = {
+				NOT = { has_character_flag = society_join_block }
+				AND = {
+					has_character_flag = society_join_block
+					has_character_flag = blood_staff_inducted_into_society
+				}
+			}
+		}
+	}
+
+	show_society = { #society will appear in the list if these are met
+		any_society_member = { society_member_of = blood_staff }
+		OR = {	trait = creature_blood_elf
+		trait = creature_felblood_elf
+		trait = creature_banshee
+		OR = {
+			AND = {
+				is_female = yes
+				OR = { trait = creature_human
+					  trait = being_demon
+				}
+			}
+		trait = creature_high_elf
+		trait = creature_highborne
+		trait = creature_night_elf
+			}
+	}
+	}
+	
+	potential = { #will kick from society if these are no longer met
+		OR = {
+				religion = arcane_religion
+				religion = illidari
+				religion = shadowlander
+				religion = cult_of_sunwell
+		    }
+	}
+	
+	society_rank = { #society ranks
+		level = 1
+		limit = 100
+		startup_limit = 10
+		modifier = {
+			is_visible = {
+				OR = {
+					society_member_of = blood_staff
+					FROM = { is_society_discovered = yes }
+				}
+			}
+			monthly_character_piety = 0.125
+			learning = 0.25
+			martial = 0.125
+			build_time_temple_modifier = -0.05
+			build_cost_temple_modifier = -0.05
+			rel_head_opinion = 5
+		}
+		decisions = { #rank based decisions power
+			blood_staff_artefact_hunt
+			blood_staff_magic_fortress
+			blood_staff_resist_fel
+			blood_staff_jealousy_spell
+		}
+	}
+	
+	society_rank = {
+		level = 2
+		limit = 100
+		startup_limit = 15
+		modifier = {
+			is_visible = {
+				OR = {
+					society_member_of = blood_staff
+					FROM = { is_society_discovered = yes }
+				}
+			}
+			monthly_character_piety = 0.25
+			learning = 0.5
+			martial = 0.25
+			build_time_temple_modifier = -0.1
+			build_cost_temple_modifier = -0.1
+			rel_head_opinion = 10
+		}
+		decisions = {
+			blood_staff_master_of_flame
+			blood_staff_demonblood
+			blood_staff_life_purification_spell
+		}
+	}
+	
+	society_rank = {
+		level = 3
+		limit = 50
+		startup_limit = 5
+		modifier = {
+			is_visible = {
+				OR = {
+					society_member_of = blood_staff
+					FROM = { is_society_discovered = yes }
+				}
+			}
+			monthly_character_piety = 0.5
+			learning = 1
+			martial = 0.5
+			build_time_temple_modifier = -0.2
+			build_cost_temple_modifier = -0.2
+			rel_head_opinion = 15
+		}
+		decisions = {
+			blood_staff_magic_tattoo
+			blood_staff_become_blood_mage_passive
+			blood_staff_prolong_life
+		}
+	}
+
+	society_rank = {
+		level = 4
+		limit = 10
+		startup_limit = 2
+		modifier = {
+			is_visible = {
+				OR = {
+					society_member_of = blood_staff
+					FROM = { is_society_discovered = yes }
+				}
+			}
+			monthly_character_piety = 1.5
+			learning = 2
+			martial = 1
+			build_time_temple_modifier = -0.3
+			build_cost_temple_modifier = -0.3
+			rel_head_opinion = 20
+		}
+		decisions = {
+			blood_staff_culture_convert_county
+			blood_staff_improve_province
+			blood_staff_write_magic_theory
+		}
+	}
+	
+	society_rank = {
+		level = 5
+		limit = 1
+		startup_limit = 1
+		modifier = {
+			is_visible = {
+				OR = {
+					society_member_of = blood_staff
+					FROM = { is_society_discovered = yes }
+				}
+			}
+			monthly_character_piety = 1.5
+			learning = 3
+			martial = 2
+			build_time_temple_modifier = -0.4
+			build_cost_temple_modifier = -0.4
+			rel_head_opinion = 25
+		}
+		decisions = {
+			blood_staff_become_grand_magister_passive
+		}
+	}
+	plots = {
+	}
+	
+	monthly_currency_gain = { #how much society currency they gain
+		name = blood_staff_currency #localization name of the society currency, also see custom_localization
+		
+		per_attribute = { #based on attribute
+    		name = learning
+    		value = 0.5
+    	}
+		has_trait = {
+			trait = erudite
+			value = 3
+		}
+		has_trait = {
+			trait = scholar
+			value = 3
+		}
+		has_trait = {
+			trait = greedy
+			value = 3
+		}
+		has_trait = {
+			trait = schemer
+			value = 3
+		}
+		has_trait = {
+			trait = strong
+			value = 1
+		}
+		has_trait = {
+			trait = robust
+			value = 1
+		}
+		has_trait = {
+			trait = genius
+			value = 1
+		}
+		has_trait = {
+			trait = quick
+			value = 1
+		}
+		has_trait = {
+			trait = shrewd
+			value = 1
+		}
+		has_trait = {
+			trait = diligent
+			value = 1
+		}
+		has_trait = {
+			trait = patient
+			value = 1
+		}
+		has_trait = {
+			trait = gluttonous
+			value = 1
+		}
+		has_trait = {
+			value = -10
+			trait = possessed
+		}
+		has_trait = {
+			value = -5
+			trait = lunatic
+		}
+		has_trait = {
+			value = -2
+			trait = cannibal
+		}
+		has_trait = {
+			value = -1
+			trait = weak
+		}
+		has_trait = {
+			value = -0.5
+			trait = craven
+		}
+		has_trait = {
+			OR = {
+				trait = class_mage_1
+				trait = class_warlock_1
+				trait = class_death_knight_1
+				trait = class_necromancer_1
+		    }
+			value = 4
+		}
+		has_trait = {
+			OR = {
+				trait = class_mage_2
+				trait = class_warlock_2
+				trait = class_death_knight_2
+				trait = class_necromancer_2
+		    }
+			value = 6
+		}
+		has_trait = {
+			OR = {
+				trait = class_mage_3
+				trait = class_warlock_3
+				trait = class_death_knight_3
+				trait = class_necromancer_3
+		    }
+			value = 8
+		}
+		has_trait = {
+			OR = {
+				trait = class_mage_4
+				trait = class_warlock_4
+				trait = class_death_knight_4
+				trait = class_necromancer_4
+		    }
+			value = 10
+		}
+		has_trait = {
+			OR = {
+				trait = class_mage_5
+				trait = class_warlock_5
+				trait = class_death_knight_5
+				trait = class_necromancer_5
+		    }
+			value = 12
+		}
+		has_trait = {
+			OR = {
+				trait = class_mage_6
+				trait = class_warlock_6
+				trait = class_death_knight_6
+				trait = class_necromancer_6
+		    }
+			value = 14
+		}
+		has_trait = {
+			OR = {
+				trait = class_mage_7
+				trait = class_warlock_7
+				trait = class_death_knight_7
+				trait = class_necromancer_7
+		    }
+			value = 16
+		}
+		has_trait = {
+			OR = {
+				trait = class_mage_8
+				trait = class_warlock_8
+				trait = class_death_knight_8
+				trait = class_necromancer_8
+		    }
+			value = 18
+		}
+		has_trait = {
+			OR = {
+				trait = class_mage_9
+				trait = class_warlock_9
+				trait = class_death_knight_9
+				trait = class_necromancer_9
+		    }
+			value = 20
+		}
+		has_trait = {
+			OR = {
+				trait = class_mage_10
+				trait = class_warlock_10
+				trait = class_death_knight_10
+				trait = class_necromancer_10
+		    }
+			value = 22
+		}
+		
+		society_rank = {
+			rank = 4
+			value = 10
+		}
+		
+		triggered_gain = { #based on any trigger you can think about
+			desc = "society_gain_dragon_culture_tooltip" #what will appear on the tooltip, you have to write the number itself, see the localization file
+			trigger = {
+				culture = blood_elf
+			}
+			value = 10
+		}
+	}
+
+	member_score_per_attribute = 5 #scores, mostly about who will be the bext leader
+	member_score_per_rank = 100
+
+	member_score = {
+		value = 10
+
+		modifier = {
+			culture = blood_elf
+			factor = 3
+		}
+		modifier = {
+			trait = class_mage_1
+			factor = 0.6
+		}
+		modifier = {
+			trait = class_mage_2
+			factor = 0.7
+		}
+		modifier = {
+			trait = class_mage_3
+			factor = 0.8
+		}
+		modifier = {
+			trait = class_mage_4
+			factor = 0.9
+		}
+		modifier = {
+			trait = class_mage_5
+			factor = 1
+		}
+		modifier = {
+			trait = class_mage_6
+			factor = 1.2
+		}
+		modifier = {
+			trait = class_mage_7
+			factor = 1.4
+		}
+		modifier = {
+			trait = class_mage_8
+			factor = 1.6
+		}
+		modifier = {
+			trait = class_mage_9
+			factor = 1.8
+		}
+		modifier = {
+			trait = class_mage_10
+			factor = 2.0
+		}
+	}
+	
+	startup_populate = {
+		trigger = {
+			year = 583
+			ai = yes
+			controls_religion = no
+			AND = {
+					OR = {	trait = creature_blood_elf
+					trait = creature_felblood_elf
+					trait = creature_banshee
+					OR = {
+						AND = {
+							is_female = yes
+							OR = { trait = creature_human
+								  trait = being_demon
+							}
+						}
+					trait = creature_high_elf
+					trait = creature_highborne
+					trait = creature_night_elf
+						}
+				}
+					OR = {
+							religion = arcane_religion
+							religion = illidari
+							religion = shadowlander
+							religion = cult_of_sunwell
+					    }
+					OR = {
+							has_mage_trait_trigger = yes
+							is_necromancer_class_trigger = yes
+							is_warlock_class_trigger = yes
+							is_death_knight_class_trigger = yes
+					    }
+		    }
+			is_in_society = no
+			NOT = { higher_tier_than = DUKE }
+			NOR = {
+				mercenary = yes
+				holy_order = yes
+			}
+		}
+	}
+}
