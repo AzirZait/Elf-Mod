@@ -31,28 +31,25 @@ GetBloodStaffRankUpTooltip_Standard_Rank4;Has §YLife Energy§! greater or equal t
 society_gain_blood_staff_tooltip;Is a Elf: §G+10.0§!;;;;;;;;;x # §G mean green;;;;
 # quests;;;;;;;;;;;;;;
 quest_blood_staff_induct_child;Induct Descendant;;;;;;;;;;;;;x
-quest_blood_staff_induct_child_desc;As the blood of dragons flows through your veins, it follows that your descendants do as well. Choose one from among them and induct them into the society.;;;;;;;;;;;;;x
+quest_blood_staff_induct_child_desc;Your body has a very good proximity to blood magic. Probably your descendants will also become great blood magicians. Select one of them.;;;;;;;;;;;;;x
 quest_blood_staff_induct_child_tooltip;To complete this mission you need to §Gright-click§! on the portrait of your target and choose to §YInduct§! them.;;;;;;;;;;;;;x
 quest_blood_staff_intrigue_focus;Pick the Intrigue Focus;;;;;;;;;;;;;x
-quest_blood_staff_intrigue_focus_desc;While all dragons guard their secrets and treasure vaults carefully, there comes a time when even the most meticulous must focus on staying one step ahead of would-be pursuers. It is time for you to focus on intrigue.;;;;;;;;;;;;;x
+quest_blood_staff_intrigue_focus_desc;While all mages guard their secrets and learn new spells, there comes a time when even the most meticulous must focus on staying one step ahead of would-be rivals. It is time for you to focus on intrigue.;;;;;;;;;;;;;x
 quest_blood_staff_intrigue_focus_tooltip;To complete this mission, pick the §Y'Intrigue'§! focus in the Character screen.;;;;;;;;;;;;;x
 quest_blood_staff_amass_wealth;Amass Arcane Energy;;;;;;;;;;;;;x
-quest_blood_staff_amass_wealth_desc;Nothing matters more to mages than the energy. Power and knowlege is ours way. Do whatever it takes to fill your labaratory with arcane cristals.;;;;;;;;;;;;;x
-quest_blood_staff_amass_wealth_tooltip;To complete this mission, amass 500 gold and select §Y'Everything is ready to start the ritual'§! in the Intrigue Menu.;;;;;;;;;;;;;x
+quest_blood_staff_amass_wealth_desc;Energy is very important to magicians. Our path is power and the search for new knowledge. Do whatever you need to fill your laboratory with arcane crystals.;;;;;;;;;;;;;x
+quest_blood_staff_amass_wealth_tooltip;To complete this mission, amass 500 gold and select §Y'Amass Arcane Energy'§! in the Intrigue Menu.;;;;;;;;;;;;;x
 quest_blood_staff_become_grand_magister;Become Grand Magister!;;;;;;;;;;;;;x
 quest_blood_staff_become_grand_magister_desc;Everything you have been working towards for years has been leading up to this moment. You are at last ready to unleash your true ambitions.;;;;;;;;;;;;;x
 quest_blood_staff_become_grand_magister_tooltip;To complete this mission, select §Y'Become Grand Magister!'§! in the Intrigue Menu.;;;;;;;;;;;;;x
 quest_blood_staff_become_blood_mage;Become Blood Mage!;;;;;;;;;;;;;x
 quest_blood_staff_become_blood_mage_desc;Everything you have been working towards for years has been leading up to this moment. You are at last ready to unleash your true ambitions.;;;;;;;;;;;;;x
 quest_blood_staff_become_blood_mage_tooltip;To complete this mission, select §Y'Become Blood Mage!'§! in the Intrigue Menu.;;;;;;;;;;;;;x
-quest_blood_staff_avoid_disease;Outlast Disease;;;;;;;;;;;;;x
-quest_blood_staff_avoid_disease_desc;Harmless to ordinary humans, a lethal virus is spreading towards your realm. Anybody could be a carrier... only by going into seclusion is there a chance of surviving this invisible killer.;;;;;;;;;;;;;x
-quest_blood_staff_avoid_disease_tooltip;To complete this mission, remain in seclusion until [Root.Society.GetName] contact you again.;;;;;;;;;;;;;x
-quest_blood_staff_resist_evil;Resist Evil;;;;;;;;;;;;;x
-quest_blood_staff_resist_evil_desc;Dragons are persecuted by many as beings of great evil. Why validate these accusations by clinging to moral insanity? You must cleanse your mind so that you will be flawless before [Root.Religion.GetHighGodName].;;;;;;;;;;;;;x
-quest_blood_staff_resist_evil_tooltip;To complete this mission, select §Y'Resist Evil'§! in the Intrigue Menu.;;;;;;;;;;;;;x
+quest_blood_staff_resist_evil;Resist Fel;;;;;;;;;;;;;x
+quest_blood_staff_resist_evil_desc;Blood mages are persecuted by many as villains. Why validate these accusations by clinging to moral insanity? You must cleanse your mind so that you will be flawless before [Root.Religion.GetHighGodName].;;;;;;;;;;;;;x
+quest_blood_staff_resist_evil_tooltip;To complete this mission, select §Y'Resist Fel'§! in the Intrigue Menu.;;;;;;;;;;;;;x
 quest_blood_staff_decipher_secrets;Decipher Secrets;;;;;;;;;;;;;x
-quest_blood_staff_decipher_secrets_desc;The history of Dragons is long and storied. Many secrets and powers await those patient enough to study the dusty tomes of old. [Root.Society.GetName] have entrusted you with an encyphered scroll. Decipher its secrets and the knowledge of the ancients will be yours.;;;;;;;;;;;;;x
+quest_blood_staff_decipher_secrets_desc;The history of Elves is long and storied. Many secrets and powers await those patient enough to study the dusty tomes of old. [Root.Society.GetName] have entrusted you with an encyphered scroll. Decipher its secrets and the knowledge of the ancients will be yours.;;;;;;;;;;;;;x
 quest_blood_staff_decipher_secrets_tooltip;To complete this mission you have to carefully study the provided scrolls to reveal new insights.;;;;;;;;;;;;;x
 # decisions;;;;;;;;;;;;;;
 blood_staff_prolong_life;Prolong Life;;;;;;;;;;;;;x
