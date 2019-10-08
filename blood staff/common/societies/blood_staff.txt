@@ -36,11 +36,20 @@ blood_staff = { #society code name
 		OR = {	trait = creature_blood_elf
 		trait = creature_felblood_elf
 		trait = creature_banshee
+		trait = creature_nathrezim
+		trait = creature_eredar
+		trait = creature_sayaadi
+		trait = creature_shivarra
+		trait = creature_satyr
 		OR = {
 			AND = {
-				is_female = yes
-				OR = { trait = creature_human
-					  trait = being_demon
+				trait = creature_human
+				trait = creature_draenei
+				OR = { 
+					is_female = yes
+					trait = blood_high_elf
+					trait = blood_night_elf
+					trait = blood_highborne
 				}
 			}
 		trait = creature_high_elf
@@ -82,11 +91,20 @@ blood_staff = { #society code name
 		OR = {	trait = creature_blood_elf
 		trait = creature_felblood_elf
 		trait = creature_banshee
+		trait = creature_nathrezim
+		trait = creature_eredar
+		trait = creature_sayaadi
+		trait = creature_shivarra
+		trait = creature_satyr
 		OR = {
 			AND = {
-				is_female = yes
-				OR = { trait = creature_human
-					  trait = being_demon
+				trait = creature_human
+				trait = creature_draenei
+				OR = { 
+					is_female = yes
+					trait = blood_high_elf
+					trait = blood_night_elf
+					trait = blood_highborne
 				}
 			}
 		trait = creature_high_elf
@@ -472,18 +490,27 @@ blood_staff = { #society code name
 					OR = {	trait = creature_blood_elf
 					trait = creature_felblood_elf
 					trait = creature_banshee
+					trait = creature_nathrezim
+					trait = creature_eredar
+					trait = creature_sayaadi
+					trait = creature_shivarra
+					trait = creature_satyr
 					OR = {
 						AND = {
-							is_female = yes
-							OR = { trait = creature_human
-								  trait = being_demon
+							trait = creature_human
+							trait = creature_draenei
+							OR = { 
+								is_female = yes
+								trait = blood_high_elf
+								trait = blood_night_elf
+								trait = blood_highborne
 							}
 						}
 					trait = creature_high_elf
 					trait = creature_highborne
 					trait = creature_night_elf
 						}
-				}
+					}
 					OR = {
 							religion = arcane_religion
 							religion = illidari
