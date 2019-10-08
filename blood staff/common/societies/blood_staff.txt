@@ -43,8 +43,10 @@ blood_staff = { #society code name
 		trait = creature_satyr
 		OR = {
 			AND = {
-				trait = creature_human
-				trait = creature_draenei
+				OR {
+					trait = creature_human
+					trait = creature_draenei
+				}
 				OR = { 
 					is_female = yes
 					trait = blood_high_elf
@@ -98,8 +100,10 @@ blood_staff = { #society code name
 		trait = creature_satyr
 		OR = {
 			AND = {
-				trait = creature_human
-				trait = creature_draenei
+				OR {
+					trait = creature_human
+					trait = creature_draenei
+				}
 				OR = { 
 					is_female = yes
 					trait = blood_high_elf
@@ -497,8 +501,10 @@ blood_staff = { #society code name
 					trait = creature_satyr
 					OR = {
 						AND = {
-							trait = creature_human
-							trait = creature_draenei
+							OR {
+								trait = creature_human
+								trait = creature_draenei
+							}
 							OR = { 
 								is_female = yes
 								trait = blood_high_elf
@@ -510,7 +516,7 @@ blood_staff = { #society code name
 					trait = creature_highborne
 					trait = creature_night_elf
 						}
-					}
+							}
 					OR = {
 							religion = arcane_religion
 							religion = illidari
