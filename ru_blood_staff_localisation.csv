@@ -1,91 +1,91 @@
-f;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+f;RUSSIAN;;;;;;;;;;;;;x
 #Make sure that this file in encoded in ANSI;;;;;;;;;;;;;;
-#The society name;;;;;;;;;;;;;;
-blood_staff;The Blood Staff;;;;;;;;;;;;;x
+#Название сообщества;;;;;;;;;;;;;;
+blood_staff;Кровавый Посох;;;;;;;;;;;;;x
 string_blood_staff;blood_staff;;;;;;;;;;;;;x
-#Rank up button name;;;;;;;;;;;;;;
-request_to_rank_up_within_blood_staff;Request to rank up.;;;;;;;;;;;;;x
+#Название кнопки повышения уровня;;;;;;;;;;;;;;
+request_to_rank_up_within_blood_staff;Запрос на повышение ранга.;;;;;;;;;;;;;x
 request_to_rank_up_within_blood_staff_tt;[GetAltSocietyRankUpTooltip];;;;;;;;;;;;;x
-#The society description;;;;;;;;;;;;;;
-blood_staff_desc;Mystical heroes, blood mages are high elves adept at controlling magic, blood and life. The Prince received predictions of the future and decided to change the fate of the elves. The high elves began to turn to the darkest parts of magic, abandoning the water and frost spells of the Kirin Tor for the fire and blood of what some people fear to be demonic magic. The most famous and the first of the blood mages was Kael'thas Sunstrider. All hail Kael'thas!;;;;;;;;;;;;;x
-#Leader description;;;;;;;;;;;;;;
-blood_staff_leader_desc;Grand Blood Magister(Magistrix). Strongest magician. He will destroy the world for Quel'Thalas. The great defender of Quel'Thalas.;;;;;;;;;;;;;x
-#Name of the ranks;;;;;;;;;;;;;;
-blood_staff_rank_1_female;Disciple;;;;;;;;;;;;;x
-blood_staff_rank_2_female;Mage;;;;;;;;;;;;;x
-blood_staff_rank_3_female;High Mage;;;;;;;;;;;;;x
-blood_staff_rank_4_female;Archmage;;;;;;;;;;;;;x
-blood_staff_rank_5_female;Grand  Magistrix;;;;;;;;;;;;;x
-blood_staff_rank_1_male;Disciple;;;;;;;;;;;;;x
-blood_staff_rank_2_male;Mage;;;;;;;;;;;;;x
-blood_staff_rank_3_male;High Mage;;;;;;;;;;;;;x
-blood_staff_rank_4_male;Archmage;;;;;;;;;;;;;x
-blood_staff_rank_5_male;Grand  Magister;;;;;;;;;;;;;x
-#Name of the currency;;;;;;;;;;;;;;
-blood_staff_currency;Life Energy;;;;;;;;;;;;;x
-GetBloodStaffRankUpTooltip_Standard_Rank1;Has §YLife Energy§! greater or equal to 750 and is at least an Mage.;;;;;;;;;;;;;x
-GetBloodStaffRankUpTooltip_Standard_Rank2;Has §YLife Energy§! greater or equal to 1000 and is at least an High Mage.;;;;;;;;;;;;;x
-GetBloodStaffRankUpTooltip_Standard_Rank3;Has §YLife Energy§! greater or equal to 2000 and is at least an Archmage.;;;;;;;;;;;;;x
-GetBloodStaffRankUpTooltip_Standard_Rank4;Has §YLife Energy§! greater or equal to 3500 and is at least an Grand  Magister.;;;;;;;;;;;;;x
+#Описание сообщества;;;;;;;;;;;;;;
+blood_staff_desc;Мистические герои эльфов, маги крови это эльфы способные контролировать магию, кровь и жизнь. Принц получил предсказания будущего и решил изменить судьбу эльфов. Высшие эльфы отказались от обычной магии и стали использовать магию крови и демонический огонь. Самым известным и первым из магов крови стал Кельтас Солнечный Скиталец. Мы храним ему верность.;;;;;;;;;;;;;x
+#Описание лидера сообщества;;;;;;;;;;;;;;
+blood_staff_leader_desc;Великий Магистр Крови. Сильнейший маг. Он уничтожит мир за Кельталас. Величайший защитник Кельталаса.;;;;;;;;;;;;;x
+#Описания рангов сообщества;;;;;;;;;;;;;;
+blood_staff_rank_1_female;Ученик;;;;;;;;;;;;;x
+blood_staff_rank_2_female;Маг;;;;;;;;;;;;;x
+blood_staff_rank_3_female;Высший Маг;;;;;;;;;;;;;x
+blood_staff_rank_4_female;Архимаг;;;;;;;;;;;;;x
+blood_staff_rank_5_female;Великий Магистр;;;;;;;;;;;;;x
+blood_staff_rank_1_male;Ученик;;;;;;;;;;;;;x
+blood_staff_rank_2_male;Маг;;;;;;;;;;;;;x
+blood_staff_rank_3_male;Высший Маг;;;;;;;;;;;;;x
+blood_staff_rank_4_male;Архимаг;;;;;;;;;;;;;x
+blood_staff_rank_5_male;Великий Магистр;;;;;;;;;;;;;x
+#Название валюты сообщества;;;;;;;;;;;;;;
+blood_staff_currency;Жизненная Энергия;;;;;;;;;;;;;x
+GetBloodStaffRankUpTooltip_Standard_Rank1;Нужно потратить 750 §YЖизненной Энергии§! и ты станешь Магом.;;;;;;;;;;;;;x
+GetBloodStaffRankUpTooltip_Standard_Rank2;Нужно потратить 1000 §YЖизненной Энергии§! и ты станешь Высшим Магом.;;;;;;;;;;;;;x
+GetBloodStaffRankUpTooltip_Standard_Rank3;Нужно потратить 2000 §YЖизненной Энергии§! и ты станешь Архимагом.;;;;;;;;;;;;;x
+GetBloodStaffRankUpTooltip_Standard_Rank4;Нужно потратить 3500 §YЖизненной Энергии§! и ты станешь Великим Магистром.;;;;;;;;;;;;;x
 #The localization for the currency gain;;;;;;;;;;;;;;
-society_gain_blood_staff_tooltip;Is a Elf: §G+10.0§!;;;;;;;;;x # §G mean green;;;;
-# quests;;;;;;;;;;;;;;
-quest_blood_staff_induct_child;Induct Descendant;;;;;;;;;;;;;x
-quest_blood_staff_induct_child_desc;Your body has a very good proximity to blood magic. Probably your descendants will also become great blood magicians. Select one of them.;;;;;;;;;;;;;x
-quest_blood_staff_induct_child_tooltip;To complete this mission you need to §Gright-click§! on the portrait of your target and choose to §YInduct§! them.;;;;;;;;;;;;;x
-quest_blood_staff_intrigue_focus;Pick the Intrigue Focus;;;;;;;;;;;;;x
-quest_blood_staff_intrigue_focus_desc;While all mages guard their secrets and learn new spells, there comes a time when even the most meticulous must focus on staying one step ahead of would-be rivals. It is time for you to focus on intrigue.;;;;;;;;;;;;;x
-quest_blood_staff_intrigue_focus_tooltip;To complete this mission, pick the §Y'Intrigue'§! focus in the Character screen.;;;;;;;;;;;;;x
-quest_blood_staff_amass_wealth;Amass Arcane Energy;;;;;;;;;;;;;x
-quest_blood_staff_amass_wealth_desc;Energy is very important to magicians. Our path is power and the search for new knowledge. Do whatever you need to fill your laboratory with arcane crystals.;;;;;;;;;;;;;x
-quest_blood_staff_amass_wealth_tooltip;To complete this mission, amass 500 gold and select §Y'Amass Arcane Energy'§! in the Intrigue Menu.;;;;;;;;;;;;;x
-quest_blood_staff_become_grand_magister;Become Grand Magister!;;;;;;;;;;;;;x
-quest_blood_staff_become_grand_magister_desc;Everything you have been working towards for years has been leading up to this moment. You are at last ready to unleash your true ambitions.;;;;;;;;;;;;;x
-quest_blood_staff_become_grand_magister_tooltip;To complete this mission, select §Y'Become Grand Magister!'§! in the Intrigue Menu.;;;;;;;;;;;;;x
-quest_blood_staff_become_blood_mage;Become Blood Mage!;;;;;;;;;;;;;x
-quest_blood_staff_become_blood_mage_desc;Everything you have been working towards for years has been leading up to this moment. You are at last ready to unleash your true ambitions.;;;;;;;;;;;;;x
-quest_blood_staff_become_blood_mage_tooltip;To complete this mission, select §Y'Become Blood Mage!'§! in the Intrigue Menu.;;;;;;;;;;;;;x
-quest_blood_staff_resist_evil;Resist Fel;;;;;;;;;;;;;x
-quest_blood_staff_resist_evil_desc;Blood mages are persecuted by many as villains. Why validate these accusations by clinging to moral insanity? You must cleanse your mind so that you will be flawless before [Root.Religion.GetHighGodName].;;;;;;;;;;;;;x
-quest_blood_staff_resist_evil_tooltip;To complete this mission, select §Y'Resist Fel'§! in the Intrigue Menu.;;;;;;;;;;;;;x
-quest_blood_staff_decipher_secrets;Decipher Secrets;;;;;;;;;;;;;x
-quest_blood_staff_decipher_secrets_desc;The history of Elves is long and storied. Many secrets and powers await those patient enough to study the dusty tomes of old. [Root.Society.GetName] have entrusted you with an encyphered scroll. Decipher its secrets and the knowledge of the ancients will be yours.;;;;;;;;;;;;;x
-quest_blood_staff_decipher_secrets_tooltip;To complete this mission you have to carefully study the provided scrolls to reveal new insights.;;;;;;;;;;;;;x
-# decisions;;;;;;;;;;;;;;
-blood_staff_prolong_life;Prolong Life;;;;;;;;;;;;;x
-blood_staff_prolong_life_desc;Absorb nature 's life energy.;;;;;;;;;;;;;x
-blood_staff_prolong_life_power_desc;Enables §Gright-clicking§! on character's portrait, in order to rejuvenate, in exchange for §Y[Root.Society.GetCurrency]§!. Chances of side effects scale with mage level.;;;;;;;;;;;;;x
-blood_staff_prolong_life_spell_tooltip;Using the magic of blood, you seek an opportunity to add 1 health the organism of someone.\nThis very strong spell to rejuvenate the friends.;;;;;;;;;;;;;x
-blood_staff_life_purification_spell;Life Purification;;;;;;;;;;;;;x
-blood_staff_life_purification_spell_desc;Cleaning the body with life energy using blood magic.;;;;;;;;;;;;;x
-blood_staff_life_purification_spell_power_desc;Enables §Gright-clicking§! on character's portrait, in order to purificate, in exchange for §Y[Root.Society.GetCurrency]§!. Chances of side effects scale with mage level.;;;;;;;;;;;;;x
-blood_staff_life_purification_spell_tooltip;Using the magic of blood, you seek an opportunity to heal the organism of someone.\nThis very strong spell purificate the health of the friends.;;;;;;;;;;;;;x
-blood_staff_jealousy_spell;Drawing life;;;;;;;;;;;;;x
-blood_staff_jealousy_spell_desc;Using the magic of blood, you seek an opportunity to draw life of the enemy. This very strong spell undermines the health of the rival and restore your mana.;;;;;;;;;;;;;x
-blood_staff_jealousy_spell_power_desc;Enables §Gright-clicking§! on character's portrait, in order to gain curse, in exchange for §Y[Root.Society.GetCurrency]§!. Chances of side effects scale with mage level.;;;;;;;;;;;;;x
-blood_staff_jealousy_spell_tooltip;Using the magic of blood, you seek an opportunity to weaken the organism of the enemy.\nThis very strong curse undermines the health of the rival.;;;;;;;;;;;;;x
-blood_staff_write_magic_theory;Create Grimoire;;;;;;;;;;;;;x
-blood_staff_write_magic_theory_desc;Using your knowledge of magic, you can write a magic book that will be a synergy of your study of magic.;;;;;;;;;;;;;x
-blood_staff_artefact_hunt;Search for Magic Artifact;;;;;;;;;;;;;x
-blood_staff_artefact_hunt_desc;By poring over ancient tomes you can attempt to uncover a new magic artifact.;;;;;;;;;;;;;x
-blood_staff_write_magic_theory_tooltip;Determine the area of magic you wish write to the book.;;;;;;;;;;;;;x
-blood_staff_artefact_hunt_tooltip;Determine the degree of effort you wish to devote to the search.\nSuccess varies depending on the amount of §Y[Root.Society.GetCurrency]§! invested.;;;;;;;;;;;;;x
-blood_staff_write_magic_theory_power_desc;Determine the area of magic you wish write to the book.;;;;;;;;;;;;;x
-blood_staff_artefact_hunt_power_desc;Enables the decision to search for a elf artifact, in exchange for §Y[Root.Society.GetCurrency]§!. Chances of success and failure vary depending on the amount of §Y[Root.Society.GetCurrency]§! invested. Characters of Blood elf culture can discover additional artifacts.;;;;;;;;;;;;;x
-blood_staff_magic_fortress;Construct Magic Fortress;;;;;;;;;;;;;x
-blood_staff_magic_fortress_desc;Begin construction of magic fortress. It will be the perfect place to store gold and other artifacts...;;;;;;;;;;;;;x
-blood_staff_magic_fortress_power_desc;Enables §Gright-clicking§! any Castle holdings you own to increase their gold and recruits income for fifty years, in exchange for §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
-blood_staff_resist_fel;Resist Fel;;;;;;;;;;;;;x
-blood_staff_resist_fel_desc;[Root.Society. GetName] have always been proud of our mental strength, we seek to get rid of the bad influence of magic that weakens us.;;;;;;;;;;;;;x
-blood_staff_resist_fel_tooltip;Devote your time to meditation to get rid of stress and madness.;;;;;;;;;;;;;x
-blood_staff_resist_fel_power_desc;Enables the decision to go into seclusion for a short time to remove negative traits.;;;;;;;;;;;;;x
-blood_staff_amass_wealth_complete;Everything is ready to start the ritual;;;;;;;;;;;;;x
-blood_staff_amass_wealth_complete_desc;With so much magic arcana energy in your lab, even blue dragons will envy you.;;;;;;;;;;;;;x
-blood_staff_amass_wealth_complete_tooltip;Completes the §Y'Amass Arcane'§! mission.;;;;;;;;;;;;;x
-blood_staff_master_of_flame;Unlock Demonic Fire;;;;;;;;;;;;;x
-blood_staff_master_of_flame_desc;Your diligent research into demonic secrets allows you to use new magic abilities on the battlefield.;;;;;;;;;;;;;x
+society_gain_blood_staff_tooltip;Это эльф: §G+10.0§!;;;;;;;;;x # §G mean green;;;;
+# Квесты;;;;;;;;;;;;;;
+quest_blood_staff_induct_child;Пригласить Потомка;;;;;;;;;;;;;x
+quest_blood_staff_induct_child_desc;Ваш организм обладает очень хорошей близостью к магии крови. Вероятно ваши потомки также станут великими магами крови. Выберите одного из них.;;;;;;;;;;;;;x
+quest_blood_staff_induct_child_tooltip;Для выполнения этой миссии вам необходимо § Gправый клик§! На портрете цели и выберите §YПригласить§! их.;;;;;;;;;;;;;x
+quest_blood_staff_intrigue_focus;Сфокусироваться на Интригах;;;;;;;;;;;;;x
+quest_blood_staff_intrigue_focus_desc;В то время как многие маги охраняют свои секреты и изучают новые заклинания, наступает время, когда даже самые усердные должны сосредоточиться на том, чтобы оставаться на один шаг впереди потенциальных соперников. Вам пора сосредоточиться на интриге.;;;;;;;;;;;;;x
+quest_blood_staff_intrigue_focus_tooltip;Для завершения этой миссии, выберете §Y'Интригу'§! как фокус для вашего персонажа.;;;;;;;;;;;;;x
+quest_blood_staff_amass_wealth;Накопить Тайную Энергию;;;;;;;;;;;;;x
+quest_blood_staff_amass_wealth_desc;Энергия очень важна для магов. Наш путь это власть и поиск новых знаний. Сделай все необходмое чтобы заполнить свою лабораторию тайными кристаллами.;;;;;;;;;;;;;x
+quest_blood_staff_amass_wealth_tooltip;Для выполнения миссии, накопи 500 золота и выбери §Y'Накопить Тайную Энергию'§! В меню интриги.;;;;;;;;;;;;;x
+quest_blood_staff_become_grand_magister;Стать Великим Магистром!;;;;;;;;;;;;;x
+quest_blood_staff_become_grand_magister_desc;Этот день наступил. Сможешь ли ты защитить Кельталас и его жителей от врагов? Доказать что твоя магическая сила и знания могут соперничать с великой Азшарой? Синии драконы лишь жилкие рептилии. Люди не способны достичь такой силы. Уверен что готов взять на себя ответсвенность за Кельталас?;;;;;;;;;;;;;x
+quest_blood_staff_become_grand_magister_tooltip;Для выполнения миссии выбери §Y'Стать Великим Магистром!'§! В меню интриги.;;;;;;;;;;;;;x
+quest_blood_staff_become_blood_mage;Стать Магом Крови!;;;;;;;;;;;;;x
+quest_blood_staff_become_blood_mage_desc;Все что ты делал на протижении многих лет привело тебя к этому моменту. Ты готов раскрыть свои истинные амбиции.;;;;;;;;;;;;;x
+quest_blood_staff_become_blood_mage_tooltip;Для выполнения миссии выбери §Y'Стать Магом Крови!'§! В меню интриги.;;;;;;;;;;;;;x
+quest_blood_staff_resist_evil;Сопротивляться Скверне!;;;;;;;;;;;;;x
+quest_blood_staff_resist_evil_desc;Кровавых магов считают злодеями и избегают. Зачем подтверждать их догадки и становится безумным идиотом? Ты должен очистить свой разум медитациями и быть чистым перед [Root.Religion.GetHighGodName].;;;;;;;;;;;;;x
+quest_blood_staff_resist_evil_tooltip;Для выполнения миссии выбери §Y'Сопротивляться Скверне!'§! В меню интриги.;;;;;;;;;;;;;x
+quest_blood_staff_decipher_secrets;Расшифруйте Тайны!;;;;;;;;;;;;;x
+quest_blood_staff_decipher_secrets_desc;История эльфов длинная и наполненная тайнами. Многие секреты и силы спрятанны в древних книгах, нам остается лишь найти эти скрытые знания. [Root.Society.GetName] дал тебе зашифрованный свиток. Расшифруй его и получи его секреты, знания будут твои если ты преуспеешь.;;;;;;;;;;;;;x
+quest_blood_staff_decipher_secrets_tooltip;Для завершения этой миссии необходимо тщательно изучать предоставленный свиток, чтобы раскрыть новые идеи касательно магии.;;;;;;;;;;;;;x
+# решения;;;;;;;;;;;;;;
+blood_staff_prolong_life;Продлить Жизнь;;;;;;;;;;;;;x
+blood_staff_prolong_life_desc;Поглотить энергию жизни природы для продления собственной жизни.;;;;;;;;;;;;;x
+blood_staff_prolong_life_power_desc;Разрешает §Gправый-клик§! на портрете персонажей, для возможности омолодить , в замен на §Y[Root.Society.GetCurrency]§!. В зависимости от уровня класса мага вероятность меняется.;;;;;;;;;;;;;x
+blood_staff_prolong_life_spell_tooltip;Используя магию крови вы можете добавить жизненой энергии живому организму.\nЭто сильное заклинание магии крови для омоложения.;;;;;;;;;;;;;x
+blood_staff_life_purification_spell;Очистка Жизненной Энергии;;;;;;;;;;;;;x
+blood_staff_life_purification_spell_desc;Очищение организма жизненно энергией с помощью магии крови.;;;;;;;;;;;;;x
+blood_staff_life_purification_spell_power_desc;Разрешает §Gправый-клик§! на портрете персонажей, для возможности очистить организм, в замен на §Y[Root.Society.GetCurrency]§!. В зависимости от уровня класса мага вероятность меняется.;;;;;;;;;;;;;x
+blood_staff_life_purification_spell_tooltip;Используя магию крови вы можете очистить организм от болезней и проклятий.\nЭто сильное заклинание магии крови для очистки организма.;;;;;;;;;;;;;x
+blood_staff_jealousy_spell;Высосать жизнь;;;;;;;;;;;;;x
+blood_staff_jealousy_spell_desc;Используя магию крови вы можете высосать немного жизненой энергии из врага.\nЭто сильное заклинание магии крови для ухудшения жизни врага и востановления маны.;;;;;;;;;;;;;x
+blood_staff_jealousy_spell_power_desc;Разрешает §Gправый-клик§! на портрете персонажей, для возможности высосать жизнь, в замен на §Y[Root.Society.GetCurrency]§!. В зависимости от уровня класса мага вероятность меняется.;;;;;;;;;;;;;x
+blood_staff_jealousy_spell_tooltip;Используя магию крови вы можете очистить организм от болезней и проклятий.\nЭто сильное заклинание магии крови для очистки организма.;;;;;;;;;;;;;x
+blood_staff_write_magic_theory;Создать Гримуар;;;;;;;;;;;;;x
+blood_staff_write_magic_theory_desc;Используя свои знания магии ты можешь написать магическую книгу которая будет синергией твоего изучения магии.;;;;;;;;;;;;;x
+blood_staff_artefact_hunt;Искать Магические Артефакты;;;;;;;;;;;;;x
+blood_staff_artefact_hunt_desc;Изучив древние свитки вы можете попытаться найти новый магический артефакт в древних руинах.;;;;;;;;;;;;;x
+blood_staff_write_magic_theory_tooltip;Выбери область магии по которой вы хотите написать магическую книгу.;;;;;;;;;;;;;x
+blood_staff_artefact_hunt_tooltip;Определи степень ресурсов которые ты готов потратить на поиск.\nУспех зависит от количества §Y[Root.Society.GetCurrency]§! инвестированных в поиски.;;;;;;;;;;;;;x
+blood_staff_write_magic_theory_power_desc;Позволяет написать магическую книгу в обмен на §Y[Root.Society.GetCurrency]§!. В зависимости от области изучения требуется разное количество инвистиций.;;;;;;;;;;;;;x
+blood_staff_artefact_hunt_power_desc;Позволяет искать артефакты в руинах эльфов в обмен на §Y[Root.Society.GetCurrency]§!. Шанс успеха зависит от количества инвестиций §Y[Root.Society.GetCurrency]§!. Высшие или кровавые эльфы могут найти дополнительные артефакты.;;;;;;;;;;;;;x
+blood_staff_magic_fortress;Построить Магический Форт;;;;;;;;;;;;;x
+blood_staff_magic_fortress_desc;Начать строительство магического форта. Прекрасное место для хранения золота и магических артефактов…;;;;;;;;;;;;;x
+blood_staff_magic_fortress_power_desc;Позволяет §Gправый-клик§! по любой територии с крепостью и это улучшает ее показатели прироста золота и рекрутов на 50 лет в обмен на §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
+blood_staff_resist_fel;Сопротивляться Скверне!;;;;;;;;;;;;;x
+blood_staff_resist_fel_desc;[Root.Society.GetName] всегда гордились своей ментальной силой, мы стремимся избавится от плохого влияния магии которое нас ослабляет.;;;;;;;;;;;;;x
+blood_staff_resist_fel_tooltip;Посвятите свое время медитации для того чтобы избавится от стресса и безумия.;;;;;;;;;;;;;x
+blood_staff_resist_fel_power_desc;Позволяет на короткое время уйти в уединение для устранения негативных признаков.;;;;;;;;;;;;;x
+blood_staff_amass_wealth_complete;Все готово для начала ритуала;;;;;;;;;;;;;x
+blood_staff_amass_wealth_complete_desc;С таким количеством энергии арканы в вашей лаборатории, вам будут завидовать даже синии драконы.;;;;;;;;;;;;;x
+blood_staff_amass_wealth_complete_tooltip;Завершить §Y'Накопить Тайную Энергию'§! мисию.;;;;;;;;;;;;;x
+blood_staff_master_of_flame;Изучить Демоническое Пламя;;;;;;;;;;;;;x
+blood_staff_master_of_flame_desc;Ваши усердные исследования демонических магических секретов позволяют использовать новые магические способности на поле боя.;;;;;;;;;;;;;x
 blood_staff_master_of_flame_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain a special Commander trait, in exchange for §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
-blood_staff_dragonheart;Absorb Eredar Blood;;;;;;;;;;;;;x
+blood_staff_dragonheart;Unlock Dragonheart;;;;;;;;;;;;;x
 blood_staff_dragonheart_desc;Your patient study of draconic secrets allows you to tap into your ancestry for increased endurance.;;;;;;;;;;;;;x
 blood_staff_dragonheart_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain a powerful character modifier, in exchange for §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
 blood_staff_become_grand_magister;Become Grand Magister;;;;;;;;;;;;;x

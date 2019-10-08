@@ -173,7 +173,6 @@ society_decisions = { #only available to members of a society
 
 		potential = {
 			society_member_of = blood_staff #which society
-			has_2_mana_trigger = yes
 			society_rank >= 4
 		OR = {
 				has_mage_trait_trigger = yes
@@ -188,6 +187,7 @@ society_decisions = { #only available to members of a society
 		}
 
 		allow = {
+			has_2_mana_trigger = yes
 			has_society_currency_minor_trigger = yes
 			custom_tooltip = {
 				text = tooltip_not_busy
@@ -256,10 +256,10 @@ society_decisions = { #only available to members of a society
 
 		potential = {
 			society_member_of = blood_staff #which society
-			has_2_mana_trigger = yes
 		}
 
 		allow = {
+			has_2_mana_trigger = yes
 			OR = {
 				has_quest = quest_blood_staff_resist_fel
 				custom_tooltip = {
@@ -296,6 +296,10 @@ society_decisions = { #only available to members of a society
 		}
 
 		effect = {
+			if = {
+				limit = { NOT = { trait = being_demon } }
+				remove_5_fel_corruption_effect = yes
+			}
 			remove_2_mana_effect = yes
 			custom_tooltip = {
 				text = blood_staff_resist_fel_tooltip
@@ -355,9 +359,11 @@ society_decisions = { #only available to members of a society
 	
 		potential = {
 			society_member_of = blood_staff
-			has_3_mana_trigger = yes
 			has_quest = quest_blood_staff_become_blood_mage
 			NOT = { has_character_flag = becoming_blood_mage }
+		}
+		allow {
+			has_3_mana_trigger = yes
 		}
 		
 		effect = {
@@ -382,8 +388,11 @@ society_decisions = { #only available to members of a society
 		potential = {
 			society_member_of = blood_staff
 			has_quest = quest_blood_staff_become_grand_magister
-			has_5_mana_trigger = yes
 			NOT = { has_character_flag = becoming_grand_magister }
+		}
+
+		allow {
+			has_5_mana_trigger = yes
 		}
 		
 		effect = {
@@ -590,22 +599,23 @@ targeted_decisions = {
 		ai_check_interval = 12
 		
 		potential = {
-			has_3_mana_trigger = yes
 			character = FROM
 			is_playable = yes
 			is_adult = yes
 			society_member_of = blood_staff
 			society_rank >= 2
 			NOT = { has_character_flag = choosing_warrior_training } #to stop you spamming the button
-			NOT = { trait = master_of_flame }
+			NOT = { trait = master_of_demon_flame }
 		}
 		
 		allow = {
 			has_society_currency_minor_trigger = yes
-			NOT = { trait = master_of_flame }
+			NOT = { trait = master_of_demon_flame }
+			has_3_mana_trigger = yes
 		}
 		
 		effect = {
+			add_5_fel_corruption_effect = yes
 			hidden_tooltip = {
 				character_event = { id = BLOODMAGE.221 }
 			}
@@ -647,36 +657,57 @@ targeted_decisions = {
 			society_rank >= 1
 			NOT = { has_character_modifier = dark_spell_cooldown_timer }
 			society_currency >= 250 #need 700 society currency, can be anything
-			has_3_mana_trigger = yes
 				}
 			}
 		
 		effect = {
 		    	FROM = {
-		add_character_modifier = {
-			name = dark_spell_cooldown_timer
-			hidden = yes
-			years = 4
-				}
-        	change_society_currency = -250
-				remove_3_mana_effect = yes
-		}
+		    		add_5_fel_corruption_effect = yes
+					add_character_modifier = {
+					name = dark_spell_cooldown_timer
+					hidden = yes
+					years = 4
+						}
+        			change_society_currency = -250
+							}
 			if = { limit = { NOT = {trait = infertile} }
 				random_list = { 50 = { add_trait = infertile
 										health = -1 
 										FROM { hidden_tooltip = {
 											character_event = { id = BLOODMAGE.321 }
+											character_event = { id = WCCLS.5}
 																			}
 															 }}
 						50 = { FROM = { character_event = { id = blood_staff_tattoo_fail } }
 							modifier = { factor = 0.75
-									FROM = { trait = class_mage_8 }
+									FROM = {	
+										OR = {
+												trait = class_mage_8
+												trait = class_warlock_8
+												trait = class_death_knight_8
+												trait = class_necromancer_8
+		    									} 
+		    							}
 									}
 							modifier = { factor = 0.5
-									FROM = { trait = class_mage_9 }
+									FROM = {	
+										OR = {
+												trait = class_mage_9
+												trait = class_warlock_9
+												trait = class_death_knight_9
+												trait = class_necromancer_9
+		    									} 
+		    							}
 									}
 							modifier = { factor = 0.25
-									FROM = { trait = class_mage_10 }
+									FROM = {	
+										OR = {
+												trait = class_mage_10
+												trait = class_warlock_10
+												trait = class_death_knight_10
+												trait = class_necromancer_10
+		    									} 
+		    							}
 									}
 							modifier = { factor = 0.75
 									FROM = { trait = genius }
@@ -776,14 +807,15 @@ targeted_decisions = {
 		
 		effect = {
 		    	FROM = {
-			add_character_modifier = {
-			name = light_spell_cooldown_timer
-			hidden = yes
-			years = 4
-				}
-        	change_society_currency = -250
-				remove_3_mana_effect = yes
-		}
+		    		add_5_fel_corruption_effect = yes
+					add_character_modifier = {
+					name = light_spell_cooldown_timer
+					hidden = yes
+					years = 4
+											}
+        			change_society_currency = -250
+					remove_3_mana_effect = yes
+							}
 				random_list = { 50 = { 
 				remove_trait = ill
 				remove_trait = disfigured
@@ -817,13 +849,34 @@ targeted_decisions = {
 				}
 						50 = { FROM = { character_event = { id = blood_staff_tattoo_fail } }
 							modifier = { factor = 0.75
-									FROM = { trait = class_mage_8 }
+									FROM = {	
+										OR = {
+												trait = class_mage_8
+												trait = class_warlock_8
+												trait = class_death_knight_8
+												trait = class_necromancer_8
+		    									} 
+		    							}
 									}
 							modifier = { factor = 0.5
-									FROM = { trait = class_mage_9 }
+									FROM = {	
+										OR = {
+												trait = class_mage_9
+												trait = class_warlock_9
+												trait = class_death_knight_9
+												trait = class_necromancer_9
+		    									} 
+		    							}
 									}
 							modifier = { factor = 0.25
-									FROM = { trait = class_mage_10 }
+									FROM = {	
+										OR = {
+												trait = class_mage_10
+												trait = class_warlock_10
+												trait = class_death_knight_10
+												trait = class_necromancer_10
+		    									} 
+		    							}
 									}
 							modifier = { factor = 0.75
 									FROM = { trait = genius }
@@ -884,27 +937,49 @@ targeted_decisions = {
 		
 		effect = {
 		    	FROM = {
-			add_character_modifier = {
-			name = life_spell_cooldown_timer
-			hidden = yes
-			years = 4
-				}
-        	change_society_currency = -250
-				remove_4_mana_effect = yes
-				piety = -30
-		}
+		    		add_5_fel_corruption_effect = yes
+					add_character_modifier = {
+					name = life_spell_cooldown_timer
+					hidden = yes
+					years = 4
+												}
+        			change_society_currency = -250
+					remove_4_mana_effect = yes
+					piety = -30
+							}
 				random_list = { 50 = { 
 				health = 1
 				}
 						50 = { FROM = { character_event = { id = blood_staff_tattoo_fail } }
 							modifier = { factor = 0.75
-									FROM = { trait = class_mage_8 }
+									FROM = {	
+										OR = {
+												trait = class_mage_8
+												trait = class_warlock_8
+												trait = class_death_knight_8
+												trait = class_necromancer_8
+		    									} 
+		    							}
 									}
 							modifier = { factor = 0.5
-									FROM = { trait = class_mage_9 }
+									FROM = {	
+										OR = {
+												trait = class_mage_9
+												trait = class_warlock_9
+												trait = class_death_knight_9
+												trait = class_necromancer_9
+		    									} 
+		    							}
 									}
 							modifier = { factor = 0.25
-									FROM = { trait = class_mage_10 }
+									FROM = {	
+										OR = {
+												trait = class_mage_10
+												trait = class_warlock_10
+												trait = class_death_knight_10
+												trait = class_necromancer_10
+		    									} 
+		    							}
 									}
 							modifier = { factor = 0.75
 									FROM = { trait = genius }
@@ -952,15 +1027,16 @@ targeted_decisions = {
 			society_rank >= 2
 			NOT = { has_character_flag = gaining_demonblood } #to stop you spamming the button
 			NOT = { has_character_modifier = blood_staff_demonblood }
-			has_3_mana_trigger = yes
 		}
 		
 		allow = {
 			has_society_currency_medium_trigger = yes
 			NOT = { has_character_modifier = blood_staff_demonblood }
+			has_3_mana_trigger = yes
 		}
 		
 		effect = {
+			add_5_fel_corruption_effect = yes
 			remove_3_mana_effect = yes
 			hidden_tooltip = {
 				character_event = { id = BLOODMAGE.222 }
@@ -998,6 +1074,7 @@ targeted_decisions = {
 		}
 
 		effect = {
+			add_5_fel_corruption_effect = yes
 			remove_1_mana_effect = yes
 			custom_tooltip = {
 				text = blood_staff_magic_tattoo_tooltip
