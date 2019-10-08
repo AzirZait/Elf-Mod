@@ -1074,7 +1074,6 @@ targeted_decisions = {
 		}
 
 		effect = {
-			add_5_fel_corruption_effect = yes
 			remove_1_mana_effect = yes
 			custom_tooltip = {
 				text = blood_staff_magic_tattoo_tooltip
