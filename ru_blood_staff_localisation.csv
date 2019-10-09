@@ -1,4 +1,4 @@
-f;RUSSIAN;;;;;;;;;;;;;x
+#CODE;RUSSIAN;;;;;;;;;;;;;x
 #Make sure that this file in encoded in ANSI;;;;;;;;;;;;;;
 #Название сообщества;;;;;;;;;;;;;;
 blood_staff;Кровавый Посох;;;;;;;;;;;;;x
@@ -84,58 +84,58 @@ blood_staff_amass_wealth_complete_desc;С таким количеством энергии арканы в ваше
 blood_staff_amass_wealth_complete_tooltip;Завершить §Y'Накопить Тайную Энергию'§! мисию.;;;;;;;;;;;;;x
 blood_staff_master_of_flame;Изучить Демоническое Пламя;;;;;;;;;;;;;x
 blood_staff_master_of_flame_desc;Ваши усердные исследования демонических магических секретов позволяют использовать новые магические способности на поле боя.;;;;;;;;;;;;;x
-blood_staff_master_of_flame_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain a special Commander trait, in exchange for §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
-blood_staff_dragonheart;Unlock Dragonheart;;;;;;;;;;;;;x
-blood_staff_dragonheart_desc;Your patient study of draconic secrets allows you to tap into your ancestry for increased endurance.;;;;;;;;;;;;;x
-blood_staff_dragonheart_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain a powerful character modifier, in exchange for §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
-blood_staff_become_grand_magister;Become Grand Magister;;;;;;;;;;;;;x
-blood_staff_become_grand_magister_desc;Everything you have been working towards for years has been leading up to this moment. You are at last ready to unleash your true ambition.;;;;;;;;;;;;;x
-blood_staff_become_grand_magister_tooltip;Become Grand Magister!;;;;;;;;;;;;;x
-blood_staff_become_grand_magister_passive;Grand Magister;;;;;;;;;;;;;x
-blood_staff_become_grand_magister_passive_power_desc;Upon reaching rank 5, your next mission will allow you to become grand magister.;;;;;;;;;;;;;x
-blood_staff_become_blood_mage;Unleash True Ambition;;;;;;;;;;;;;x
-blood_staff_become_blood_mage_desc;Everything you have been working towards for years has been leading up to this moment. You are at last ready to unleash your true ambition.;;;;;;;;;;;;;x
-blood_staff_become_blood_mage_tooltip;Become Blood Mage!;;;;;;;;;;;;;x
-blood_staff_become_blood_mage_passive;Blood Mage;;;;;;;;;;;;;x
-blood_staff_become_blood_mage_passive_power_desc;Upon reaching rank 3, your next mission will allow you to become blood mage.;;;;;;;;;;;;;x
-blood_staff_magic_tattoo;Put a magic tattoo.;;;;;;;;;;;;;x
-blood_staff_magic_tattoo_desc;By following the ancient instructions precisely you can put a special magic tattoo that will empower your mental acuity and abilities. Side effects may vary…;;;;;;;;;;;;;x
-blood_staff_magic_tattoo_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain Martial, Intrigue, Learning or Fertility, in exchange for §Y[Root.Society.GetCurrency]§!. Chances of side effects scale with Intrigue.;;;;;;;;;;;;;x
-blood_staff_magic_tattoo_tooltip;Select a rune and prepare the instruments for putting tattoo.\nChances of side effects scale with Intrigue.;;;;;;;;;;;;;x
-blood_staff_culture_convert_county;Enforce Blood Elf Culture;;;;;;;;;;;;;x
-blood_staff_culture_convert_county_desc;It is time for [From.Society.GetName] to take land and assert their dominance over this county.;;;;;;;;;;;;;x
-blood_staff_culture_convert_county_power_desc;Enables §Gright-clicking§! the title shield of a county to convert the local population to Blood Elf culture.;;;;;;;;;;;;;x
-blood_staff_improve_province;Remove Lawless Presence;;;;;;;;;;;;;x
-blood_staff_improve_province_desc;Send out some magic guards to rout the thieves and smugglers that infest this province.;;;;;;;;;;;;;x
-blood_staff_improve_province_power_desc;Enables §Gright-clicking§! the title shield of a Blood Elf culture province to remove negative modifiers.;;;;;;;;;;;;;x
-blood_staff_induct_descendant;Induct Descendant;;;;;;;;;;;;;x
-blood_staff_induct_descendant_desc;Attempt to induct this character into [From.Society.GetName]. [Root.GetHerHisCap] opinion of you will no doubt influence [Root.GetHerHis] decision...;;;;;;;;;;;;;x
+blood_staff_master_of_flame_power_desc;Позволяет §Gправый-клик§! по вашему портрету чтобы добавить специальный лидерский талант, в замен на §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
+blood_staff_dragonheart;Наследие Талкиэля;;;;;;;;;;;;;x
+blood_staff_dragonheart_desc;Изучение секретов магии скверны позволило связаться с сильной демонической сущностью. Его знания дали вам много преимуществ.;;;;;;;;;;;;;x
+blood_staff_dragonheart_power_desc;Позволяет §Gправый-клик§! на портрет вашего персонажа, для добавления модификатора персонажа, в замен на §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
+blood_staff_become_grand_magister;Стать Великим Магистром;;;;;;;;;;;;;x
+blood_staff_become_grand_magister_desc;Великий Магистр это титул традиционно принадлежащий талассийским магам. Это чрезвычайно высокое и престижное звание в Кель'Таласе, превосходящее даже генерал-рейнджеров Серебряной Луны . Как генерал-рейнджер, великий магистр является выборной должностью эльфийского общества.;;;;;;;;;;;;;x
+blood_staff_become_grand_magister_tooltip;Стать Великим Магистром;;;;;;;;;;;;;x
+blood_staff_become_grand_magister_passive;Великий Магистр;;;;;;;;;;;;;x
+blood_staff_become_grand_magister_passive_power_desc;После достижения 5 ранга, твоя следущая миссия будет стать великим магистром.;;;;;;;;;;;;;x
+blood_staff_become_blood_mage;Стать Магом Крови;;;;;;;;;;;;;x
+blood_staff_become_blood_mage_desc;Все для чего вы работали годами, ведет к этому моменту. Вы наконец-то готовы раскрыть свои истинные амбиции.;;;;;;;;;;;;;x
+blood_staff_become_blood_mage_tooltip;Стать Магом Крови;;;;;;;;;;;;;x
+blood_staff_become_blood_mage_passive;Маг Крови;;;;;;;;;;;;;x
+blood_staff_become_blood_mage_passive_power_desc;После достижения 3 ранга, твоя следущая миссия будет стать магом крови.;;;;;;;;;;;;;x
+blood_staff_magic_tattoo;Нанести Магическую Руну;;;;;;;;;;;;;x
+blood_staff_magic_tattoo_desc;Следуя древним инструкциям вы можете нанусти специальную магическую татуировку, которая расширит вашу умственную силу и способности. Побочные эффекты могут варьироваться от того какую руну выбрать...;;;;;;;;;;;;;x
+blood_staff_magic_tattoo_power_desc;Позволяет §Gправый-клик§! на твоем портрете, для улучшения навыков Войны, Интриги, Обучаемости или Фертильность, в обмен на §Y[Root.Society.GetCurrency]§!. Шанс получения побочных эфектов зависит от интриги.;;;;;;;;;;;;;x
+blood_staff_magic_tattoo_tooltip;Выберите руну и подготовьте инструменты для нанесения татуировки. \nШанс побочных эффектов зависит от Интриги.;;;;;;;;;;;;;x
+blood_staff_culture_convert_county;Навязать културу Син'дорай;;;;;;;;;;;;;x
+blood_staff_culture_convert_county_desc;Это время для [From.Society.GetName]. Мы возьмем землю и сделаем эту территорию доминионом Син'дорай.;;;;;;;;;;;;;x
+blood_staff_culture_convert_county_power_desc;Позволяет §Gправый-клик§! для преоброзования культуры территории в культуру Син'дорай.;;;;;;;;;;;;;x
+blood_staff_improve_province;Уничтожить Низших Оборванцев;;;;;;;;;;;;;x
+blood_staff_improve_province_desc;Пошлите несколько магических гвардейцев чтобы уничтожить воров и контрабандистов, которые заражают эту провинцию своим вонючим присутствием.;;;;;;;;;;;;;x
+blood_staff_improve_province_power_desc;Позволяет §Gправый-клик§! по щиту культуры провинции для того чтобы убрать негативные эффекты.;;;;;;;;;;;;;x
+blood_staff_induct_descendant;Привлечь Потомка;;;;;;;;;;;;;x
+blood_staff_induct_descendant_desc;Попытка пригласить этого персанажа в [From.Society.GetName]. [Root.GetHerHisCap] мнение о вас сильно повлияет на его решение…;;;;;;;;;;;;;x
 # tooltips;;;;;;;;;;;;;;
-write_magic_theory_cooldown_timer_tooltip;Has NOT writed magic books recently;;;;;;;;;;;;;x
-artefact_hunt_cooldown_timer_tooltip;Has NOT searched for artifacts recently;;;;;;;;;;;;;x
-resist_fel_decision_necessary_tooltip;Has trait that can be resisted;;;;;;;;;;;;;x
-resist_fel_decision_cooldown_timer_tooltip;Has NOT resisted fel recently;;;;;;;;;;;;;x
-induct_descendant_not_in_society_tooltip;Shows no interest in joining a Society;;;;;;;;;;;;;x
-blood_staff_grimoire_of_protection_writing;Write copy of Grimoire of Protection;;;;;;;;;;;;;x
-blood_staff_grimoire_of_blood_writing;Write copy of Grimoire of Blood;;;;;;;;;;;;;x
-blood_staff_grimoire_of_fel_writing;Write copy of Grimoire of Fel;;;;;;;;;;;;;x
-blood_staff_grimoire_of_shadow_writing;Write copy of Grimoire of Shadow;;;;;;;;;;;;;x
-blood_staff_grimoire_of_souls_writing;Write copy of Grimoire of Souls;;;;;;;;;;;;;x
-blood_staff_artefact_tier_1_tt;Search for a low-quality artifact with a moderate chance of failure.;;;;;;;;;;;;;x
-blood_staff_artefact_tier_2_tt;Search for a medium-quality artifact with a small chance of failure.;;;;;;;;;;;;;x
-blood_staff_artefact_tier_3_tt;Search for a high-quality artifact with no chance of failure.;;;;;;;;;;;;;x
-blood_staff_tattoo_martial_tooltip;Prepare incense to boost §YMartial§!. Possible side effects include gigantism.;;;;;;;;;;;;;x
-blood_staff_tattoo_intrigue_tooltip;Prepare incense to boost §YIntrigue§!. Possible side effects include paranoia.;;;;;;;;;;;;;x
-blood_staff_tattoo_learning_tooltip;Prepare incense to boost §YLearning§!. Possible side effects include headaches.;;;;;;;;;;;;;x
-blood_staff_tattoo_fertility_tooltip;Prepare incense to boost §YFertility§!. Possible side effects include hypersexuality.;;;;;;;;;;;;;x
-BLOODMAGE_decipher_success_tooltip;You make progress in deciphering the ancient scroll.;;;;;;;;;;;;;x
-BLOODMAGE_decipher_setback_tooltip;You struggle to make progress in deciphering the ancient scroll.;;;;;;;;;;;;;x
-BLOODMAGE_decipher_failure_tooltip;You suffer a major setback in deciphering the ancient scroll.;;;;;;;;;;;;;x
+write_magic_theory_cooldown_timer_tooltip;Не писал недавно магических книг;;;;;;;;;;;;;x
+artefact_hunt_cooldown_timer_tooltip;Не занимался недавно поиском;;;;;;;;;;;;;x
+resist_fel_decision_necessary_tooltip;Имеет плохое качество которое надо изменить;;;;;;;;;;;;;x
+resist_fel_decision_cooldown_timer_tooltip;Не сопротивлялся скверне недавно;;;;;;;;;;;;;x
+induct_descendant_not_in_society_tooltip;Не заинтересовон вступать в общество;;;;;;;;;;;;;x
+blood_staff_grimoire_of_protection_writing;Написать копию Гримуара Защиты;;;;;;;;;;;;;x
+blood_staff_grimoire_of_blood_writing;Написать копию Гримуара Крови;;;;;;;;;;;;;x
+blood_staff_grimoire_of_fel_writing;Написать копию Гримуара Скверны;;;;;;;;;;;;;x
+blood_staff_grimoire_of_shadow_writing;Написать копию Гримуара Теней;;;;;;;;;;;;;x
+blood_staff_grimoire_of_souls_writing;Написать копию Гримуара Душ;;;;;;;;;;;;;x
+blood_staff_artefact_tier_1_tt;Поиск слабого артефакта с умеренной вероятностью неудачи.;;;;;;;;;;;;;x
+blood_staff_artefact_tier_2_tt;Поиск среднего артефакта с маленькой вероятностью неудачи.;;;;;;;;;;;;;x
+blood_staff_artefact_tier_3_tt;Поиск нормального артефакта без вероятности неудачи.;;;;;;;;;;;;;x
+blood_staff_tattoo_martial_tooltip;Приготовить руну для улучшения §YВоенный§!. Неготивные последствия в виде гигантизма.;;;;;;;;;;;;;x
+blood_staff_tattoo_intrigue_tooltip;Приготовить руну для улучшения §YИнтригу§!. Неготивные последствия в виде параноя.;;;;;;;;;;;;;x
+blood_staff_tattoo_learning_tooltip;Приготовить руну для улучшения §YОбучаемости§!. Неготивные последствия в виде головной боли.;;;;;;;;;;;;;x
+blood_staff_tattoo_fertility_tooltip;Приготовить руну для улучшения §YФертильности§!. Неготивные последствия в виде гиперсексуальностью.;;;;;;;;;;;;;x
+blood_staff_decipher_success_tooltip;Вы добиваетесь прогресса в расшифровке древнего свитка.;;;;;;;;;;;;;x
+blood_staff_decipher_setback_tooltip;Вы пытаетесь добиться прогресса в расшифровке древнего свитка.;;;;;;;;;;;;;x
+blood_staff_decipher_failure_tooltip;Вы испытываете серьезную ошибку в расшифровке древнего свитка.;;;;;;;;;;;;;x
 # triggered events;;;;;;;;;;;;;;
 #This event is for joining;;;;;;;;;;;;;;
 EVTDESC_BLOODMAGE_102;Blood Staff magic association welcome you. We use some magic theories about life, fel, void, blood and souls. This is for power. For Quel'Thalas. As such, you are entitled to join [From.Society.GetName] and learn more about forbidden magic. All hail Kael'thas, All hail Quel'Thalas.\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
-EVTOPTA_BLOODMAGE_102;Tell me more about blood magic...;;;;;;;;;;;;;x
-EVTOPTB_BLOODMAGE_102;This is fel magic.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_102;Расскажи мне больше о магии крови...;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_102;Это магия скверны.;;;;;;;;;;;;;x
 # stat pooling;;;;;;;;;;;;;;
 EVTDESC_BLOODMAGE_700;Although you have yet to be formally inducted into The Blood Staff, you have been training and honing your abilities. Decoding cyphers, eavesdropping, learning how to move silently without being followed, there are many such necessities when operating in a secret society.;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_700;Every new skill brings me closer to the truth.;;;;;;;;;;;;;x
@@ -286,9 +286,9 @@ EVTOPTA_BLOODMAGE_321;The bastard will suffer!;;;;;;;;;;;;;x
 # fel flame;;;;;;;;;;;;;;
 EVTDESC_BLOODMAGE_221;After studying the impact of fel, you found a way to open the channel to the fire plan without arcana. By replacing arcana, you have achieved the enriching of the power of fire spells and spend much less energy! By talking about it with the comrades, you 've found a new way to create fiery spells. Now you have a demonic fire.;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_221;My foes will scamper before me!;;;;;;;;;;;;;x
-# demon blood;;;;;;;;;;;;;;
-EVTDESC_BLOODMAGE_222;Comparing your blood to the various samples given to you by [Root.Society.GetName] has been a painstaking progress. Taking various potions, abstaining from certain foods, yet now you have it: you were able to successfully assimilate the blood of the eredar.;;;;;;;;;;;;;x
-EVTOPTA_BLOODMAGE_222;The blood of eredar flows through me!;;;;;;;;;;;;;x
+# Thalkiel;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_222;Получив знания великого чернокнижника ты понял о самой природе скверны. Огромное количесво теорий и иследований позволили тебе легче упровлять этой энергией. Теперь ты можешь считать себя более опытным в некоторых областях скверны чем большинство чернокнижников.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_222;Знания эредаров теперь доступны для выполнения моих амбиций.;;;;;;;;;;;;;x
 # dragon incense;;;;;;;;;;;;;;
 EVTDESC_BLOODMAGE_290;The ancient scrolls tell of special titan rune that boosts mental and physical prowess. There are several recipes, each boosting a different faculty. This poses a question: which of the incenses will you attempt to recreate?;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_290;Powder of Strength.;;;;;;;;;;;;;x
@@ -328,23 +328,20 @@ EVTDESC_BLOODMAGE_212;Many have noticed your absence from court of late. People 
 EVTOPTA_BLOODMAGE_212;I shall fool everyone with a convincing cover story!;;;;;;;;;;;;;x
 EVTOPTB_BLOODMAGE_212;These rumours shall soon pass.;;;;;;;;;;;;;x
 # modifiers;;;;;;;;;;;;;;
-blood_staff_demonblood;Eredar blood!;;;;;;;;;;;;;x
-blood_staff_demonblood_desc;The blood of eredar pumps through this character's veins.;;;;;;;;;;;;;x
-blood_staff_tattoo_martial;Titan Rune!;;;;;;;;;;;;;x
+blood_staff_demonblood;Наследие Талкиэля;;;;;;;;;;;;;x
+blood_staff_demonblood_desc;Вы получили наследие первого чернокнижника эредар. Частично вам удалось понять почему эредары пали.;;;;;;;;;;;;;x
+blood_staff_tattoo_martial;Руна Титана!;;;;;;;;;;;;;x
 blood_staff_tattoo_martial_desc;Ancient titan rune fuels this character's mind and body.;;;;;;;;;;;;;x
-blood_staff_tattoo_intrigue;Titan Rune!;;;;;;;;;;;;;x
+blood_staff_tattoo_intrigue;Руна Титана!;;;;;;;;;;;;;x
 blood_staff_tattoo_intrigue_desc;Ancient titan rune fuels this character's mind and body.;;;;;;;;;;;;;x
-blood_staff_tattoo_learning;Titan Rune!;;;;;;;;;;;;;x
+blood_staff_tattoo_learning;Руна Титана!;;;;;;;;;;;;;x
 blood_staff_tattoo_learning_desc;Ancient titan rune fuels this character's mind and body.;;;;;;;;;;;;;x
-blood_staff_tattoo_fertility;Titan Rune!;;;;;;;;;;;;;x
+blood_staff_tattoo_fertility;Руна Титана!;;;;;;;;;;;;;x
 blood_staff_tattoo_fertility_desc;Ancient titan rune fuels this character's mind and body.;;;;;;;;;;;;;x
 blood_staff_tattoo_fail;Headache. Something went wrong. Magic require skills.;;;;;;;;;;;;;x
 blood_staff_tattoo_fail_desc;Rune gone wrong clouds this character's judgement.;;;;;;;;;;;;;x
-blood_staff_magic_fortress;Magic Fortress;;;;;;;;;;;;;x
+blood_staff_magic_fortress;Магический Форт;;;;;;;;;;;;;x
 blood_staff_magic_fortress_desc;Guarded by many soldiers and traps fort is full of gold and artifacts.;;;;;;;;;;;;;x
-BLOODMAGE_infection;Infection;Infection;Infektion;;Infecciуn.;;;;;;;;;x
-BLOODMAGE_infection_desc;This character has an infection - it looks and smells bad, but it feels even worse.;Ce personnage a une infection. Ce n'est pas beau а voir et cela sent mauvais, mais il se sent encore plus mal que зa en a l'air.;Diese Person leidet an einer Infektion. Es sieht ьbel aus und riecht auch so, aber die Schmerzen sind noch schlimmer.;;Este personaje tiene una infecciуn, parece y huele mal, pero se siente aъn peor.;;;;;;;;;x
-BLOODMAGE_infection_death;of an infected wound;d'une blessure infectйe;an einer entzьndeten Wunde;;de una herida infectada;;;;;;;;;x
 blood_staff_traps;Devious Traps;;;;;;;;;;;;;x
 blood_staff_traps_desc;A meticulous array of traps secures this character's treasure vault.;;;;;;;;;;;;;x
 # random events;;;;;;;;;;;;;;
@@ -389,7 +386,7 @@ bs_grimoire_of_souls;Grimoire Of Souls;;;;;;;;;;;;;x
 bs_grimoire_of_souls_desc;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about souls energy manipulations and necromancy.;;;;;;;;;;;;;x
 bs_quel'delar;Elf Magic rune sword Quel'delar;;;;;;;;;;;;;x
 bs_quel'delar_desc;Quel'Delar, the Sister Blade is a prismatic blade forged by the night elves and the five dragonflights along with its sibling, Quel'Serrar. Quel'Delar serves as an idol of opposition against the Scourge, and the elven factions of Dalaran would therefore like to see the blade play a pivotal role in the assault on Icecrown Citadel.;;;;;;;;;;;;;x
-bs_loa_totem;Loa Totem;;;;;;;;;;;;;x
+bs_loa_totem;Тотем Лоа;;;;;;;;;;;;;x
 bs_loa_totem_desc;Totems are tools used by a shaman as an instrument of war. Characterized by their immobility and area of effect, the totems embody the shaman's mastery over the elements.;;;;;;;;;;;;;x
 bs_fel_skull;Skull of Warlock;;;;;;;;;;;;;x
 bs_fel_skull_desc;This Skull is a powerful demonic artifact created from the skull of  warlock.;;;;;;;;;;;;;x
@@ -403,23 +400,23 @@ magic_book;Elf Magic Book;;;;;;;;;;;;;x
 magic_book_desc;Magic arcane theories.;;;;;;;;;;;;;x
 bs_scroll_arcane;Arcane theories;;;;;;;;;;;;;x
 bs_scroll_arcane_desc;Magic arcane theories. Interesting runes.;;;;;;;;;;;;;x
-bs_rune_knife;Elf Rune Knife;;;;;;;;;;;;;x
+bs_rune_knife;Эльфийский рунический кинжал;;;;;;;;;;;;;x
 bs_rune_knife_desc;Runeblades are blades inscribed with runes, symbols that hold magical power. They are particularly wielded by death knights, but they are not unique to the Scourge. Notably, demons and high elves are known to forge rune-etched blades as well, such as Felo'melorn, the sword of the Sunstrider dynasty.;;;;;;;;;;;;;x
-bs_ravens_eye;Raven's Eye;;;;;;;;;;;;;x
+bs_ravens_eye;Глаз Ворона;;;;;;;;;;;;;x
 bs_ravens_eye_desc;"The Raven's eye is according to Vrykul Legends created by Havi to allow Huginn and Muninn to read ""anything your little bird brains desire"", only to later be stolen by the sly elf Ravencrest. With the eye, Ravencrest nearly perfected espionage to the point that the tale of raven's eye became an ""ol' wives' tale to scare little rogues who are wantin' to keep their secrets hidden.""";;;;;;;;;;;;;x
 bs_quel'sin;Elf Magic rune sword Quel'sin;;;;;;;;;;;;;x
 bs_quel'sin_desc;Time anomalies? Whose sword is that?;;;;;;;;;;;;;x
 #class;;;;;;;;;;;;;;
-subclass_blood_mage;Blood Mage;;;;;;;;;;;;;x
+subclass_blood_mage;Маг Крови;;;;;;;;;;;;;x
 subclass_blood_mage_desc;Mystical heroes, blood mages are blood elves adept at controlling magic and ranged assault. While they were still members of the Alliance, the blood elves began to turn to the darkest parts of magic, abandoning the water and frost spells of the Kirin Tor for the fire and heat of what some people fear to be demonic magic.;;;;;;;;;;;;;x
-grand_magister;Grand Magister;;;;;;;;;;;;;x
+grand_magister;Великий Магистр;;;;;;;;;;;;;x
 grand_magister_desc;The Grand Magister is the title traditionally held by the leader of the Thalassian magisters. It is an extremely high and prestigious rank to hold in Quel'Thalas, above even the Ranger-general of Silvermoon. Like the ranger-general, the grand magister is an elected position.;;;;;;;;;;;;;x
-master_of_demon_flame;Fel Fire Mage;;;;;;;;;;;;;x
+master_of_demon_flame;Маг Огня Скверны;;;;;;;;;;;;;x
 master_of_demon_flame_desc;The highly destructive fel magic is the magic of disorder. It is stated to be a brutal and extremely addictive energy fueled by drawing life from living beings.;;;;;;;;;;;;;x
 ;;;;;;;;;;;;;;
 # Rank up text;;;;;;;;;;;;;;
 EVTDESC_RANK_122;I congratulate you on your magical successes.;;;;;;;;;;;;;x
 EVTOPTA_RANK_122;Now I have a deeper knowledge of magic.;;;;;;;;;;;;;x
 #requet;;;;;;;;;;;;;;
-blood_staff_recruit;Recruit Mage;;;;;;;;;;;;;x
+blood_staff_recruit;Завербовать Мага;;;;;;;;;;;;;x
 blood_staff_recruit_desc;Students gifted with a keen intellect and unwavering discipline may walk the path of the Mage.A blood magician is a more dangerous path.;;;;;;;;;;;;;x

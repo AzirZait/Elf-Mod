@@ -33,34 +33,35 @@ blood_staff = { #society code name
 				}
 			}
 		}
-		OR = {	trait = creature_blood_elf
-		trait = creature_felblood_elf
-		trait = creature_banshee
-		trait = creature_nathrezim
-		trait = creature_eredar
-		trait = creature_sayaadi
-		trait = creature_shivarra
-		trait = creature_satyr
-		OR = {
-			AND = {
-				OR {
-					trait = creature_human
-					trait = creature_draenei
+		OR = {	
+			trait = creature_blood_elf
+			trait = creature_felblood_elf
+			trait = creature_banshee
+			trait = creature_nathrezim
+			trait = creature_eredar
+			trait = creature_sayaadi
+			trait = creature_shivarra
+			trait = creature_satyr
+			trait = creature_high_elf
+			trait = creature_highborne
+			trait = creature_night_elf
+			OR = {
+				AND = {
+					OR {
+						trait = creature_human
+						trait = creature_draenei
+					}
+					OR = { 
+						is_female = yes
+						trait = blood_high_elf
+						trait = blood_night_elf
+						trait = blood_highborne
+					}
 				}
-				OR = { 
-					is_female = yes
-					trait = blood_high_elf
-					trait = blood_night_elf
-					trait = blood_highborne
 				}
-			}
-		trait = creature_high_elf
-		trait = creature_highborne
-		trait = creature_night_elf
-			}
-	}
+		}
 		OR = {
-				has_mage_trait_trigger = yes
+				is_mage_class_trigger = yes
 				is_necromancer_class_trigger = yes
 				is_warlock_class_trigger = yes
 				is_death_knight_class_trigger = yes
@@ -98,6 +99,9 @@ blood_staff = { #society code name
 		trait = creature_sayaadi
 		trait = creature_shivarra
 		trait = creature_satyr
+		trait = creature_high_elf
+		trait = creature_highborne
+		trait = creature_night_elf
 		OR = {
 			AND = {
 				OR {
@@ -111,9 +115,6 @@ blood_staff = { #society code name
 					trait = blood_highborne
 				}
 			}
-		trait = creature_high_elf
-		trait = creature_highborne
-		trait = creature_night_elf
 			}
 	}
 	}
@@ -499,6 +500,9 @@ blood_staff = { #society code name
 					trait = creature_sayaadi
 					trait = creature_shivarra
 					trait = creature_satyr
+					trait = creature_high_elf
+					trait = creature_highborne
+					trait = creature_night_elf
 					OR = {
 						AND = {
 							OR {
@@ -512,9 +516,6 @@ blood_staff = { #society code name
 								trait = blood_highborne
 							}
 						}
-					trait = creature_high_elf
-					trait = creature_highborne
-					trait = creature_night_elf
 						}
 							}
 					OR = {
@@ -524,7 +525,7 @@ blood_staff = { #society code name
 							religion = cult_of_sunwell
 					    }
 					OR = {
-							has_mage_trait_trigger = yes
+							is_mage_trait_trigger = yes
 							is_necromancer_class_trigger = yes
 							is_warlock_class_trigger = yes
 							is_death_knight_class_trigger = yes

@@ -1,4 +1,4 @@
-f;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 #Make sure that this file in encoded in ANSI;;;;;;;;;;;;;;
 #The society name;;;;;;;;;;;;;;
 blood_staff;The Blood Staff;;;;;;;;;;;;;x
@@ -85,21 +85,21 @@ blood_staff_amass_wealth_complete_tooltip;Completes the §Y'Amass Arcane'§! missi
 blood_staff_master_of_flame;Unlock Demonic Fire;;;;;;;;;;;;;x
 blood_staff_master_of_flame_desc;Your diligent research into demonic secrets allows you to use new magic abilities on the battlefield.;;;;;;;;;;;;;x
 blood_staff_master_of_flame_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain a special Commander trait, in exchange for §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
-blood_staff_dragonheart;Absorb Eredar Blood;;;;;;;;;;;;;x
-blood_staff_dragonheart_desc;Your patient study of draconic secrets allows you to tap into your ancestry for increased endurance.;;;;;;;;;;;;;x
+blood_staff_dragonheart;Legacy of Thal'kiel;;;;;;;;;;;;;x
+blood_staff_dragonheart_desc;The study secrets of fel magic has made it possible to contact a strong demonic entity. His knowledge has given you many advantages.;;;;;;;;;;;;;x
 blood_staff_dragonheart_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain a powerful character modifier, in exchange for §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
 blood_staff_become_grand_magister;Become Grand Magister;;;;;;;;;;;;;x
-blood_staff_become_grand_magister_desc;Everything you have been working towards for years has been leading up to this moment. You are at last ready to unleash your true ambition.;;;;;;;;;;;;;x
+blood_staff_become_grand_magister_desc;The Grand Magister is the title traditionally held by the leader of the Thalassian magisters. It is an extremely high and prestigious rank to hold in Quel'Thalas, above even the Ranger-general of Silvermoon. Like the ranger-general, the grand magister is an elected position.;;;;;;;;;;;;;x
 blood_staff_become_grand_magister_tooltip;Become Grand Magister!;;;;;;;;;;;;;x
 blood_staff_become_grand_magister_passive;Grand Magister;;;;;;;;;;;;;x
 blood_staff_become_grand_magister_passive_power_desc;Upon reaching rank 5, your next mission will allow you to become grand magister.;;;;;;;;;;;;;x
-blood_staff_become_blood_mage;Unleash True Ambition;;;;;;;;;;;;;x
+blood_staff_become_blood_mage;Become Blood Mage!;;;;;;;;;;;;;x
 blood_staff_become_blood_mage_desc;Everything you have been working towards for years has been leading up to this moment. You are at last ready to unleash your true ambition.;;;;;;;;;;;;;x
 blood_staff_become_blood_mage_tooltip;Become Blood Mage!;;;;;;;;;;;;;x
 blood_staff_become_blood_mage_passive;Blood Mage;;;;;;;;;;;;;x
 blood_staff_become_blood_mage_passive_power_desc;Upon reaching rank 3, your next mission will allow you to become blood mage.;;;;;;;;;;;;;x
-blood_staff_magic_tattoo;Put a magic tattoo.;;;;;;;;;;;;;x
-blood_staff_magic_tattoo_desc;By following the ancient instructions precisely you can put a special magic tattoo that will empower your mental acuity and abilities. Side effects may vary…;;;;;;;;;;;;;x
+blood_staff_magic_tattoo;Put a Magic Tattoo.;;;;;;;;;;;;;x
+blood_staff_magic_tattoo_desc;By following the ancient instructions precisely you can put a special magic tattoo that will empower your mental acuity and abilities. Side effects may vary from which rune to choose…;;;;;;;;;;;;;x
 blood_staff_magic_tattoo_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain Martial, Intrigue, Learning or Fertility, in exchange for §Y[Root.Society.GetCurrency]§!. Chances of side effects scale with Intrigue.;;;;;;;;;;;;;x
 blood_staff_magic_tattoo_tooltip;Select a rune and prepare the instruments for putting tattoo.\nChances of side effects scale with Intrigue.;;;;;;;;;;;;;x
 blood_staff_culture_convert_county;Enforce Blood Elf Culture;;;;;;;;;;;;;x
@@ -124,13 +124,13 @@ blood_staff_grimoire_of_souls_writing;Write copy of Grimoire of Souls;;;;;;;;;;;
 blood_staff_artefact_tier_1_tt;Search for a low-quality artifact with a moderate chance of failure.;;;;;;;;;;;;;x
 blood_staff_artefact_tier_2_tt;Search for a medium-quality artifact with a small chance of failure.;;;;;;;;;;;;;x
 blood_staff_artefact_tier_3_tt;Search for a high-quality artifact with no chance of failure.;;;;;;;;;;;;;x
-blood_staff_tattoo_martial_tooltip;Prepare incense to boost §YMartial§!. Possible side effects include gigantism.;;;;;;;;;;;;;x
-blood_staff_tattoo_intrigue_tooltip;Prepare incense to boost §YIntrigue§!. Possible side effects include paranoia.;;;;;;;;;;;;;x
-blood_staff_tattoo_learning_tooltip;Prepare incense to boost §YLearning§!. Possible side effects include headaches.;;;;;;;;;;;;;x
-blood_staff_tattoo_fertility_tooltip;Prepare incense to boost §YFertility§!. Possible side effects include hypersexuality.;;;;;;;;;;;;;x
-BLOODMAGE_decipher_success_tooltip;You make progress in deciphering the ancient scroll.;;;;;;;;;;;;;x
-BLOODMAGE_decipher_setback_tooltip;You struggle to make progress in deciphering the ancient scroll.;;;;;;;;;;;;;x
-BLOODMAGE_decipher_failure_tooltip;You suffer a major setback in deciphering the ancient scroll.;;;;;;;;;;;;;x
+blood_staff_tattoo_martial_tooltip;Prepare rune to boost §YMartial§!. Possible side effects include gigantism.;;;;;;;;;;;;;x
+blood_staff_tattoo_intrigue_tooltip;Prepare rune to boost §YIntrigue§!. Possible side effects include paranoia.;;;;;;;;;;;;;x
+blood_staff_tattoo_learning_tooltip;Prepare rune to boost §YLearning§!. Possible side effects include headaches.;;;;;;;;;;;;;x
+blood_staff_tattoo_fertility_tooltip;Prepare rune to boost §YFertility§!. Possible side effects include hypersexuality.;;;;;;;;;;;;;x
+blood_staff_decipher_success_tooltip;You make progress in deciphering the ancient scroll.;;;;;;;;;;;;;x
+blood_staff_decipher_setback_tooltip;You struggle to make progress in deciphering the ancient scroll.;;;;;;;;;;;;;x
+blood_staff_decipher_failure_tooltip;You suffer a major setback in deciphering the ancient scroll.;;;;;;;;;;;;;x
 # triggered events;;;;;;;;;;;;;;
 #This event is for joining;;;;;;;;;;;;;;
 EVTDESC_BLOODMAGE_102;Blood Staff magic association welcome you. We use some magic theories about life, fel, void, blood and souls. This is for power. For Quel'Thalas. As such, you are entitled to join [From.Society.GetName] and learn more about forbidden magic. All hail Kael'thas, All hail Quel'Thalas.\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
@@ -286,9 +286,9 @@ EVTOPTA_BLOODMAGE_321;The bastard will suffer!;;;;;;;;;;;;;x
 # fel flame;;;;;;;;;;;;;;
 EVTDESC_BLOODMAGE_221;After studying the impact of fel, you found a way to open the channel to the fire plan without arcana. By replacing arcana, you have achieved the enriching of the power of fire spells and spend much less energy! By talking about it with the comrades, you 've found a new way to create fiery spells. Now you have a demonic fire.;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_221;My foes will scamper before me!;;;;;;;;;;;;;x
-# demon blood;;;;;;;;;;;;;;
-EVTDESC_BLOODMAGE_222;Comparing your blood to the various samples given to you by [Root.Society.GetName] has been a painstaking progress. Taking various potions, abstaining from certain foods, yet now you have it: you were able to successfully assimilate the blood of the eredar.;;;;;;;;;;;;;x
-EVTOPTA_BLOODMAGE_222;The blood of eredar flows through me!;;;;;;;;;;;;;x
+# Thalkiel;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_222;Having acquired the knowledge of the great warlock you understood about the nature of fel. A huge number of theories and studies have made it easier for you to stave with this energy. Now you can consider yourself more experienced in some areas of fel than most warlocks.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_222;The knowledge of eredars is now available to fulfill my ambitions.;;;;;;;;;;;;;x
 # dragon incense;;;;;;;;;;;;;;
 EVTDESC_BLOODMAGE_290;The ancient scrolls tell of special titan rune that boosts mental and physical prowess. There are several recipes, each boosting a different faculty. This poses a question: which of the incenses will you attempt to recreate?;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_290;Powder of Strength.;;;;;;;;;;;;;x
@@ -328,8 +328,8 @@ EVTDESC_BLOODMAGE_212;Many have noticed your absence from court of late. People 
 EVTOPTA_BLOODMAGE_212;I shall fool everyone with a convincing cover story!;;;;;;;;;;;;;x
 EVTOPTB_BLOODMAGE_212;These rumours shall soon pass.;;;;;;;;;;;;;x
 # modifiers;;;;;;;;;;;;;;
-blood_staff_demonblood;Eredar blood!;;;;;;;;;;;;;x
-blood_staff_demonblood_desc;The blood of eredar pumps through this character's veins.;;;;;;;;;;;;;x
+blood_staff_demonblood;Legacy of Thal'kiel;;;;;;;;;;;;;x
+blood_staff_demonblood_desc;You 've got the legacy of the first eredar warlock. In part, you managed to understand why the eredars fell.;;;;;;;;;;;;;x
 blood_staff_tattoo_martial;Titan Rune!;;;;;;;;;;;;;x
 blood_staff_tattoo_martial_desc;Ancient titan rune fuels this character's mind and body.;;;;;;;;;;;;;x
 blood_staff_tattoo_intrigue;Titan Rune!;;;;;;;;;;;;;x
@@ -342,9 +342,6 @@ blood_staff_tattoo_fail;Headache. Something went wrong. Magic require skills.;;;
 blood_staff_tattoo_fail_desc;Rune gone wrong clouds this character's judgement.;;;;;;;;;;;;;x
 blood_staff_magic_fortress;Magic Fortress;;;;;;;;;;;;;x
 blood_staff_magic_fortress_desc;Guarded by many soldiers and traps fort is full of gold and artifacts.;;;;;;;;;;;;;x
-BLOODMAGE_infection;Infection;Infection;Infektion;;Infección.;;;;;;;;;x
-BLOODMAGE_infection_desc;This character has an infection - it looks and smells bad, but it feels even worse.;Ce personnage a une infection. Ce n'est pas beau à voir et cela sent mauvais, mais il se sent encore plus mal que ça en a l'air.;Diese Person leidet an einer Infektion. Es sieht übel aus und riecht auch so, aber die Schmerzen sind noch schlimmer.;;Este personaje tiene una infección, parece y huele mal, pero se siente aún peor.;;;;;;;;;x
-BLOODMAGE_infection_death;of an infected wound;d'une blessure infectée;an einer entzündeten Wunde;;de una herida infectada;;;;;;;;;x
 blood_staff_traps;Devious Traps;;;;;;;;;;;;;x
 blood_staff_traps_desc;A meticulous array of traps secures this character's treasure vault.;;;;;;;;;;;;;x
 # random events;;;;;;;;;;;;;;

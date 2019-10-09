@@ -137,8 +137,8 @@ character_event = {
 		clr_character_flag = becoming_blood_mage
 		clr_character_flag = becoming_grand_magister
 		clr_character_flag = choosing_warrior_training
-		clr_character_flag = gaining_dragonheart
-		clr_character_flag = burning_dragon_incense
+		clr_character_flag = gaining_demonblood
+		clr_character_flag = putting_magic_tattoo
 		remove_character_modifier = induct_into_society_cooldown_timer
 		remove_character_modifier = resist_fel_decision_cooldown_timer
 		remove_character_modifier = artefact_hunt_decision_cooldown_timer
@@ -979,7 +979,7 @@ society_quest_event = {
 		name = ACCEPT
 		set_quest = quest_blood_staff_decipher_secrets
 		hidden_tooltip = {
-			set_variable = { which = dragonkin_decipher_secrets_points value = 0 }
+			set_variable = { which = blood_staff_decipher_secrets_points value = 0 }
 			character_event = { id = BLOODMAGE.202 days = 40 random = 30 } 
 		}
 	}
@@ -1028,8 +1028,8 @@ character_event = {
 			if = {
 				limit = { 
 					NOR = {
-						check_variable = { which = dragonkin_decipher_secrets_points value = 4 } 
-						NOT = { check_variable = { which = dragonkin_decipher_secrets_points value = -2 } }
+						check_variable = { which = blood_staff_decipher_secrets_points value = 4 } 
+						NOT = { check_variable = { which = blood_staff_decipher_secrets_points value = -2 } }
 					}
 				}
 				random_list = { #Next mission
@@ -1111,8 +1111,8 @@ character_event = {
 			if = {
 				limit = { 
 					OR = {
-						check_variable = { which = dragonkin_decipher_secrets_points value = 4 } 
-						NOT = { check_variable = { which = dragonkin_decipher_secrets_points value = -2 } }
+						check_variable = { which = blood_staff_decipher_secrets_points value = 4 } 
+						NOT = { check_variable = { which = blood_staff_decipher_secrets_points value = -2 } }
 					}
 				} 
 
@@ -1145,16 +1145,16 @@ character_event = {
 		hidden_effect = { character_event = { id = HFP.14005 days = 10 random = 30 } } #remove vomiting
 		
 		custom_tooltip = {
-			text = dragonkin_decipher_success_tooltip
-			change_variable = { which = dragonkin_decipher_secrets_points value = 1 }
+			text = blood_staff_decipher_success_tooltip
+			change_variable = { which = blood_staff_decipher_secrets_points value = 1 }
 		}
     }
     option = {
         name = EVTOPTB_BLOODMAGE_203
 		
 		custom_tooltip = {
-			text = dragonkin_decipher_setback_tooltip
-			change_variable = { which = dragonkin_decipher_secrets_points value = -1 }
+			text = blood_staff_decipher_setback_tooltip
+			change_variable = { which = blood_staff_decipher_secrets_points value = -1 }
 		}
     }
 }
@@ -1190,8 +1190,8 @@ character_event = {
 					factor = 2
 				}
 				custom_tooltip = {
-					text = dragonkin_decipher_success_tooltip
-					change_variable = { which = dragonkin_decipher_secrets_points value = 1 }
+					text = blood_staff_decipher_success_tooltip
+					change_variable = { which = blood_staff_decipher_secrets_points value = 1 }
 				}
 			}
 			50 = {
@@ -1204,8 +1204,8 @@ character_event = {
 					factor = 1.5
 				}
 				custom_tooltip = {
-					text = dragonkin_decipher_setback_tooltip
-					change_variable = { which = dragonkin_decipher_secrets_points value = -1 }
+					text = blood_staff_decipher_setback_tooltip
+					change_variable = { which = blood_staff_decipher_secrets_points value = -1 }
 				}
 			}
 		}
@@ -1222,8 +1222,8 @@ character_event = {
 		}
 		
 		custom_tooltip = {
-			text = dragonkin_decipher_setback_tooltip
-			change_variable = { which = dragonkin_decipher_secrets_points value = -1 }
+			text = blood_staff_decipher_setback_tooltip
+			change_variable = { which = blood_staff_decipher_secrets_points value = -1 }
 		}
     }
 }
@@ -1263,15 +1263,15 @@ character_event = {
 		}
 		
 		custom_tooltip = {
-			text = dragonkin_decipher_failure_tooltip
-			change_variable = { which = dragonkin_decipher_secrets_points value = -3 }
+			text = blood_staff_decipher_failure_tooltip
+			change_variable = { which = blood_staff_decipher_secrets_points value = -3 }
 		}
     }
     option = {
         name = EVTOPTB_BLOODMAGE_205
 		custom_tooltip = {
-			text = dragonkin_decipher_success_tooltip
-			change_variable = { which = dragonkin_decipher_secrets_points value = 1 }
+			text = blood_staff_decipher_success_tooltip
+			change_variable = { which = blood_staff_decipher_secrets_points value = 1 }
 		}
     }
 }
@@ -1308,15 +1308,15 @@ character_event = {
 		}
 		
 		custom_tooltip = {
-			text = dragonkin_decipher_failure_tooltip
-			change_variable = { which = dragonkin_decipher_secrets_points value = -3 }
+			text = blood_staff_decipher_failure_tooltip
+			change_variable = { which = blood_staff_decipher_secrets_points value = -3 }
 		}
     }
     option = {
         name = EVTOPTB_BLOODMAGE_206
 		custom_tooltip = {
-			text = dragonkin_decipher_success_tooltip
-			change_variable = { which = dragonkin_decipher_secrets_points value = 1 }
+			text = blood_staff_decipher_success_tooltip
+			change_variable = { which = blood_staff_decipher_secrets_points value = 1 }
 		}
     }
 }
@@ -1333,8 +1333,8 @@ character_event = {
     option = {
         name = EVTOPTA_BLOODMAGE_207
 		custom_tooltip = {
-			text = dragonkin_decipher_success_tooltip
-			change_variable = { which = dragonkin_decipher_secrets_points value = 1 }
+			text = blood_staff_decipher_success_tooltip
+			change_variable = { which = blood_staff_decipher_secrets_points value = 1 }
 		}
     }
 }
@@ -1347,11 +1347,11 @@ character_event = {
 
 	immediate = {
 		if = {
-			limit = { FROM = { check_variable = { which = dragonkin_decipher_secrets_points value = 4 } } }
+			limit = { FROM = { check_variable = { which = blood_staff_decipher_secrets_points value = 4 } } }
 			FROM = { letter_event = { id = BLOODMAGE.209 } }
 		}
 		if = {
-			limit = { FROM = { NOT = { check_variable = { which = dragonkin_decipher_secrets_points value = -2 } } } }
+			limit = { FROM = { NOT = { check_variable = { which = blood_staff_decipher_secrets_points value = -2 } } } }
 			FROM = { letter_event = { id = BLOODMAGE.210 } }
 		}
 	}
@@ -1449,22 +1449,22 @@ character_event = {
 		}
 		
 		custom_tooltip = {
-			text = dragonkin_decipher_failure_tooltip
-			change_variable = { which = dragonkin_decipher_secrets_points value = -3 }
+			text = blood_staff_decipher_failure_tooltip
+			change_variable = { which = blood_staff_decipher_secrets_points value = -3 }
 		}
     }
     option = {
         name = EVTOPTB_BLOODMAGE_212
 		custom_tooltip = {
-			text = dragonkin_decipher_success_tooltip
-			change_variable = { which = dragonkin_decipher_secrets_points value = 1 }
+			text = blood_staff_decipher_success_tooltip
+			change_variable = { which = blood_staff_decipher_secrets_points value = 1 }
 		}
     }
 }
 
 #################################POWERS######################################
  
-# Way of the Dragon
+# Master of Demon Flame
 character_event = {
     id = BLOODMAGE.221
     picture = GFX_evt_ritual_scroll
@@ -1498,7 +1498,7 @@ character_event = {
     }
 }
 }
-# Dragonheart
+# Talkiel
 character_event = {
     id = BLOODMAGE.222
     picture = GFX_evt_ritual_scroll
@@ -1519,7 +1519,7 @@ character_event = {
     }
 }
 
-# Become Dragon
+# Blood Mage
 character_event = {
 	id = BLOODMAGE.220
 	hide_window = yes
@@ -1628,7 +1628,7 @@ character_event = {
 		scaled_wealth = { value = -2 min = 200 }
 		character_event = { id = BLOODMAGE.224 days = 7 random = 7 }
     }
-    option = { # all non-dragon demesne counties get penalty
+    option = { # all non-blood elf demesne counties get penalty
         name = EVTOPTC_BLOODMAGE_223
 		any_demesne_province = {
 			limit = {
@@ -1966,14 +1966,14 @@ character_event = { # tier 1 roll
 	
 	immediate = {
 		random_list = {
-			100 = { # dragon sculpture
+			100 = { 
 				modifier = {
 					factor = 0
 					has_artifact = bs_fel_skull
 				}
 				character_event = { id = BLOODMAGE.267 }
 			}
-			100 = { # gold bracelets
+			100 = { 
 				modifier = {
 					factor = 0
 					has_artifact = bs_loa_totem
@@ -2027,35 +2027,35 @@ character_event = { # tier 2 roll
 				}
 				character_event = { id = BLOODMAGE.269 }
 			}
-			100 = { # dragon sculpture
+			100 = {
 				modifier = {
 					factor = 0
 					has_artifact = bs_fel_skull
 				}
 				character_event = { id = BLOODMAGE.267 }
 			}
-			100 = { # gold bracelets
+			100 = {
 				modifier = {
 					factor = 0
 					has_artifact = bs_loa_totem
 				}
 				character_event = { id = BLOODMAGE.268 }
 			}
-			100 = { # dragon language vol 3
+			100 = { 
 				modifier = {
 					factor = 0
 					has_artifact = bs_staff_of_the_shadow_flame
 				}
 				character_event = { id = BLOODMAGE.273 }
 			}
-			100 = { # dragon language vol 2
+			100 = { 
 				modifier = {
 					factor = 0
 					has_artifact = bs_rune_knife
 				}
 				character_event = { id = BLOODMAGE.272 }
 			}
-			100 = { # dragon language vol 1
+			100 = { 
 				modifier = {
 					factor = 0
 					has_artifact = bs_scroll_arcane
@@ -2088,21 +2088,21 @@ character_event = { # tier 3 roll
 	
 	immediate = {
 		random_list = {
-			100 = { # dragon amulet
+			100 = { 
 				modifier = {
 					factor = 0
 					has_artifact = magic_book
 				}
 				character_event = { id = BLOODMAGE.270 }
 			}
-			100 = { # ruby bracelets
+			100 = { 
 				modifier = {
 					factor = 0
 					has_artifact = magic_raincoat
 				}
 				character_event = { id = BLOODMAGE.269 }
 			}
-			100 = { # dragon sculpture
+			100 = { 
 				modifier = {
 					factor = 0
 					has_artifact = bs_fel_skull
@@ -2116,28 +2116,28 @@ character_event = { # tier 3 roll
 				}
 				character_event = { id = BLOODMAGE.268 }
 			}
-			100 = { # dragon language vol 4
+			100 = { 
 				modifier = {
 					factor = 0
 					has_artifact = bs_quel'sin
 				}
 				character_event = { id = BLOODMAGE.274 }
 			}
-			100 = { # dragon language vol 3
+			100 = { 
 				modifier = {
 					factor = 0
 					has_artifact = bs_staff_of_the_shadow_flame
 				}
 				character_event = { id = BLOODMAGE.273 }
 			}
-			100 = { # dragon language vol 2
+			100 = { 
 				modifier = {
 					factor = 0
 					has_artifact = bs_rune_knife
 				}
 				character_event = { id = BLOODMAGE.272 }
 			}
-			100 = { # dragon language vol 1
+			100 = { 
 				modifier = {
 					factor = 0
 					has_artifact = bs_scroll_arcane
@@ -2280,7 +2280,7 @@ character_event = {
     }
 }
 
-# Find dragon amulet
+# Find Magic Book
 character_event = {
     id = BLOODMAGE.270
     picture = GFX_evt_relic_box
@@ -2300,7 +2300,7 @@ character_event = {
     }
 }
 
-# Find dragon language vol 1
+# Find Arcane Scroll
 character_event = {
     id = BLOODMAGE.271
     picture = GFX_evt_relic_box
@@ -2320,7 +2320,7 @@ character_event = {
     }
 }
 
-# Find dragon language vol 2
+# Find Rune Knife
 character_event = {
     id = BLOODMAGE.272
     picture = GFX_evt_relic_box
@@ -2340,7 +2340,7 @@ character_event = {
     }
 }
 
-# Find dragon language vol 3
+# Find Staff of Flame
 character_event = {
     id = BLOODMAGE.273
     picture = GFX_evt_relic_box
@@ -2360,7 +2360,7 @@ character_event = {
     }
 }
 
-# Find dragon language vol 4
+# Quelsin
 character_event = {
     id = BLOODMAGE.274
     picture = GFX_evt_relic_box
@@ -2403,7 +2403,7 @@ character_event = {
 	}
 }
 
-#POWER: Burn Dragon Incense
+#Magic Tatoo
 character_event = {
     id = BLOODMAGE.290
 	picture = GFX_evt_ritual_scroll
@@ -2476,7 +2476,7 @@ character_event = {
             factor = 10
 			modifier = {
 				factor = 2
-				NOT = { has_character_modifier = dragonkin_incense_fertility }
+				NOT = { has_character_modifier = blood_staff_tattoo_fertility }
 			}
             modifier = {
                 factor = 0.5
@@ -2741,7 +2741,7 @@ character_event = {
 	trigger = {
 		society_member_of = blood_staff
 		wealth = 50
-		NOT = { has_character_modifier = dragonkin_traps }
+		NOT = { has_character_modifier = blood_staff_traps }
 	}
 	
     option = {
@@ -2854,14 +2854,14 @@ character_event = {
 
 	trigger = {
 		society_member_of = blood_staff
-		NOT = { has_character_modifier = dragonkin_traps }
+		NOT = { has_character_modifier = blood_staff_traps }
 	}
 	
     option = {
         name = EVTOPTA_BLOODMAGE_540
 		scaled_wealth = -0.1
 		add_character_modifier = {
-			name = dragonkin_traps
+			name = blood_staff_traps
 			years = 5
 		}
 		increase_visibility_minor_effect = yes
@@ -3253,7 +3253,7 @@ character_event = {
     }
 }
 
-# society member influences the egg to join dragon kin
+# society member influences the kid to join blood staff
 character_event = {
     id = BLOODMAGE.804
     desc = EVTDESC_BLOODMAGE_804
