@@ -87,7 +87,7 @@ blood_staff_master_of_flame_desc;Your diligent research into demonic secrets all
 blood_staff_master_of_flame_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain a special Commander trait, in exchange for §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
 blood_staff_dragonheart;Legacy of Thal'kiel;;;;;;;;;;;;;x
 blood_staff_dragonheart_desc;The study secrets of fel magic has made it possible to contact a strong demonic entity. His knowledge has given you many advantages.;;;;;;;;;;;;;x
-blood_staff_dragonheart_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain a powerful character modifier, in exchange for §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
+blood_staff_demonblood_power_desc;Enables §Gright-clicking§! on your character's portrait, in order to gain a powerful character modifier, in exchange for §Y[Root.Society.GetCurrency]§!.;;;;;;;;;;;;;x
 blood_staff_become_grand_magister;Become Grand Magister;;;;;;;;;;;;;x
 blood_staff_become_grand_magister_desc;The Grand Magister is the title traditionally held by the leader of the Thalassian magisters. It is an extremely high and prestigious rank to hold in Quel'Thalas, above even the Ranger-general of Silvermoon. Like the ranger-general, the grand magister is an elected position.;;;;;;;;;;;;;x
 blood_staff_become_grand_magister_tooltip;Become Grand Magister!;;;;;;;;;;;;;x

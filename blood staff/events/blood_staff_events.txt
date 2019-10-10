@@ -11,7 +11,6 @@ character_event = {
 
 	trigger = {
 		is_in_society = no
-		interested_in_society = blood_staff
 	}
 
 	immediate = {
@@ -27,7 +26,6 @@ character_event = {
 
 	trigger = {
 		is_in_society = no
-		interested_in_society = blood_staff
 	}
 
 	immediate = {
@@ -189,8 +187,6 @@ letter_event = {
     }
     option = { #don't
         name = EVTOPTB_BLOODMAGE_102
-		set_interested_society = none
-		ai_chance = { factor = 0 }
     }
 }
 
@@ -2922,7 +2918,6 @@ character_event = {
     }
     option = {
         name = EVTOPTB_BLOODMAGE_700
-		set_interested_society = none
 		clr_character_flag = blood_staff_inducted_into_society
 		if = {
 			limit = { ai = yes }
@@ -2947,7 +2942,6 @@ character_event = {
     }
     option = {
         name = EVTOPTB_BLOODMAGE_700
-		set_interested_society = none
 		clr_character_flag = blood_staff_inducted_into_society
 		if = {
 			limit = { ai = yes }
@@ -2972,7 +2966,6 @@ character_event = {
     }
     option = {
         name = EVTOPTB_BLOODMAGE_700
-		set_interested_society = none
 		clr_character_flag = blood_staff_inducted_into_society
 		if = {
 			limit = { ai = yes }
@@ -2997,7 +2990,6 @@ character_event = {
     }
     option = {
         name = EVTOPTB_BLOODMAGE_700
-		set_interested_society = none
 		clr_character_flag = blood_staff_inducted_into_society
 		if = {
 			limit = { ai = yes }
@@ -3035,7 +3027,6 @@ character_event = {
     }
     option = {
         name = EVTOPTB_BLOODMAGE_700
-		set_interested_society = none
 		clr_character_flag = blood_staff_inducted_into_society
 		if = {
 			limit = { ai = yes }
@@ -3059,7 +3050,6 @@ character_event = {
     }
     option = {
         name = EVTOPTB_BLOODMAGE_700
-		set_interested_society = none
 		clr_character_flag = blood_staff_inducted_into_society
 		if = {
 			limit = { ai = yes }
@@ -3083,7 +3073,6 @@ character_event = {
     }
     option = {
         name = EVTOPTB_BLOODMAGE_700
-		set_interested_society = none
 		clr_character_flag = blood_staff_inducted_into_society
 		if = {
 			limit = { ai = yes }
@@ -3107,7 +3096,6 @@ character_event = {
     }
     option = {
         name = EVTOPTB_BLOODMAGE_700
-		set_interested_society = none
 		clr_character_flag = blood_staff_inducted_into_society
 		if = {
 			limit = { ai = yes }
@@ -3131,7 +3119,6 @@ character_event = {
     }
     option = {
         name = EVTOPTB_BLOODMAGE_700
-		set_interested_society = none
 		clr_character_flag = blood_staff_inducted_into_society
 		if = {
 			limit = { ai = yes }
@@ -3171,7 +3158,6 @@ character_event = {
         name = EVTOPTA_BLOODMAGE_801
 		FROM = { character_event = { id = BLOODMAGE.802 days = 7 } }
 		set_character_flag = blood_staff_inducted_into_society
-		set_interested_society = blood_staff
 		character_event = { id = BLOODMAGE.001 days = 90 }
 		clear_event_target = new_recruit
 		if = {
@@ -3282,7 +3268,6 @@ character_event = {
         name = EVTOPTA_BLOODMAGE_805
 		FROM = { character_event = { id = BLOODMAGE.806 days = 7 } }
 		set_character_flag = blood_staff_inducted_into_society
-		set_interested_society = blood_staff
 		character_event = { id = BLOODMAGE.001 days = 90 }
 		clear_event_target = new_recruit
 		if = {
@@ -3393,7 +3378,6 @@ character_event = {
         name = EVTOPTA_BLOODMAGE_809
 		FROM = { character_event = { id = BLOODMAGE.810 days = 7 } }
 		set_character_flag = blood_staff_inducted_into_society
-		set_interested_society = blood_staff
 		character_event = { id = BLOODMAGE.001 days = 90 }
 		clear_event_target = new_recruit
 		if = {
@@ -3510,10 +3494,10 @@ character_event = {
         name = EVTOPTC_BLOODMAGE_360
 		tooltip_info = learning
 		trigger = {
-			has_society_currency_major_trigger = yes
+			has_society_currency_medium_trigger = yes
 			learning = 13
 		}
-		detract_society_currency_major_effect = yes
+		detract_society_currency_medium_effect = yes
 		custom_tooltip = {
 			text = blood_staff_grimoire_of_fel_writing
 		}
@@ -3524,10 +3508,10 @@ character_event = {
         name = EVTOPTD_BLOODMAGE_360
 		tooltip_info = learning
 		trigger = {
-			has_society_currency_major_trigger = yes
+			has_society_currency_medium_trigger = yes
 			learning = 13
 		}
-		detract_society_currency_major_effect = yes
+		detract_society_currency_medium_effect = yes
 		custom_tooltip = {
 			text = blood_staff_grimoire_of_shadow_writing
 		}
@@ -3538,10 +3522,10 @@ character_event = {
         name = EVTOPTE_BLOODMAGE_360
 		tooltip_info = learning
 		trigger = {
-			has_society_currency_major_trigger = yes
+			has_society_currency_medium_trigger = yes
 			learning = 13
 		}
-		detract_society_currency_major_effect = yes
+		detract_society_currency_medium_effect = yes
 		custom_tooltip = {
 			text = blood_staff_grimoire_of_souls_writing
 		}
@@ -3557,7 +3541,7 @@ character_event = { # 1 roll protection
 	
 	trigger = { society_member_of = blood_staff 
 			OR = {
-				has_mage_trait_trigger = yes
+				is_mage_trait_trigger = yes
 				is_necromancer_class_trigger = yes
 				is_warlock_class_trigger = yes
 		    }
@@ -3591,7 +3575,7 @@ character_event = { # 2 roll blood
 	
 	trigger = { society_member_of = blood_staff 
 			OR = {
-				has_mage_trait_trigger = yes
+				is_mage_trait_trigger = yes
 				is_necromancer_class_trigger = yes
 				is_warlock_class_trigger = yes
 		    }
@@ -3625,7 +3609,7 @@ character_event = { # 3 roll fel
 	
 	trigger = { society_member_of = blood_staff 
 			OR = {
-				has_mage_trait_trigger = yes
+				is_mage_trait_trigger = yes
 				is_necromancer_class_trigger = yes
 				is_warlock_class_trigger = yes
 		    }
@@ -3659,7 +3643,7 @@ character_event = { # 4 roll shadow
 	
 	trigger = { society_member_of = blood_staff 
 			OR = {
-				has_mage_trait_trigger = yes
+				is_mage_trait_trigger = yes
 				is_necromancer_class_trigger = yes
 				is_warlock_class_trigger = yes
 		    }
@@ -3693,7 +3677,7 @@ character_event = { # 5 roll souls
 	
 	trigger = { society_member_of = blood_staff 
 			OR = {
-				has_mage_trait_trigger = yes
+				is_mage_trait_trigger = yes
 				is_necromancer_class_trigger = yes
 				is_warlock_class_trigger = yes
 		    }

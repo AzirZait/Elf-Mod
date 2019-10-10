@@ -4,6 +4,12 @@ on_character_switch_society_interest = { #when pressing the button to join
 	}
 }
 
+on_character_ask_to_join_society = {
+	events = {
+		BLOODMAGE.100 #Join Guilds
+	}
+}
+
 on_five_year_pulse = {
 	events = {
 		BLOODMAGE.110 #force AI characters join the society

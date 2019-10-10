@@ -525,7 +525,7 @@ targeted_decisions = {
 			custom_tooltip = { 	
 				text = secret_religions_recruit_effect_tt
 				FROM = { save_event_target_as = secret_religion_recruiter } 
-				character_event = { id = MNM.3420 }
+				letter_event = { id = BLOODMAGE.102 }
 
 				add_character_modifier = {
 					name = secret_religions_recruitment_timer

@@ -1,0 +1,25 @@
+Take folder blood staff
+
+AND
+
+Put in C:\Users\(your user name)\Documents\Paradox Interactive\Crusader Kings II\mod
+
+Take elf.mod
+
+AND
+
+Put in C:\Users\(your user name)\Documents\Paradox Interactive\Crusader Kings II\mod
+
+Delete this file if you don 't need Russian ru_blood_staff_localisation.csv
+
+If you retard and cant find Paradox Interactive folder in Documents...
+
+Use search in disk С write Paradox Interactive
+
+
+Тебе нужен русский? удали файл blood_staff_localisation.csv
+
+который находится в blood staff\localisation
+
+Теперь на место удаленного файла поставь ru_blood_staff_localisation.csv
+
