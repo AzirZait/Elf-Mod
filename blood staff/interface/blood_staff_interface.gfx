@@ -7,6 +7,16 @@ spriteTypes = {
 		name = "GFX_blood_staff_artefact_hunt"
 		texturefile = "gfx\\interface\\decision_icon_blood_staff_artefact_hunt.tga"
 	}
+
+	spriteType = {
+		name = "GFX_blood_staff_train_disciple"
+		texturefile = "gfx\\interface\\decision_icon_blood_staff_train_disciple.tga"
+	}
+
+	spriteType = {
+		name = "GFX_blood_staff_write_magic_theory"
+		texturefile = "gfx\\interface\\decision_icon_blood_staff_write_magic_theory.tga"
+	}
 	
 	spriteType = {
 		name = "GFX_blood_staff_resist_fel"

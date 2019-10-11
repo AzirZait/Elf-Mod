@@ -113,6 +113,8 @@ dark_spell_cooldown_timer = { icon = 1 }
 
 life_spell_cooldown_timer = { icon = 1 }
 
+religions_recruitment_timer = { icon = 1 }
+
 light_spell_cooldown_timer = { icon = 1 }
 
 avoid_disease_cooldown_timer = { icon = 1 }

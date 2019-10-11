@@ -420,3 +420,10 @@ EVTOPTA_RANK_122;Now I have a deeper knowledge of magic.;;;;;;;;;;;;;x
 #requet;;;;;;;;;;;;;;
 blood_staff_recruit;Recruit Mage;;;;;;;;;;;;;x
 blood_staff_recruit_desc;Students gifted with a keen intellect and unwavering discipline may walk the path of the Mage.A blood magician is a more dangerous path.;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+blood_staff_train_disciple;Train Disciple;;;;;;;;;;;;;x
+blood_staff_train_disciple_desc;You have trained many new blood mages in the Blood Staff. Maybe you should invite one of them to join your court?;;;;;;;;;;;;;x
+blood_staff_train_disciple_power_desc;Enables decision in the §YIntrigue§! menu, to summon a mage to your court.;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_541;You invited a blood mage to your court.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_541;Faithful companion.;;;;;;;;;;;;;x

@@ -1,6 +1,6 @@
 grimoire_of_shadow_01 = {
 	quality = 1
-	flags = { misc book powerful_magical_artifact }
+	flags = { misc book }
 
 	active = {
 		is_adult = yes
@@ -20,7 +20,7 @@ grimoire_of_shadow_01 = {
 }
 grimoire_of_blood_01 = {
 	quality = 1
-	flags = { misc book powerful_magical_artifact }
+	flags = { misc book }
 
 	active = {
 		is_adult = yes
@@ -40,7 +40,7 @@ grimoire_of_blood_01 = {
 }
 grimoire_of_fel_01 = {
 	quality = 1
-	flags = { misc book powerful_magical_artifact }
+	flags = { misc book }
 
 	active = {
 		is_adult = yes
@@ -60,7 +60,7 @@ grimoire_of_fel_01 = {
 }
 grimoire_of_protection_01 = {
 	quality = 1
-	flags = { misc book powerful_magical_artifact }
+	flags = { misc book }
 
 	active = {
 		is_adult = yes
@@ -80,7 +80,7 @@ grimoire_of_protection_01 = {
 }
 grimoire_of_souls_01 = {
 	quality = 1
-	flags = { misc book powerful_magical_artifact }
+	flags = { misc book }
 
 	active = {
 		is_adult = yes
@@ -100,7 +100,7 @@ grimoire_of_souls_01 = {
 }
 grimoire_of_shadow_02 = {
 	quality = 2
-	flags = { misc book powerful_magical_artifact }
+	flags = { misc book }
 
 	active = {
 		is_adult = yes
@@ -122,7 +122,7 @@ grimoire_of_shadow_02 = {
 }
 grimoire_of_blood_02 = {
 	quality = 2
-	flags = { misc book powerful_magical_artifact }
+	flags = { misc book }
 
 	active = {
 		is_adult = yes
@@ -144,7 +144,7 @@ grimoire_of_blood_02 = {
 }
 grimoire_of_fel_02 = {
 	quality = 2
-	flags = { misc book powerful_magical_artifact }
+	flags = { misc book }
 
 	active = {
 		is_adult = yes
@@ -166,7 +166,7 @@ grimoire_of_fel_02 = {
 }
 grimoire_of_protection_02 = {
 	quality = 2
-	flags = { misc book powerful_magical_artifact }
+	flags = { misc book }
 
 	active = {
 		is_adult = yes
@@ -188,7 +188,7 @@ grimoire_of_protection_02 = {
 }
 grimoire_of_souls_02 = {
 	quality = 2
-	flags = { misc book powerful_magical_artifact }
+	flags = { misc book }
 
 	active = {
 		is_adult = yes
@@ -533,7 +533,7 @@ bs_rune_knife = {
 }
 bs_scroll_arcane = {
 	quality = 2
-	flags = { misc book powerful_magical_artifact }
+	flags = { misc book }
 
 	active = {
 		is_adult = yes

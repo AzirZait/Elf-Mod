@@ -265,18 +265,18 @@ character_event = { #AI join event
 					prestige = 200
 				}
 				join_society = blood_staff #join the society
-				if = { # Make grandmaster if there is none
-					limit = {
-						NOT = {
-							society = {
-								any_society_member = {
-									is_society_grandmaster = yes
-								}
-							}
-						}
-					}
-					set_society_grandmaster = yes
-				}
+				#if = {# # Make grandmaster if there is none
+				#	limit = {
+				#		NOT = {
+				#			society = {
+				#				any_society_member = {
+				#					is_society_grandmaster = yes
+				#				}
+				#			}
+				#		}
+				#	}
+				#	set_society_grandmaster = yes
+				#}
 			}
 		}
 	}
@@ -2865,6 +2865,19 @@ character_event = {
 	
     option = {
         name = EVTOPTB_BLOODMAGE_540
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.541
+    desc = EVTDESC_BLOODMAGE_541
+    picture = GFX_evt_woman_at_window_hf
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+	
+    option = {
+        name = EVTOPTA_BLOODMAGE_541
     }
 }
 

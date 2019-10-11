@@ -20,8 +20,6 @@
 	}
 	583.1.1={
 		employer=59000	# Dalaran
-	}
-	584.1.1={
 		join_society = blood_staff
 		set_society_grandmaster = yes
 	}

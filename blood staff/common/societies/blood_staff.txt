@@ -176,6 +176,7 @@ blood_staff = { #society code name
 			blood_staff_master_of_flame
 			blood_staff_demonblood
 			blood_staff_life_purification_spell
+			blood_staff_train_disciple
 		}
 	}
 	
