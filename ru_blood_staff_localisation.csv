@@ -64,12 +64,16 @@ blood_staff_jealousy_spell;Высосать жизнь;;;;;;;;;;;;;x
 blood_staff_jealousy_spell_desc;Используя магию крови вы можете высосать немного жизненой энергии из врага.\nЭто сильное заклинание магии крови для ухудшения жизни врага и востановления маны.;;;;;;;;;;;;;x
 blood_staff_jealousy_spell_power_desc;Разрешает §Gправый-клик§! на портрете персонажей, для возможности высосать жизнь, в замен на §Y[Root.Society.GetCurrency]§!. В зависимости от уровня класса мага вероятность меняется.;;;;;;;;;;;;;x
 blood_staff_jealousy_spell_tooltip;Используя магию крови вы можете очистить организм от болезней и проклятий.\nЭто сильное заклинание магии крови для очистки организма.;;;;;;;;;;;;;x
+blood_staff_summon_demon;Призвать Эредара;;;;;;;;;;;;;x
+blood_staff_summon_demon_desc;Призвать эредара, эта талантливая в магии раса родившаяся на планете Аргус несколько тысячелетий назад.;;;;;;;;;;;;;x
 blood_staff_write_magic_theory;Создать Гримуар;;;;;;;;;;;;;x
 blood_staff_write_magic_theory_desc;Используя свои знания магии ты можешь написать магическую книгу которая будет синергией твоего изучения магии.;;;;;;;;;;;;;x
 blood_staff_artefact_hunt;Искать Магические Артефакты;;;;;;;;;;;;;x
 blood_staff_artefact_hunt_desc;Изучив древние свитки вы можете попытаться найти новый магический артефакт в древних руинах.;;;;;;;;;;;;;x
+blood_staff_summon_demon_tooltip;Выбери демона которого ты хочешь призвать.;;;;;;;;;;;;;x
 blood_staff_write_magic_theory_tooltip;Выбери область магии по которой вы хотите написать магическую книгу.;;;;;;;;;;;;;x
 blood_staff_artefact_hunt_tooltip;Определи степень ресурсов которые ты готов потратить на поиск.\nУспех зависит от количества §Y[Root.Society.GetCurrency]§! инвестированных в поиски.;;;;;;;;;;;;;x
+blood_staff_summon_demon_power_desc;Позволяет призвать демона в обмен на §Y[Root.Society.GetCurrency]§!. В зависимости от демона требуются разные артефакты.;;;;;;;;;;;;;x
 blood_staff_write_magic_theory_power_desc;Позволяет написать магическую книгу в обмен на §Y[Root.Society.GetCurrency]§!. В зависимости от области изучения требуется разное количество инвистиций.;;;;;;;;;;;;;x
 blood_staff_artefact_hunt_power_desc;Позволяет искать артефакты в руинах эльфов в обмен на §Y[Root.Society.GetCurrency]§!. Шанс успеха зависит от количества инвестиций §Y[Root.Society.GetCurrency]§!. Высшие или кровавые эльфы могут найти дополнительные артефакты.;;;;;;;;;;;;;x
 blood_staff_magic_fortress;Построить Магический Форт;;;;;;;;;;;;;x
@@ -111,11 +115,16 @@ blood_staff_improve_province_power_desc;Позволяет §Gправый-клик§! по щиту культу
 blood_staff_induct_descendant;Привлечь Потомка;;;;;;;;;;;;;x
 blood_staff_induct_descendant_desc;Попытка пригласить этого персанажа в [From.Society.GetName]. [Root.GetHerHisCap] мнение о вас сильно повлияет на его решение…;;;;;;;;;;;;;x
 # tooltips;;;;;;;;;;;;;;
+blood_staff_summon_demon_cooldown_timer_tooltip;Не призывал недавно эредаров.;;;;;;;;;;;;;x
 write_magic_theory_cooldown_timer_tooltip;Не писал недавно магических книг;;;;;;;;;;;;;x
 artefact_hunt_cooldown_timer_tooltip;Не занимался недавно поиском;;;;;;;;;;;;;x
 resist_fel_decision_necessary_tooltip;Имеет плохое качество которое надо изменить;;;;;;;;;;;;;x
 resist_fel_decision_cooldown_timer_tooltip;Не сопротивлялся скверне недавно;;;;;;;;;;;;;x
 induct_descendant_not_in_society_tooltip;Не заинтересовон вступать в общество;;;;;;;;;;;;;x
+blood_staff_summoning_sacrolash;Призвать Леди Сакролаш;;;;;;;;;;;;;x
+blood_staff_summoning_alythess;Призвать Главную чернокнижницу Алитессу;;;;;;;;;;;;;x
+blood_staff_summoning_falo'reth;Призвать Тёмного волхва Фало'рету;;;;;;;;;;;;;x
+blood_staff_summoning_eredar;Призвать Случайного Эредара;;;;;;;;;;;;;x
 blood_staff_grimoire_of_protection_writing;Написать копию Гримуара Защиты;;;;;;;;;;;;;x
 blood_staff_grimoire_of_blood_writing;Написать копию Гримуара Крови;;;;;;;;;;;;;x
 blood_staff_grimoire_of_fel_writing;Написать копию Гримуара Скверны;;;;;;;;;;;;;x
@@ -255,6 +264,26 @@ EVTDESC_BLOODMAGE_384;Copy of Grimoire of Souls;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_384;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about souls energy manipulations and necromancy.;;;;;;;;;;;;;x
 EVTDESC_BLOODMAGE_385;Good copy of Grimoire of Souls;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_385;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about souls energy manipulations and necromancy.;;;;;;;;;;;;;x
+# summon eredar;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_1000;Investigating vague rumours and forgotten libraries to find ancient relics is no simple task. The question is how much of my resources should I devote to this search?;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1000;I shall summon Lady Sacrolash. I 'm sure I can make a deal with her.;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_1000;I shall summon Grand Warlock Alythess. I 'm sure I can make a deal with her.;;;;;;;;;;;;;x
+EVTOPTC_BLOODMAGE_1000;I shall summon Darkmagus Falo'reth. I 'm sure I can make a deal with her.;;;;;;;;;;;;;x
+EVTOPTD_BLOODMAGE_1000;I shall summon Grand Warlock Alythess. I 'm sure I can make a deal with her.;;;;;;;;;;;;;x
+EVTOPTE_BLOODMAGE_1000;I shall summon Lady Sacrolash. I 'm sure I can make a deal with her.;;;;;;;;;;;;;x
+EVTOPTF_BLOODMAGE_1000;I shall summon Random Eredar. I 'm sure I can make a deal with her.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_1001;Misery...Depravity...Confusion...Hatred...Mistrust...Chaos...These are the hallmarks...These are the pillars...;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1001;You want to work with me?;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_1002;Misery...Depravity...Confusion...Hatred...Mistrust...Chaos...These are the hallmarks...These are the pillars…;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1002;You want to work with me?;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_1003;Are we going to summon the Legion?;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1003;I have other plans.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_1004;Misery...Depravity...Confusion...Hatred...Mistrust...Chaos...These are the hallmarks...These are the pillars…;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1004;You want to work with me?;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_1005;Misery...Depravity...Confusion...Hatred...Mistrust...Chaos...These are the hallmarks...These are the pillars…;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1005;You want to work with me?;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_1006;Warlock! Thank you for summon me. Now we can...;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1006;Contract. I don 't think you should try to anger me.;;;;;;;;;;;;;x
 # artefact hunt;;;;;;;;;;;;;;
 EVTDESC_BLOODMAGE_260;Investigating vague rumours and forgotten libraries to find ancient relics is no simple task. The question is how much of my resources should I devote to this search?;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_260;I shall make a modicum of effort.;;;;;;;;;;;;;x
@@ -420,3 +449,10 @@ EVTOPTA_RANK_122;Now I have a deeper knowledge of magic.;;;;;;;;;;;;;x
 #requet;;;;;;;;;;;;;;
 blood_staff_recruit;Завербовать Мага;;;;;;;;;;;;;x
 blood_staff_recruit_desc;Students gifted with a keen intellect and unwavering discipline may walk the path of the Mage.A blood magician is a more dangerous path.;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+blood_staff_train_disciple;Тренировать Ученика;;;;;;;;;;;;;x
+blood_staff_train_disciple_desc;You have trained many new blood mages in the Blood Staff. Maybe you should invite one of them to join your court?;;;;;;;;;;;;;x
+blood_staff_train_disciple_power_desc;Enables decision in the §YIntrigue§! menu, to summon a priest to your court.;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_541;Ты пригласил к своему двору кровавого мага.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_541;Верный товарищь.;;;;;;;;;;;;;x

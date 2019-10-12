@@ -109,6 +109,8 @@ artefact_hunt_decision_cooldown_timer = { icon = 1 }
 
 write_magic_theory_decision_cooldown_timer = { icon = 1 }
 
+blood_staff_summon_demon_cooldown_timer = { icon = 1 }
+
 dark_spell_cooldown_timer = { icon = 1 }
 
 life_spell_cooldown_timer = { icon = 1 }

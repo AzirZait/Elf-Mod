@@ -1,0 +1,2 @@
+46499 = { name ="Wakener's"        culture = eredar }
+

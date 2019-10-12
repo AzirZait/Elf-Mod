@@ -64,13 +64,17 @@ blood_staff_jealousy_spell;Drawing life;;;;;;;;;;;;;x
 blood_staff_jealousy_spell_desc;Using the magic of blood, you seek an opportunity to draw life of the enemy. This very strong spell undermines the health of the rival and restore your mana.;;;;;;;;;;;;;x
 blood_staff_jealousy_spell_power_desc;Enables §Gright-clicking§! on character's portrait, in order to gain curse, in exchange for §Y[Root.Society.GetCurrency]§!. Chances of side effects scale with mage level.;;;;;;;;;;;;;x
 blood_staff_jealousy_spell_tooltip;Using the magic of blood, you seek an opportunity to weaken the organism of the enemy.\nThis very strong curse undermines the health of the rival.;;;;;;;;;;;;;x
+blood_staff_summon_demon;Summon Eredar;;;;;;;;;;;;;x
+blood_staff_summon_demon_desc;Summon a eredar, a race of supremely talented magic-wielders who arose on the planet Argus countless millennia ago.;;;;;;;;;;;;;x
 blood_staff_write_magic_theory;Create Grimoire;;;;;;;;;;;;;x
 blood_staff_write_magic_theory_desc;Using your knowledge of magic, you can write a magic book that will be a synergy of your study of magic.;;;;;;;;;;;;;x
 blood_staff_artefact_hunt;Search for Magic Artifact;;;;;;;;;;;;;x
 blood_staff_artefact_hunt_desc;By poring over ancient tomes you can attempt to uncover a new magic artifact.;;;;;;;;;;;;;x
+blood_staff_summon_demon_tooltip;Determine the demon you wish to summon.;;;;;;;;;;;;;x
 blood_staff_write_magic_theory_tooltip;Determine the area of magic you wish write to the book.;;;;;;;;;;;;;x
 blood_staff_artefact_hunt_tooltip;Determine the degree of effort you wish to devote to the search.\nSuccess varies depending on the amount of §Y[Root.Society.GetCurrency]§! invested.;;;;;;;;;;;;;x
-blood_staff_write_magic_theory_power_desc;Determine the area of magic you wish write to the book.;;;;;;;;;;;;;x
+blood_staff_summon_demon_power_desc;Allows to summon a demon in exchange for §Y[Root.Society.GetCurrency]§!. Depending on the demon, different artifacts are required.;;;;;;;;;;;;;x
+blood_staff_write_magic_theory_power_desc;Allows you to write a magic book in exchange for §Y[Root.Society.GetCurrency]§!. Depending on the field of study, different number of invisions is required.;;;;;;;;;;;;;x
 blood_staff_artefact_hunt_power_desc;Enables the decision to search for a elf artifact, in exchange for §Y[Root.Society.GetCurrency]§!. Chances of success and failure vary depending on the amount of §Y[Root.Society.GetCurrency]§! invested. Characters of Blood elf culture can discover additional artifacts.;;;;;;;;;;;;;x
 blood_staff_magic_fortress;Construct Magic Fortress;;;;;;;;;;;;;x
 blood_staff_magic_fortress_desc;Begin construction of magic fortress. It will be the perfect place to store gold and other artifacts...;;;;;;;;;;;;;x
@@ -111,11 +115,16 @@ blood_staff_improve_province_power_desc;Enables §Gright-clicking§! the title shi
 blood_staff_induct_descendant;Induct Descendant;;;;;;;;;;;;;x
 blood_staff_induct_descendant_desc;Attempt to induct this character into [From.Society.GetName]. [Root.GetHerHisCap] opinion of you will no doubt influence [Root.GetHerHis] decision...;;;;;;;;;;;;;x
 # tooltips;;;;;;;;;;;;;;
+blood_staff_summon_demon_cooldown_timer_tooltip;Has NOT summoned eredar recently;;;;;;;;;;;;;x
 write_magic_theory_cooldown_timer_tooltip;Has NOT writed magic books recently;;;;;;;;;;;;;x
 artefact_hunt_cooldown_timer_tooltip;Has NOT searched for artifacts recently;;;;;;;;;;;;;x
 resist_fel_decision_necessary_tooltip;Has trait that can be resisted;;;;;;;;;;;;;x
 resist_fel_decision_cooldown_timer_tooltip;Has NOT resisted fel recently;;;;;;;;;;;;;x
 induct_descendant_not_in_society_tooltip;Shows no interest in joining a Society;;;;;;;;;;;;;x
+blood_staff_summoning_sacrolash;Summon Lady Sacrolash;;;;;;;;;;;;;x
+blood_staff_summoning_alythess;Summon Grand Warlock Alythess;;;;;;;;;;;;;x
+blood_staff_summoning_falo'reth;Summon Darkmagus Falo'reth;;;;;;;;;;;;;x
+blood_staff_summoning_eredar;Summon Random Eredar;;;;;;;;;;;;;x
 blood_staff_grimoire_of_protection_writing;Write copy of Grimoire of Protection;;;;;;;;;;;;;x
 blood_staff_grimoire_of_blood_writing;Write copy of Grimoire of Blood;;;;;;;;;;;;;x
 blood_staff_grimoire_of_fel_writing;Write copy of Grimoire of Fel;;;;;;;;;;;;;x
@@ -255,6 +264,26 @@ EVTDESC_BLOODMAGE_384;Copy of Grimoire of Souls;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_384;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about souls energy manipulations and necromancy.;;;;;;;;;;;;;x
 EVTDESC_BLOODMAGE_385;Good copy of Grimoire of Souls;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_385;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about souls energy manipulations and necromancy.;;;;;;;;;;;;;x
+# summon eredar;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_1000;Investigating vague rumours and forgotten libraries to find ancient relics is no simple task. The question is how much of my resources should I devote to this search?;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1000;I shall summon Lady Sacrolash. I 'm sure I can make a deal with her.;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_1000;I shall summon Grand Warlock Alythess. I 'm sure I can make a deal with her.;;;;;;;;;;;;;x
+EVTOPTC_BLOODMAGE_1000;I shall summon Darkmagus Falo'reth. I 'm sure I can make a deal with her.;;;;;;;;;;;;;x
+EVTOPTD_BLOODMAGE_1000;I shall summon Grand Warlock Alythess. I 'm sure I can make a deal with her.;;;;;;;;;;;;;x
+EVTOPTE_BLOODMAGE_1000;I shall summon Lady Sacrolash. I 'm sure I can make a deal with her.;;;;;;;;;;;;;x
+EVTOPTF_BLOODMAGE_1000;I shall summon Random Eredar. I 'm sure I can make a deal with her.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_1001;Misery...Depravity...Confusion...Hatred...Mistrust...Chaos...These are the hallmarks...These are the pillars...;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1001;You want to work with me?;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_1002;Misery...Depravity...Confusion...Hatred...Mistrust...Chaos...These are the hallmarks...These are the pillars…;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1002;You want to work with me?;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_1003;Are we going to summon the Legion?;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1003;I have other plans.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_1004;Misery...Depravity...Confusion...Hatred...Mistrust...Chaos...These are the hallmarks...These are the pillars…;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1004;You want to work with me?;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_1005;Misery...Depravity...Confusion...Hatred...Mistrust...Chaos...These are the hallmarks...These are the pillars…;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1005;You want to work with me?;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_1006;Warlock! Thank you for summon me. Now we can...;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1006;Contract. I don 't think you should try to anger me.;;;;;;;;;;;;;x
 # artefact hunt;;;;;;;;;;;;;;
 EVTDESC_BLOODMAGE_260;Investigating vague rumours and forgotten libraries to find ancient relics is no simple task. The question is how much of my resources should I devote to this search?;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_260;I shall make a modicum of effort.;;;;;;;;;;;;;x
@@ -265,11 +294,11 @@ EVTOPTA_BLOODMAGE_264;Where did I go wrong?;;;;;;;;;;;;;x
 EVTDESC_BLOODMAGE_265;Your investigation into the artifact has turned up a mysterious key made out of a strange unknown metal. Inscribed with magic runes along the key, it reminds you of a certain chest you found some time ago…;;;;;;;;;;;;;x
 EVTDESC_BLOODMAGE_266;Your search has uncovered a strange chest made of an unknown metal. Try as you might, you haven't been able to force the chest open and its contents remain a mystery.;;;;;;;;;;;;;x
 EVTDESC_BLOODMAGE_267;Your search for night elf relics has turned up a skull full with fel energy. Although small, it carries the air of ancient war.;;;;;;;;;;;;;x
-EVTOPTA_BLOODMAGE_267;How cute.;;;;;;;;;;;;;
+EVTOPTA_BLOODMAGE_267;How cute.;;;;;;;;;;;;;x
 EVTDESC_BLOODMAGE_268;Your search for a troll artifact has come up with a strange loa totem. You can feel strange energy inside.;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_268;It 's worth studying troll magic artefact.;;;;;;;;;;;;;x
 EVTDESC_BLOODMAGE_269;Ugly old cloak of ancient war times. A magic massive can be found on the inside side. Artefact can be useful.;;;;;;;;;;;;;x
-EVTOPTA_BLOODMAGE_269;"You read the inscription on the inside. ""Your father loves you dear Illysanna..."" What this mean?";;;;;;;;;;;;;
+EVTOPTA_BLOODMAGE_269;"You read the inscription on the inside. ""Your father loves you dear Illysanna..."" What this mean?";;;;;;;;;;;;;x
 EVTDESC_BLOODMAGE_270;Your artifact investigation has uncovered several old highborn magic book. Some pages in good conditions.;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_270;This was worth all the effort.;;;;;;;;;;;;;x
 EVTDESC_BLOODMAGE_271;Your search into elf artifacts has uncovered notes on ancient magic. Although simplistic, it could still be of some use in future translation work.;;;;;;;;;;;;;x
@@ -427,3 +456,6 @@ blood_staff_train_disciple_power_desc;Enables decision in the §YIntrigue§! menu,
 ;;;;;;;;;;;;;;
 EVTDESC_BLOODMAGE_541;You invited a blood mage to your court.;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_541;Faithful companion.;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_1000;;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_1000;;;;;;;;;;;;;;x

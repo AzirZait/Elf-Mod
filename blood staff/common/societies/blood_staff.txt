@@ -250,6 +250,7 @@ blood_staff = { #society code name
 		}
 		decisions = {
 			blood_staff_become_grand_magister_passive
+			blood_staff_summon_demon
 		}
 	}
 	plots = {

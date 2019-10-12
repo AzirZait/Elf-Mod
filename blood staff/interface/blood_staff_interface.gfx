@@ -9,6 +9,16 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_blood_staff_become_grand_magister"
+		texturefile = "gfx\\interface\\decision_icon_blood_staff_become_grand_magister.tga"
+	}
+
+	spriteType = {
+		name = "GFX_blood_staff_summon_demon"
+		texturefile = "gfx\\interface\\decision_icon_blood_staff_summon_demon.tga"
+	}
+
+	spriteType = {
 		name = "GFX_blood_staff_train_disciple"
 		texturefile = "gfx\\interface\\decision_icon_blood_staff_train_disciple.tga"
 	}

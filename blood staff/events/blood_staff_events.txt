@@ -1922,7 +1922,6 @@ character_event = {
 		custom_tooltip = {
 			text = blood_staff_artefact_tier_1_tt
 		}
-		increase_visibility_minor_effect = yes
 		character_event = { id = BLOODMAGE.261 days = 90 random = 60 }
     }
     option = {
@@ -1934,7 +1933,6 @@ character_event = {
 		custom_tooltip = {
 			text = blood_staff_artefact_tier_2_tt
 		}
-		increase_visibility_effect = yes
 		character_event = { id = BLOODMAGE.262 days = 90 random = 60 }
     }
     option = {
@@ -1948,7 +1946,6 @@ character_event = {
 		custom_tooltip = {
 			text = blood_staff_artefact_tier_3_tt
 		}
-		increase_visibility_effect = yes
 		character_event = { id = BLOODMAGE.263 days = 90 random = 60 }
     }
 }
@@ -2115,7 +2112,7 @@ character_event = { # tier 3 roll
 			100 = { 
 				modifier = {
 					factor = 0
-					has_artifact = bs_quel'sin
+					has_global_flag = exists_quel'sin
 				}
 				character_event = { id = BLOODMAGE.274 }
 			}
@@ -2368,6 +2365,7 @@ character_event = {
 
     option = {
         name = EVTOPTA_BLOODMAGE_274
+        set_global_flag = exists_quel'sin
 		add_artifact = bs_quel'sin
         new_artifact = {
 			set_creation_date = 1.1.1
@@ -2771,7 +2769,6 @@ character_event = {
 			set_creation_date = 1.1.1
 			set_original_owner = none
 		}
-		increase_visibility_minor_effect = yes
     }
 	
     option = {
@@ -2800,7 +2797,6 @@ character_event = {
 		  add_trait = possessed
 		}
 		change_learning = 1
-		increase_visibility_minor_effect = yes
     }
 	
     option = {
@@ -2860,7 +2856,6 @@ character_event = {
 			name = blood_staff_traps
 			years = 5
 		}
-		increase_visibility_minor_effect = yes
     }
 	
     option = {
@@ -2900,7 +2895,6 @@ character_event = {
 	
     option = {
 		change_society_currency = -1000
-		increase_visibility_effect = yes
 		random_demesne_province = {
 			limit = {
 				NOT = { culture = blood_elf }
@@ -3488,7 +3482,6 @@ character_event = {
 		custom_tooltip = {
 			text = blood_staff_grimoire_of_protection_writing
 		}
-		increase_visibility_minor_effect = yes
 		character_event = { id = BLOODMAGE.361 days = 90 random = 60 }
     }
     option = {
@@ -3500,7 +3493,6 @@ character_event = {
 		custom_tooltip = {
 			text = blood_staff_grimoire_of_blood_writing
 		}
-		increase_visibility_effect = yes
 		character_event = { id = BLOODMAGE.362 days = 90 random = 60 }
     }
     option = {
@@ -3514,7 +3506,6 @@ character_event = {
 		custom_tooltip = {
 			text = blood_staff_grimoire_of_fel_writing
 		}
-		increase_visibility_effect = yes
 		character_event = { id = BLOODMAGE.363 days = 90 random = 60 }
     }
     option = {
@@ -3528,7 +3519,6 @@ character_event = {
 		custom_tooltip = {
 			text = blood_staff_grimoire_of_shadow_writing
 		}
-		increase_visibility_effect = yes
 		character_event = { id = BLOODMAGE.364 days = 90 random = 60 }
     }
     option = {
@@ -3542,7 +3532,6 @@ character_event = {
 		custom_tooltip = {
 			text = blood_staff_grimoire_of_souls_writing
 		}
-		increase_visibility_effect = yes
 		character_event = { id = BLOODMAGE.365 days = 90 random = 60 }
     }
 }
@@ -4029,6 +4018,390 @@ character_event = {
         new_artifact = {
 			set_creation_date = 1.1.1
 			set_original_owner = none
+		}
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.1000
+    picture = GFX_evt_grimoire
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_1000
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_1000
+		trigger = {
+			NOT = { has_global_flag = exists_sacrolash }
+			has_artifact = grimoire_of_blood_03
+			has_artifact = grimoire_of_fel_03
+			has_artifact = grimoire_of_protection_03 
+		}
+		custom_tooltip = {
+			text = blood_staff_summoning_sacrolash
+		}
+		character_event = { id = BLOODMAGE.1001 days = 90 random = 60 }
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_1000
+		trigger = {
+			NOT = { has_global_flag = exists_alythess }				
+			has_artifact = grimoire_of_blood_03
+			has_artifact = grimoire_of_shadow_03
+			has_artifact = grimoire_of_protection_03 
+		}
+		custom_tooltip = {
+			text = blood_staff_summoning_alythess
+		}
+		character_event = { id = BLOODMAGE.1002 days = 90 random = 60 }
+    }
+    option = {
+        name = EVTOPTC_BLOODMAGE_1000
+		trigger = {
+			NOT = { has_global_flag = exists_falo'reth }					
+			has_artifact = grimoire_of_blood_03
+			has_artifact = grimoire_of_souls_03
+			has_artifact = grimoire_of_protection_03 
+		}
+		custom_tooltip = {
+			text = blood_staff_summoning_falo'reth
+		}
+		character_event = { id = BLOODMAGE.1003 days = 90 random = 60 }
+    }
+    option = {
+        name = EVTOPTD_BLOODMAGE_1000
+		trigger = {
+			NOT = { has_global_flag = exists_alythess }				
+			has_artifact = bs_staff_of_the_shadow_flame
+			has_artifact = grimoire_of_protection_03
+		}
+		custom_tooltip = {
+			text = blood_staff_summoning_alythess
+		}
+		character_event = { id = BLOODMAGE.1004 days = 90 random = 60 }
+    }
+    option = {
+        name = EVTOPTE_BLOODMAGE_1000
+		trigger = {
+			NOT = { has_global_flag = exists_sacrolash }
+			has_artifact = bs_rune_knife
+			has_artifact = grimoire_of_protection_03 
+		}
+		custom_tooltip = {
+			text = blood_staff_summoning_sacrolash
+		}
+		character_event = { id = BLOODMAGE.1005 days = 90 random = 60 }
+    }
+    option = {
+        name = EVTOPTF_BLOODMAGE_1000
+		trigger = {
+			has_artifact = grimoire_of_protection_03
+			has_artifact = grimoire_of_blood_03
+		}
+		custom_tooltip = {
+			text = blood_staff_summoning_eredar
+		}
+		character_event = { id = BLOODMAGE.1006 days = 90 random = 60 }
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.1001
+    picture = GFX_evt_burning_legion
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_1001
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_1001
+		destroy_artifact = grimoire_of_blood_03
+		destroy_artifact = grimoire_of_fel_03
+		destroy_artifact = grimoire_of_protection_03
+		set_global_flag = exists_sacrolash
+		create_character = {
+			name = Sacrolash
+			dynasty = 46499
+			religion = illidari
+			culture = eredar
+			female = yes
+			age = 300
+			attributes = {
+				martial=7 diplomacy=4 stewardship=6 intrigue=6 learning=6
+			}
+			random_traits = no
+			trait = elusive_shadow
+			trait = organizer
+			trait = genius
+			trait = fair
+			trait = creature_eredar
+			trait = class_warlock_7
+			trait = class_rogue_5
+			trait = being_demon
+			employer= ROOT
+			trait = proud trait = patient trait = ambitious trait = arbitrary trait = cynical trait = cruel trait = erudite trait = temperate
+		}
+		new_character = {
+			add_friend = ROOT
+			opinion = { modifier = opinion_loyal_servant who = ROOT }
+			# Set focus and add scholarship
+			if = {
+				limit = { has_dlc = "Way of Life" }
+				clear_focus = yes
+				set_focus = focus_scholarship
+			}
+		}
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.1002
+    picture = GFX_evt_burning_legion
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_1002
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_1002
+		destroy_artifact = grimoire_of_blood_03
+		destroy_artifact = grimoire_of_shadow_03
+		destroy_artifact = grimoire_of_protection_03
+		set_global_flag = exists_alythess
+		create_character = {
+			name = Alythess
+			dynasty = 46499
+			religion = illidari
+			culture = eredar
+			female = yes
+			age = 300
+			attributes = {
+				martial=7 diplomacy=4 stewardship=6 intrigue=6 learning=6
+			}
+			random_traits = no
+			trait = elusive_shadow
+			trait = organizer
+			trait = genius
+			trait = fair
+			trait = creature_eredar
+			trait = class_warlock_9
+			trait = being_demon
+			employer= ROOT
+			trait = proud trait = patient trait = ambitious trait = arbitrary trait = cynical trait = cruel trait = erudite trait = temperate
+		}
+		new_character = {
+			add_friend = ROOT
+			opinion = { modifier = opinion_loyal_servant who = ROOT }
+			# Set focus and add scholarship
+			if = {
+				limit = { has_dlc = "Way of Life" }
+				clear_focus = yes
+				set_focus = focus_scholarship
+			}
+		}
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.1003
+    picture = GFX_evt_burning_legion
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_1003
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_1003
+			destroy_artifact = grimoire_of_blood_03
+			destroy_artifact = grimoire_of_souls_03
+			destroy_artifact = grimoire_of_protection_03
+			set_global_flag = exists_falo'reth
+			create_character = {
+				name = Falo'reth
+				dynasty = none
+				religion = illidari
+				culture = eredar
+				female = yes
+				age = 300
+				attributes = {
+					martial=9 diplomacy=3 stewardship=5 intrigue=7 learning=5
+				}
+				random_traits = no
+				trait = brilliant_strategist
+				trait = inspiring_leader
+				trait = strong
+				trait = impaler
+				trait = creature_eredar
+				trait = class_warlock_7
+				trait = class_warrior_5
+				trait = being_demon
+				employer= ROOT
+				trait = proud trait = patient trait = ambitious trait = arbitrary trait = cynical trait = cruel trait = strategist trait = temperate
+			}
+			new_character = {
+				add_friend = ROOT
+				opinion = { modifier = opinion_loyal_servant who = ROOT }
+				# Set focus and add scholarship
+				if = {
+					limit = { has_dlc = "Way of Life" }
+					clear_focus = yes
+					set_focus = focus_war
+				}
+			}
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.1004
+    picture = GFX_evt_burning_legion
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_1004
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_1004
+		destroy_artifact = bs_staff_of_the_shadow_flame
+		destroy_artifact = grimoire_of_protection_03
+		set_global_flag = exists_alythess
+		create_character = {
+			name = Alythess
+			dynasty = 46499
+			religion = illidari
+			culture = eredar
+			female = yes
+			age = 300
+			attributes = {
+				martial=7 diplomacy=4 stewardship=6 intrigue=6 learning=6
+			}
+			random_traits = no
+			trait = elusive_shadow
+			trait = organizer
+			trait = genius
+			trait = fair
+			trait = creature_eredar
+			trait = class_warlock_9
+			trait = being_demon
+			employer= ROOT
+			trait = proud trait = patient trait = ambitious trait = arbitrary trait = cynical trait = cruel trait = erudite trait = temperate
+		}
+		new_character = {
+			add_friend = ROOT
+			opinion = { modifier = opinion_loyal_servant who = ROOT }
+			# Set focus and add scholarship
+			if = {
+				limit = { has_dlc = "Way of Life" }
+				clear_focus = yes
+				set_focus = focus_scholarship
+			}
+		}
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.1005
+    picture = GFX_evt_burning_legion
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_1005
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_1005
+		destroy_artifact = bs_rune_knife
+		destroy_artifact = grimoire_of_protection_03
+		set_global_flag = exists_sacrolash
+		create_character = {
+			name = Sacrolash
+			dynasty = 46499
+			religion = illidari
+			culture = eredar
+			female = yes
+			age = 300
+			attributes = {
+				martial=7 diplomacy=4 stewardship=6 intrigue=6 learning=6
+			}
+			random_traits = no
+			trait = elusive_shadow
+			trait = organizer
+			trait = genius
+			trait = fair
+			trait = creature_eredar
+			trait = class_warlock_7
+			trait = class_rogue_5
+			trait = being_demon
+			employer= ROOT
+			trait = proud trait = patient trait = ambitious trait = arbitrary trait = cynical trait = cruel trait = erudite trait = temperate
+		}
+		new_character = {
+			add_friend = ROOT
+			opinion = { modifier = opinion_loyal_servant who = ROOT }
+			# Set focus and add scholarship
+			if = {
+				limit = { has_dlc = "Way of Life" }
+				clear_focus = yes
+				set_focus = focus_scholarship
+			}
+		}
+    }
+}
+
+character_event = {
+    id = BLOODMAGE.1006
+    picture = GFX_evt_burning_legion
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_1006
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_1006
+		destroy_artifact = grimoire_of_blood_03
+		destroy_artifact = grimoire_of_protection_03
+		create_character = {
+			dynasty = random
+			religion = illidari
+			culture = eredar
+			female = yes
+			age = 300
+			trait = creature_eredar
+			trait = class_warlock_8
+			trait = being_demon
+			trait = ambitious
+			random_traits = yes
+		}
+		new_character = {
+			add_friend = ROOT
+			opinion = { modifier = opinion_loyal_servant who = ROOT }
+			random_list = {
+				45 = { add_trait = brilliant_strategist }
+				20 = { add_trait = elusive_shadow }
+				35 = { add_trait = mastermind_theologian }
+			}
+			#Up intrigue and martial
+			random_list = {
+				33 = {
+					change_martial = 2
+					change_intrigue = 1
+				}
+				33 = {
+					change_martial = 3
+					change_intrigue = 2
+				}
+				33 = {
+					change_martial = 4
+					change_intrigue = 3
+				}
+			}
+			narrative_event = { id = BLOODMAGE.1005 }
 		}
     }
 }
