@@ -515,7 +515,6 @@ society_decisions = { #only available to members of a society
 			}
 			character_event = { id = BLOODMAGE.220 }
 			set_character_flag = becoming_blood_mage
-			increase_visibility_effect = yes
 			remove_3_mana_effect = yes
 		}
 		
@@ -544,7 +543,6 @@ society_decisions = { #only available to members of a society
 			}
 			character_event = { id = BLOODMAGE.298 }
 			set_character_flag = becoming_grand_magister
-			increase_visibility_effect = yes
 			remove_5_mana_effect = yes
 		}
 		
@@ -685,13 +683,11 @@ targeted_decisions = {
 					limit = {
 						is_society_grandmaster = yes
 					}
-					increase_visibility_minor_effect = yes
 				}
 				if = {
 					limit = {
 						NOT = { is_society_grandmaster = yes }
 					}
-					increase_visibility_effect = yes
 				}
 			}
 		}
@@ -763,7 +759,6 @@ targeted_decisions = {
 			}
 			set_character_flag = choosing_warrior_training
 			detract_society_currency_minor_effect = yes
-			increase_visibility_minor_effect = yes
 			remove_3_mana_effect = yes
 		}
 		
@@ -1185,7 +1180,6 @@ targeted_decisions = {
 			}
 			set_character_flag = gaining_demonblood
 			detract_society_currency_medium_effect = yes
-			increase_visibility_minor_effect = yes
 		}
 		
 		revoke_allowed = { always = no }
@@ -1223,7 +1217,6 @@ targeted_decisions = {
 			}
 			set_character_flag = putting_magic_tattoo
 			detract_society_currency_minor_effect = yes
-			increase_visibility_minor_effect = yes
 		}
 
 		revoke_allowed = { always = no }
@@ -1387,7 +1380,6 @@ title_decisions = {
 			FROM = {
 				change_society_currency = -1000
 				hidden_tooltip = { character_event = { id = BLOODMAGE.230 } }
-				increase_visibility_effect = yes
 			}
 			location = {
 				culture = blood_elf
@@ -1452,7 +1444,6 @@ title_decisions = {
 			FROM = {
 				detract_society_currency_major_effect = yes
 				hidden_tooltip = { character_event = { id = BLOODMAGE.280 } }
-				increase_visibility_effect = yes
 			}
 			location = {
 				if = {
@@ -1512,7 +1503,6 @@ settlement_decisions  =
 			FROM = { 
 				show_scope_change = no
 				detract_society_currency_minor_effect = yes
-				increase_visibility_effect = yes
 				hidden_tooltip = {
 					character_event = { id = BLOODMAGE.240 }
 				}

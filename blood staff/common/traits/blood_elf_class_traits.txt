@@ -2,6 +2,8 @@ subclass_blood_mage = {
 	intrigue = 2
 	learning = 2
 
+	light_group_opinion = -40
+	fel_group_opinion = 5
 	random = no
 	ruler_designer_cost = 0
 	customizer = no
