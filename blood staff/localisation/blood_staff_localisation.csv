@@ -145,6 +145,8 @@ blood_staff_decipher_failure_tooltip;You suffer a major setback in deciphering t
 EVTDESC_BLOODMAGE_102;Blood Staff magic association welcome you. We use some magic theories about life, fel, void, blood and souls. This is for power. For Quel'Thalas. As such, you are entitled to join [From.Society.GetName] and learn more about forbidden magic. All hail Kael'thas, All hail Quel'Thalas.\n\nSigned,\n[From.GetSocietyRank] [From.GetFirstName];;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_102;Tell me more about blood magic...;;;;;;;;;;;;;x
 EVTOPTB_BLOODMAGE_102;This is fel magic.;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_103;You sent an invitation letter to this man.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_103;New Blood Mage;;;;;;;;;;;;;x
 # stat pooling;;;;;;;;;;;;;;
 EVTDESC_BLOODMAGE_700;Although you have yet to be formally inducted into The Blood Staff, you have been training and honing your abilities. Decoding cyphers, eavesdropping, learning how to move silently without being followed, there are many such necessities when operating in a secret society.;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_700;Every new skill brings me closer to the truth.;;;;;;;;;;;;;x
@@ -226,14 +228,17 @@ EVTOPTA_BLOODMAGE_304;Now you are the most powerfull mage in Quel'thalas!;;;;;;;
 # magic fortress;;;;;;;;;;;;;;
 EVTDESC_BLOODMAGE_240;As your trusted labourers finish work on the magic fortress at [From.GetName], you personally arrange for a myriad of traps to be set up to secure the arcane vault, as well as a magic canons that protect the fortress from low races. Soon the work is complete and you admire the finished result.;;;;;;;;;;;;;x
 # write magic theories;;;;;;;;;;;;;;
+EVTDESC_BLOODMAGE_358;As a master of blood magic you can use your knowlege to create a grimoire. It will strengthen you and you will be able to channel your powers throught it.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_358;Grimoire Of Shadow;;;;;;;;;;;;;x
+EVTOPTB_BLOODMAGE_358;Grimoire Of Souls;;;;;;;;;;;;;x
+EVTOPTC_BLOODMAGE_358;Return;;;;;;;;;;;;;x
 EVTDESC_BLOODMAGE_360;As a master of blood magic you can use your knowlege to create a grimoire. It will strengthen you and you will be able to channel your powers throught it.;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_360;Grimoire of Protection;;;;;;;;;;;;;x
 EVTOPTB_BLOODMAGE_360;Grimoire Of Blood;;;;;;;;;;;;;x
 EVTOPTC_BLOODMAGE_360;Grimoire Of Fel;;;;;;;;;;;;;x
-EVTOPTD_BLOODMAGE_360;Grimoire Of Shadow;;;;;;;;;;;;;x
-EVTOPTE_BLOODMAGE_360;Grimoire Of Souls;;;;;;;;;;;;;x
-EVTDESC_BLOODMAGE_364;My attempt to write a book ended in failure. I need to study magic more carefully.;;;;;;;;;;;;;x
-EVTOPTA_BLOODMAGE_364;Where did I was wrong?;;;;;;;;;;;;;x
+EVTOPTD_BLOODMAGE_360;More;;;;;;;;;;;;;x
+EVTDESC_BLOODMAGE_359;My attempt to write a book ended in failure. I need to study magic more carefully.;;;;;;;;;;;;;x
+EVTOPTA_BLOODMAGE_359;Where did I was wrong?;;;;;;;;;;;;;x
 EVTDESC_BLOODMAGE_371;Bad copy of Grimoire of Protection;;;;;;;;;;;;;x
 EVTOPTA_BLOODMAGE_371;This grimoire is among the blood mages most ancient relics. It was given to Dath'remar by Illysanna Ravencrest, who challenged her to become the living embodiment of true mage. The book uses Nathrezim theories about defense against damnation.;;;;;;;;;;;;;x
 EVTDESC_BLOODMAGE_372;Copy of Grimoire of Protection;;;;;;;;;;;;;x

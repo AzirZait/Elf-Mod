@@ -226,7 +226,7 @@ society_decisions = { #only available to members of a society
 			society_member_of = blood_staff #which society
 			society_rank >= 4
 		OR = {
-				has_mage_trait_trigger = yes
+				is_mage_class_trigger = yes
 				is_necromancer_class_trigger = yes
 				is_warlock_class_trigger = yes
 		    }
@@ -671,6 +671,7 @@ targeted_decisions = {
 		effect = {
 			custom_tooltip = { 	
 				letter_event = { id = BLOODMAGE.102 }
+				FROM = { character_event = { id = BLOODMAGE.103 } }
 
 				add_character_modifier = {
 					name = religions_recruitment_timer
@@ -793,6 +794,7 @@ targeted_decisions = {
 			FROM = {society_member_of = blood_staff
 			society_rank >= 1
 			NOT = { has_character_modifier = dark_spell_cooldown_timer }
+			NOT = { trait = being_undead }
 			society_currency >= 250 #need 700 society currency, can be anything
 				}
 			}

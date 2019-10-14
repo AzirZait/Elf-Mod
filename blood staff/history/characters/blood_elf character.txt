@@ -18,11 +18,15 @@
 		# effect = { add_character_modifier = { name = hero_power_4 duration = -1 } }
 		add_trait = class_mage_8
 	}
-	582.1.1={
+	583.1.1={
 		employer=59000	# Dalaran
+	}
+
+	583.1.2={
 		join_society = blood_staff
 		set_society_grandmaster = yes
 	}
+
 	596.2.13={
 		effect = {
 			add_rival = 60003	#Arthas
@@ -47,4 +51,22 @@
 		employer=42002
 	}
 	700.4.1={ death=yes }
+}
+42100={
+	name=Safites
+	female = yes
+	dynasty=46499
+	add_trait=infertile
+	culture = eredar religion = illidari
+	martial=7 diplomacy=4 stewardship=6 intrigue=6 learning=6
+	add_trait=mastermind_theologian add_trait=erudite add_trait=trusting add_trait=zealous add_trait=brave add_trait=fair add_trait=genius add_trait=strong add_trait=sorcerer add_trait=robust
+	add_trait = creature_eredar 
+	random_traits=yes
+	167.7.4={ birth=yes }
+	426.3.22={
+		add_trait = class_warlock_10
+		add_trait = class_rogue_10
+		add_trait=being_demon 
+	}
+	426.1.6={ death=yes }
 }

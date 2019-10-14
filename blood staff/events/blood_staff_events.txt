@@ -190,6 +190,18 @@ letter_event = {
     }
 }
 
+character_event = {
+    id = BLOODMAGE.103
+    desc = EVTDESC_BLOODMAGE_103
+    border = GFX_event_letter_frame_intrigue
+	
+    is_triggered_only = yes
+
+    option = { #join the society
+        name = EVTOPTA_BLOODMAGE_103
+    }
+}
+
 ########################AI JOIN AND AI RANK UP###########################
 
 character_event = { #force the AI to join a society
@@ -532,6 +544,46 @@ character_event = {
 					character_event = { id = BLOODMAGE.200 }
 				}
 			}
+
+			75 = { # AI bypasses missions at times
+				modifier = {
+					factor = 0
+					ai = no
+				}
+				random_list = {
+					70 = {
+						modifier = {
+							factor = 0.9
+							society_influence >= 30
+						}
+						modifier = {
+							factor = 0.9
+							society_influence >= 40
+						}
+						modifier = {
+							factor = 0.8
+							society_influence >= 50
+						}
+						modifier = {
+							factor = 0.7
+							society_influence >= 70
+						}
+						modifier = {
+							factor = 0.6
+							society_influence >= 80
+						}
+						modifier = {
+							factor = 0.5
+							society_influence >= 90
+						}
+						add_mission_succeed_influence_effect = yes
+					}
+					30 = {
+						add_mission_fail_influence_effect = yes
+					}
+				}
+			}
+
 			100 = { #AI 
 				trigger = {
 					ai = yes
@@ -1568,10 +1620,10 @@ character_event = {
 			factor = 0
 		}
 		if = {
-			limit = { has_quest = quest_blood_staff_become_blood_mage }
-			clr_quest = { id = quest_blood_staff_become_blood_mage failure = yes }
+			limit = { has_quest = quest_blood_staff_become_grand_magister }
+			clr_quest = { id = quest_blood_staff_become_grand_magister failure = yes }
 		}
-        clr_character_flag = becoming_blood_mage
+        clr_character_flag = becoming_grand_magister
 		detract_society_currency_medium_effect = yes
     }
 }
@@ -1593,7 +1645,7 @@ character_event = {
 			limit = { has_quest = quest_blood_staff_become_grand_magister }
 			clr_quest = quest_blood_staff_become_grand_magister
 			sound_effect = time_forward
-			add_society_currency_minor_effect = yes
+			add_society_currency_major_effect = yes
 		}
         clr_character_flag = becoming_grand_magister
     }
@@ -3467,6 +3519,50 @@ character_event = {
 }
 
 # write gremuars
+
+character_event = {
+    id = BLOODMAGE.358
+    picture = GFX_evt_grimoire
+    border = GFX_event_normal_frame_intrigue
+
+    is_triggered_only = yes
+    
+    desc = EVTDESC_BLOODMAGE_358
+
+    option = {
+        name = EVTOPTA_BLOODMAGE_358
+		tooltip_info = learning
+		trigger = {
+			has_society_currency_medium_trigger = yes
+			learning = 13
+		}
+		detract_society_currency_medium_effect = yes
+		custom_tooltip = {
+			text = blood_staff_grimoire_of_shadow_writing
+		}
+		character_event = { id = BLOODMAGE.364 }
+    }
+    option = {
+        name = EVTOPTB_BLOODMAGE_358
+		tooltip_info = learning
+		trigger = {
+			has_society_currency_medium_trigger = yes
+			learning = 13
+		}
+		detract_society_currency_medium_effect = yes
+		custom_tooltip = {
+			text = blood_staff_grimoire_of_souls_writing
+		}
+		character_event = { id = BLOODMAGE.365 }
+    }
+
+    option = {
+        name = EVTOPTC_BLOODMAGE_358
+		character_event = { id = BLOODMAGE.360 }
+    }
+
+}
+
 character_event = {
     id = BLOODMAGE.360
     picture = GFX_evt_grimoire
@@ -3478,11 +3574,14 @@ character_event = {
 
     option = {
         name = EVTOPTA_BLOODMAGE_360
+        trigger = {
+			NOT = { has_artifact = grimoire_of_protection_03 }
+		}
 		detract_society_currency_minor_effect = yes
 		custom_tooltip = {
 			text = blood_staff_grimoire_of_protection_writing
 		}
-		character_event = { id = BLOODMAGE.361 days = 90 random = 60 }
+		character_event = { id = BLOODMAGE.361 }
     }
     option = {
         name = EVTOPTB_BLOODMAGE_360
@@ -3493,7 +3592,7 @@ character_event = {
 		custom_tooltip = {
 			text = blood_staff_grimoire_of_blood_writing
 		}
-		character_event = { id = BLOODMAGE.362 days = 90 random = 60 }
+		character_event = { id = BLOODMAGE.362 }
     }
     option = {
         name = EVTOPTC_BLOODMAGE_360
@@ -3506,33 +3605,11 @@ character_event = {
 		custom_tooltip = {
 			text = blood_staff_grimoire_of_fel_writing
 		}
-		character_event = { id = BLOODMAGE.363 days = 90 random = 60 }
+		character_event = { id = BLOODMAGE.363 }
     }
     option = {
         name = EVTOPTD_BLOODMAGE_360
-		tooltip_info = learning
-		trigger = {
-			has_society_currency_medium_trigger = yes
-			learning = 13
-		}
-		detract_society_currency_medium_effect = yes
-		custom_tooltip = {
-			text = blood_staff_grimoire_of_shadow_writing
-		}
-		character_event = { id = BLOODMAGE.364 days = 90 random = 60 }
-    }
-    option = {
-        name = EVTOPTE_BLOODMAGE_360
-		tooltip_info = learning
-		trigger = {
-			has_society_currency_medium_trigger = yes
-			learning = 13
-		}
-		detract_society_currency_medium_effect = yes
-		custom_tooltip = {
-			text = blood_staff_grimoire_of_souls_writing
-		}
-		character_event = { id = BLOODMAGE.365 days = 90 random = 60 }
+		character_event = { id = BLOODMAGE.358 }
     }
 }
 
@@ -3543,7 +3620,7 @@ character_event = { # 1 roll protection
 	
 	trigger = { society_member_of = blood_staff 
 			OR = {
-				is_mage_trait_trigger = yes
+				is_mage_class_trigger = yes
 				is_necromancer_class_trigger = yes
 				is_warlock_class_trigger = yes
 		    }
@@ -3566,6 +3643,9 @@ character_event = { # 1 roll protection
 				warlock_score = yes
 				necromancer_score = yes	
 			}
+			5 = {
+				character_event = { id = BLOODMAGE.359 }
+			}
 		}
 	}
 }
@@ -3577,7 +3657,7 @@ character_event = { # 2 roll blood
 	
 	trigger = { society_member_of = blood_staff 
 			OR = {
-				is_mage_trait_trigger = yes
+				is_mage_class_trigger = yes
 				is_necromancer_class_trigger = yes
 				is_warlock_class_trigger = yes
 		    }
@@ -3600,6 +3680,9 @@ character_event = { # 2 roll blood
 				warlock_score = yes
 				necromancer_score = yes	
 			}
+			5 = {
+				character_event = { id = BLOODMAGE.359 }
+			}
 		}
 	}
 }
@@ -3611,7 +3694,7 @@ character_event = { # 3 roll fel
 	
 	trigger = { society_member_of = blood_staff 
 			OR = {
-				is_mage_trait_trigger = yes
+				is_mage_class_trigger = yes
 				is_necromancer_class_trigger = yes
 				is_warlock_class_trigger = yes
 		    }
@@ -3634,6 +3717,9 @@ character_event = { # 3 roll fel
 				warlock_score = yes
 				necromancer_score = yes	
 			}
+			5 = {
+				character_event = { id = BLOODMAGE.359 }
+			}
 		}
 	}
 }
@@ -3645,7 +3731,7 @@ character_event = { # 4 roll shadow
 	
 	trigger = { society_member_of = blood_staff 
 			OR = {
-				is_mage_trait_trigger = yes
+				is_mage_class_trigger = yes
 				is_necromancer_class_trigger = yes
 				is_warlock_class_trigger = yes
 		    }
@@ -3668,6 +3754,9 @@ character_event = { # 4 roll shadow
 				warlock_score = yes
 				necromancer_score = yes	
 			}
+			5 = {
+				character_event = { id = BLOODMAGE.359 }
+			}
 		}
 	}
 }
@@ -3679,7 +3768,7 @@ character_event = { # 5 roll souls
 	
 	trigger = { society_member_of = blood_staff 
 			OR = {
-				is_mage_trait_trigger = yes
+				is_mage_class_trigger = yes
 				is_necromancer_class_trigger = yes
 				is_warlock_class_trigger = yes
 		    }
@@ -3702,22 +3791,25 @@ character_event = { # 5 roll souls
 				warlock_score = yes
 				necromancer_score = yes	
 			}
+			5 = {
+				character_event = { id = BLOODMAGE.359 }
+			}
 		}
 	}
 }
 
 # Failed
 character_event = {
-    id = BLOODMAGE.364
+    id = BLOODMAGE.359
     picture = GFX_evt_performing_experiments
     border = GFX_event_normal_frame_intrigue
 
     is_triggered_only = yes
     
-    desc = EVTDESC_BLOODMAGE_364
+    desc = EVTDESC_BLOODMAGE_359
 
     option = {
-        name = EVTOPTA_BLOODMAGE_364
+        name = EVTOPTA_BLOODMAGE_359
 		prestige = -5
     }
 }
