@@ -15,11 +15,15 @@
 		# add_trait = class_mage
 		add_trait = subclass_blood_mage
 		add_trait = grand_magister
+		join_society = blood_staff
+		set_society_grandmaster = yes
 		# effect = { add_character_modifier = { name = hero_power_4 duration = -1 } }
 		add_trait = class_mage_8
 	}
 	583.1.1={
 		employer=59000	# Dalaran
+		join_society = blood_staff
+		set_society_grandmaster = yes
 	}
 
 	583.1.2={

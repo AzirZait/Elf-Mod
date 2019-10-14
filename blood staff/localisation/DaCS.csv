@@ -1,0 +1,41 @@
+#CODE;English;French;German;;Spanish;;;;;;;;;x
+;;;;;;;;;;;;;;
+DESTROY_CONVERT_SETTLEMENT;Convert Settlements;;;;;;;;;;;;;x
+RULE_OPTION_BALANCED;Balanced;;;;;;;;;;;;;x
+RULE_DACS_BALANCED_DESC;Converting settlements requires money and will affect your standing among your vassals.;;;;;;;;;;;;;x
+RULE_OPTION_FREE;Free;;;;;;;;;;;;;x
+RULE_DACS_FREE_DESC;Converting settlements will be free of money and standing.;;;;;;;;;;;;;x
+RULE_DACS_OFF_DESC;You cannot convert settlements.;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+priest_vassal_angry;Temple vassals opinion will decrease by §R-25§! for §Y10§! years.\n;;;;;;;;;;;;;x
+iqta_vassal_angry;Iqta vassals opinion will decrease by §R-25§! for §Y10§! years.\n;;;;;;;;;;;;;x
+republic_vassal_angry;City vassals opinion will decrease by §R-25§! for §Y10§! years.\n;;;;;;;;;;;;;x
+feudal_vassal_angry;Temple vassals opinion will decrease by §R-25§! for §Y10§! years.\n;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+convert_settlement_castle;Convert Holding to Castle;;;;;;;;;;;;;x
+convert_settlement_city;Convert Holding to City;;;;;;;;;;;;;x
+convert_settlement_temple;Convert Holding to Temple;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+convert_settlement_castle_desc;I can convert this settlement to a castle but some vassals won't like it.;;;;;;;;;;;;;x
+convert_settlement_city_desc;I can convert this settlement to a city but some vassals won't like it.;;;;;;;;;;;;;x
+convert_settlement_temple_desc;I can convert this settlement to a temple but some vassals won't like it.;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+convert_settlement_castle_free;Convert Holding to Castle;;;;;;;;;;;;;x
+convert_settlement_city_free;Convert Holding to City;;;;;;;;;;;;;x
+convert_settlement_temple_free;Convert Holding to Temple;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+convert_settlement_castle_free_desc;Convert Holding to Castle is simple now.;;;;;;;;;;;;;x
+convert_settlement_city_free_desc;Convert Holding to City is simple now.;;;;;;;;;;;;;x
+convert_settlement_temple_free_desc;Convert Holding to Temple is simple now.;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+repressed_revolt;Recent Revolt;;;;;;;;;;;;;x
+repressed_revolt_2;Recent Revolt;;;;;;;;;;;;;x
+repressed_revolt_3;Recent Revolt;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+repressed_revolt_temple;Recent Revolt;;;;;;;;;;;;;x
+repressed_revolt_temple_2;Recent Revolt;;;;;;;;;;;;;x
+repressed_revolt_temple_3;Recent Revolt;;;;;;;;;;;;;x
+repressed_revolt_temple_4;Recent Revolt;;;;;;;;;;;;;x
+repressed_revolt_temple_5;Recent Revolt;;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+destroyed_temple;Destroyed Temple;;;;;;;;;;;;;x

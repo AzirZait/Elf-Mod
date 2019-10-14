@@ -1,0 +1,276 @@
+namespace = DaCS
+
+character_event = {
+	id = DaCS.1
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		any_realm_province = {
+				has_province_modifier = destroyed_temple
+			owner = {
+				top_liege = {
+					war = yes
+					any_war = {
+						defender = { character = PREV }
+						OR = {
+							using_cb = peasant_revolt
+							using_cb = heretic_revolt
+							using_cb = religious_revolt
+							using_cb = liberation_revolt
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		any_realm_province = {
+			limit = {
+					has_province_modifier = destroyed_temple
+			}
+			province_event = { id = DaCS.2 }
+		}
+	}
+}
+
+province_event = {
+	id = DaCS.2
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				owner = {
+					top_liege = {
+						war = yes
+						any_war = {
+							defender = { character = PREV }
+							attacker = {
+								NOT = {
+									has_character_flag = repressed_revolt
+								}
+							}
+							OR = {
+								using_cb = peasant_revolt
+								using_cb = heretic_revolt
+								using_cb = religious_revolt
+								using_cb = liberation_revolt
+							} 
+							war_title = ROOT
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					location = {
+						has_province_modifier = destroyed_temple
+						has_province_modifier = repressed_revolt_temple_5
+					}
+				}
+				remove_province_modifier = repressed_revolt_temple_5
+				remove_province_modifier = destroyed_temple
+				set_province_flag = dh_reset
+			}
+			if = {
+				limit = {
+					location = {
+						has_province_modifier = destroyed_temple
+						has_province_modifier = repressed_revolt_temple_4
+					}
+				}
+				remove_province_modifier = repressed_revolt_temple_4
+				add_province_modifier = {
+					name = repressed_revolt_temple_5
+					years = 20
+				}
+			}
+			if = {
+				limit = {
+					location = {
+						has_province_modifier = destroyed_temple
+						has_province_modifier = repressed_revolt_temple_3
+					}
+				}
+				remove_province_modifier = repressed_revolt_temple_3
+				add_province_modifier = {
+					name = repressed_revolt_temple_4
+					years = 20
+				}
+			}
+			if = {
+				limit = {
+					location = {
+						has_province_modifier = destroyed_temple
+						has_province_modifier = repressed_revolt_temple_2
+					}
+				}
+				remove_province_modifier = repressed_revolt_temple_2
+				add_province_modifier = {
+					name = repressed_revolt_temple_3
+					years = 20
+				}
+			}
+			if = {
+				limit = {
+					location = {
+						has_province_modifier = destroyed_temple
+						has_province_modifier = repressed_revolt_temple
+					}
+				}
+				remove_province_modifier = repressed_revolt_temple
+				add_province_modifier = {
+					name = repressed_revolt_temple_2
+					years = 20
+				}
+			}
+			if = {
+				limit = {
+					location = {
+						has_province_modifier = destroyed_temple
+						NOT = {
+							OR = {
+								OR = {
+									has_province_modifier = repressed_revolt_temple
+									has_province_modifier = repressed_revolt_temple_2
+									has_province_modifier = repressed_revolt_temple_3
+									has_province_modifier = repressed_revolt_temple_4
+									has_province_modifier = repressed_revolt_temple_5
+								}
+								OR = {
+									has_province_modifier = repressed_revolt
+									has_province_modifier = repressed_revolt_2
+									has_province_modifier = repressed_revolt_3
+								}
+							}
+						}
+					}
+				}
+				add_province_modifier = {
+					name = repressed_revolt_temple
+					years = 20
+				}
+			}
+			if = {
+				limit = {
+					location = {
+						has_province_modifier = destroyed_temple
+						has_province_modifier = repressed_revolt_3
+					}
+				}
+				remove_province_modifier = repressed_revolt_3
+				remove_province_modifier = destroyed_temple
+				set_province_flag = dh_reset
+			}
+			if = {
+				limit = {
+					location = {
+						has_province_modifier = destroyed_temple
+						has_province_modifier = repressed_revolt_2
+					}
+				}
+				remove_province_modifier = repressed_revolt_2
+				add_province_modifier = {
+					name = repressed_revolt_3
+					years = 20
+				}
+			}
+			if = {
+				limit = {
+					location = {
+						has_province_modifier = destroyed_temple
+						has_province_modifier = repressed_revolt
+					}
+				}
+				remove_province_modifier = repressed_revolt
+				add_province_modifier = {
+					name = repressed_revolt_2
+					years = 20
+				}
+			}
+			if = {
+				limit = {
+					location = {
+						has_province_modifier = destroyed_temple
+						NOT = {
+							OR = {
+								OR = {
+									has_province_modifier = repressed_revolt
+									has_province_modifier = repressed_revolt_2
+									has_province_modifier = repressed_revolt_3
+								}
+								OR = {
+									has_province_modifier = repressed_revolt_temple
+									has_province_modifier = repressed_revolt_temple_2
+									has_province_modifier = repressed_revolt_temple_3
+									has_province_modifier = repressed_revolt_temple_4
+									has_province_modifier = repressed_revolt_temple_5
+								}
+							}
+							has_province_flag = dh_reset
+						}
+					}
+				}
+				add_province_modifier = {
+					name = repressed_revolt
+					years = 20
+				}
+			}
+			clr_province_flag = dh_reset
+			owner = {
+				top_liege = {
+					any_war = {
+						attacker = {
+							if = {
+								limit = {
+									trait = peasant_leader
+									NOT = {
+										has_character_flag = repressed_revolt
+									}
+								}
+								set_character_flag = repressed_revolt
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+province_event = {
+	id = DaCS.3
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			has_province_modifier = repressed_revolt
+			has_province_modifier = repressed_revolt_2
+			has_province_modifier = repressed_revolt_3
+			has_province_modifier = repressed_revolt_temple
+			has_province_modifier = repressed_revolt_temple_2
+			has_province_modifier = repressed_revolt_temple_3
+			has_province_modifier = repressed_revolt_temple_4
+			has_province_modifier = repressed_revolt_temple_5
+		}
+	}
+	
+	immediate = {
+		remove_province_modifier = repressed_revolt
+		remove_province_modifier = repressed_revolt_2
+		remove_province_modifier = repressed_revolt_3
+		remove_province_modifier = repressed_revolt_temple
+		remove_province_modifier = repressed_revolt_temple_2
+		remove_province_modifier = repressed_revolt_temple_3
+		remove_province_modifier = repressed_revolt_temple_4
+		remove_province_modifier = repressed_revolt_temple_5
+	}
+}

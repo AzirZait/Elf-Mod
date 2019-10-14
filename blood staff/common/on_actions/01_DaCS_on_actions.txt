@@ -1,0 +1,7 @@
+# From = Attacker, Root = Defender
+on_war_started = {
+	events = {
+		CM.10012
+		DaCS.1
+	}
+}

@@ -7,6 +7,18 @@ is_blood_staff_trigger = { #trigger for members, useful if you have several simi
 			# society_member_of = tutorial_society_another_one
 		}
 	}
-} 
+}
+
+use_dark_artifacts_trigger = {
+	OR = {
+		is_warlock_class_trigger = yes
+		trait = subclass_blood_mage
+		is_death_knight_class_trigger = yes
+		is_necromancer_class_trigger = yes
+		is_shadow_priest_class_trigger = yes
+		dark_public_religion_trigger = yes
+	}
+}
+
 #call it using this:
 #	is_blood_staff_trigger = yes 

@@ -1,0 +1,4 @@
+destroyed_temple = {
+	authority = -1
+	years = 20
+}

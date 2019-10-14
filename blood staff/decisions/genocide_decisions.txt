@@ -1,0 +1,223 @@
+
+
+title_decisions = {
+	# Genocide
+	make_genocide = {
+		only_rulers = yes
+		filter = realm_owned
+		ai_target_filter = realm_owned
+		
+		from_potential = {
+			is_ruler = yes
+			is_adult = yes
+			NOT = { has_character_flag = ne_fera_plus_de_genocide }
+			war = no
+			prisoner = no
+			NOT = {
+				trait = in_hiding 
+				has_character_flag = making_a_genocide
+			}
+			OR = {
+				liege = {
+					religion = FROM
+					culture = FROM
+				}
+				independent = yes
+			}
+		}
+		
+		potential = {
+			tier = COUNT
+			
+			location = {
+					OR = {
+					NOT = { culture = FROM } 
+					NOT = { religion = FROM } 
+						}
+					}
+			holder_scope = {
+				OR = {
+					is_liege_or_above = FROM
+					AND = {
+						ai = no
+						character = FROM
+					}
+				}
+			}
+		}
+		
+		allow = {
+			FROM = { culture_group = high_elf_group }
+			OR = {
+				has_game_rule = { name = genocide_frenzy value = on }
+				AND = {
+					has_game_rule = { name = genocide_frenzy value = off }
+					FROM = {
+						OR = { 
+							trait = impaler
+							trait = subclass_blood_mage
+							trait = cruel
+							trait = cynical
+							trait = zealous
+							trait = lunatic
+						}
+						prestige >= 500						
+					}
+				}
+			}
+					
+			location = {
+				AND = {
+					OR = {
+						NOT = { religion = FROM }
+						NOT = { culture = FROM }
+					}
+					AND = {
+						owner = { religion = FROM } # Cannot convert counties of owners who has a different religion
+						owner = { culture = FROM } # Cannot convert counties of owners who has a different culture
+					}
+				}
+			}
+		}
+		
+		effect = {
+			add_trait = cruel
+			if = {
+				limit = {
+					FROM = {
+						trait = kind
+					}
+				}
+				remove_trait = kind
+			}
+			random_list = {
+				20 = { #the county doesn't have a revolt
+					FROM = {
+						prestige=-500
+						if = {
+							limit = {
+								has_game_rule = { name = vile_monster_trait value = on }
+							}
+							if = {
+								limit = {
+									OR = {
+										trait = genocideur_1
+										trait = genocideur_2
+									}
+								}
+								if = {
+									limit = {
+										trait = genocideur_2
+									}
+									add_trait = genocideur_3
+								}
+								if = {
+									limit = {
+										trait = genocideur_1
+									}
+									add_trait = genocideur_2
+								}
+							}
+							
+							if = {
+								limit = {
+									AND = {
+										NOT = { trait = genocideur_1 }
+										NOT = { trait = genocideur_2 }
+										NOT = { trait = genocideur_3 }
+									}
+								}
+								add_trait = genocideur_1 
+							}
+						}
+						else = {
+							any_neighbor_independent_ruler = {
+								opinion = {
+									who = PREV
+									modifier = opinion_tyrant
+									months = 120
+								}
+							}
+							any_vassal = {
+								opinion = {
+									who = PREV
+									modifier = opinion_tyrant
+									months = 120
+								}
+							}
+						}
+					
+					if = {
+							limit = {
+								has_nickname = no
+								}
+							ROOT = { save_event_target_as = nickname_target }
+							give_nickname = nick_the_terror_of_provincename
+						}
+						
+						hidden_tooltip = { character_event = { id = genocide.0001 }
+											if = {
+												limit = {
+													NOT = { trait = excommunicated }
+														religion_group = light_group
+													religion_head = {
+														AND = {
+															religion = ROOT
+															OR = {
+																trait = kind
+																trait = just
+															}
+														}
+													}
+												}
+												character_event = { id = genocide.0005 }
+											}
+										}
+						
+					}
+					location = {
+						religion = FROM
+						culture = FROM
+						add_province_modifier = {
+							name = genocide
+							years = 10
+						}
+						add_province_modifier = {
+							name = depopulated_3
+							years = 10
+						}
+					}
+					hidden_tooltip = {
+						if = { # Notify county owner
+							limit = {
+								holder_scope = { NOT = { character = FROM } }
+							}
+							holder_scope = { character_event = { id = genocide.0002 } }
+						}
+					}
+				}
+				
+				80 = { #the county have a revolt
+					set_character_flag = making_a_genocide
+					location = {
+						province_event = { id = genocide.0003 }
+						hidden_tooltip = { set_province_flag = genocide_target }
+					}
+					
+				}
+			}
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 50
+				has_game_rule = { name = genocide_frenzy value = on }
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+vile_monster_trait = {
+	name = "RULE_vile_monster_trait"
+	group = "RULE_GROUP_genocide"
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_vile_monster_trait_ON_desc"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_vile_monster_trait_OFF_desc"
+	}
+}
+
+genocide_frenzy = {
+	name = "RULE_genocide_frenzy"
+	group = "RULE_GROUP_genocide"
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_genocide_frenzy_OFF_desc"
+	}
+	option = {
+		name = on
+		text = "RULE_OPTION_ON"
+		desc = "RULE_genocide_frenzy_ON_desc"
+	}
+}

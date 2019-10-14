@@ -320,7 +320,7 @@ grimoire_of_souls_03 = {
 }
 bs_book_shadow = {
 	quality = 5
-	flags = { misc book powerful_magical_artifact }
+	flags = { misc book powerful_magical_artifact void_artifact }
 
 	active = {
 		is_adult = yes
@@ -366,7 +366,7 @@ bs_grimoire_of_blood = {
 }
 bs_grimoire_of_fel = {
 	quality = 5
-	flags = { misc book powerful_magical_artifact }
+	flags = { misc book powerful_magical_artifact fel_artifact }
 
 	active = {
 		is_adult = yes
@@ -509,7 +509,7 @@ bs_ravens_eye = {
 }
 bs_rune_knife = {
 	quality = 3		# 10
-	flags = { combat_weapon sword powerful_magical_artifact }
+	flags = { combat_weapon sword }
 
 	active = {
 		is_adult = yes
@@ -599,7 +599,7 @@ bs_verdant_spheres = {
 }
 bs_staff_of_the_shadow_flame = {
 	quality = 3
-	flags = { combat_weapon magic_staff powerful_magical_artifact }
+	flags = { combat_weapon magic_staff fel_artifact }
 
 	active = {
 		is_adult = yes

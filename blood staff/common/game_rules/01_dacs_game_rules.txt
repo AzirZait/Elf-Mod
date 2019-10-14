@@ -1,0 +1,18 @@
+dacs = {
+	name = "DESTROY_CONVERT_SETTLEMENT"
+	option = {
+		name = balanced
+		text = "RULE_OPTION_BALANCED"
+		desc = "RULE_DACS_BALANCED_DESC"
+	}
+	option = {
+		name = free
+		text = "RULE_OPTION_FREE"
+		desc = "RULE_DACS_FREE_DESC"
+	}
+	option = {
+		name = off
+		text = "RULE_OPTION_OFF"
+		desc = "RULE_DACS_OFF_DESC"
+	}
+}

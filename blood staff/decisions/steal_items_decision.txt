@@ -1,0 +1,62 @@
+targeted_decisions = {
+
+	seize_artifact = {
+		
+		ai = no
+		third_party_filter = artifacts
+		third_party = ROOT
+		
+		potential = {
+			num_of_artifacts >= 1
+			any_artifact = { is_artifact_equipped = yes }
+		}
+		third_party_potential = { FROMFROM = { is_artifact_equipped = yes } }
+		allow = {
+			ROOT = {
+				custom_tooltip = {
+					text = seize_artifact_allow
+					prisoner = yes
+					host = { character = FROM }
+				}
+			}
+			FROM = {
+				is_incapable = no
+				prisoner = no
+			}
+		}
+		effect = {
+			FROM = {
+				custom_tooltip = {
+					text = seize_artifact_effect
+					ROOT = {
+						FROMFROM = {
+							transfer_artifact = {
+								from = PREV
+								to = PREVPREV
+							}
+						}
+					}
+				}
+				custom_tooltip = {
+					text = seize_artifact_effect2
+					any_vassal = {
+						opinion = { who = FROM modifier = opinion_seized_artifact_tyranny }
+					}
+				}
+				imprison = no
+			}
+			custom_tooltip = {
+				text = seize_artifact_effect3
+				ROOT = {
+					opinion = { who = FROM modifier = seized_artifact }
+					add_rival = FROM
+					current_heir = { opinion = { who = FROM modifier = seized_artifact_inheritance } }
+					any_dynasty_member = {
+						limit = { is_alive = yes }
+						opinion = { who = FROM modifier = seized_artifact_dynastic }
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,8 @@
+RULE_vile_monster_trait;Superiority of elves;Trait ignoble monstre;;;;;;;;;;;;x
+RULE_GROUP_genocide;Superiority mod;Mod Génocide;;;;;;;;;;;;x
+RULE_vile_monster_trait_ON_desc;You might gain the superiority trait after a genocide.;Vous pouvez gagner le trait ignoble monstre après un génocide.;;;;;;;;;;;;x
+RULE_vile_monster_trait_OFF_desc;You cannot gain the superiority trait after a genocide. Instead you gain tyranny.;Vous ne pouvez pas gagner le trait ignoble monstre après un génocide. A la place vous gagner de la tyrannie.;;;;;;;;;;;;x
+;;;;;;;;;;;;;;
+RULE_genocide_frenzy;Genocide frenzy;Frénésie de génocide;;;;;;;;;;;;x
+RULE_genocide_frenzy_ON_desc;The conditions to makes a genocide are heavily reduced.;Les conditions pour faire un génocide sont fortement réduites.;;;;;;;;;;;;x
+RULE_genocide_frenzy_OFF_desc;The conditions to makes a genocide are normal.;Les conditions pour faire un génocide sont normales.;;;;;;;;;;;;x

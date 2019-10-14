@@ -1,0 +1,582 @@
+# Settlement decisions are possible vs _all_ settlements and are shown in the Settlement Diplomacy View, not the Intrigue View. The taker is in the FROM scope.
+#
+# filter = [capital/owned/vassal_owned/sub_realm_owned/realm_owned/dynasty_owned/all]
+# ai_target_filter = [capital/owned/vassal_owned/sub_realm_owned/realm_owned/dynasty_owned/all] (which settlements for which the AI evaluates the decision.)
+#	owned: all settlements owned by the AI
+#	vassal_owned: all settlements owned by direct vassal rulers of the AI's employer
+#	sub_realm_owned: all settlements below the AI's employer
+#	realm_owned: all settlements in the same top realm as the AI
+#	dynasty_owned: all settlements owned by members of the same dynasty
+#	all: all settlements (Avoid if possible. VERY CPU-HEAVY!)
+#	
+
+settlement_decisions = {
+
+		######################
+		# BALANCED DECISIONS #
+		######################
+	
+	# Convert holding to CASTLE
+	convert_settlement_castle = {
+		filter = owned
+		ai_target_filter = owned
+		
+		from_potential = {
+			is_tribal = no
+			is_nomadic = no
+		}
+		
+		potential = {
+			has_game_rule =  {
+				name = dacs
+				value = balanced
+			}
+			OR = {
+				holding_type = city
+				holding_type = temple
+			}
+			holder_scope = {
+				character = FROM
+				ai = no
+			}
+			is_capital = yes
+		}
+		
+		allow = {
+			holder = FROM
+			FROM = {
+				wealth = 750
+			}
+			OR = {
+				AND = {
+					holding_type = city
+					location = {
+						any_province_holding = {
+							is_capital = no
+							holding_type = city
+						}
+					}
+				}
+				AND = {
+					holding_type = temple
+					location = {
+						any_province_holding = {
+							is_capital = no
+							holding_type = temple
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					holding_type = temple
+				}
+				FROM = {
+					if = {
+						limit = {
+							NOT = {
+								religion_group = arcane_group
+							}
+						}
+						hidden_tooltip = {
+							any_vassal = {
+								limit = {
+									is_priest = yes
+								}
+								opinion = {
+								modifier = opinion_angry
+								who = FROM
+								years = 10
+								}
+							}
+						}
+						custom_tooltip = { text = priest_vassal_angry }
+					}
+					if = {
+						limit = {
+							religion_group = arcane_group
+						}
+						hidden_tooltip = {
+							any_vassal = {
+								limit = {
+									OR = {
+										is_priest = yes
+										is_feudal = yes
+									}
+								}
+								opinion = {
+									modifier = opinion_angry
+									who = FROM
+									years = 10
+								}
+							}
+						}
+						custom_tooltip = { text = iqta_vassal_angry }
+					}
+					religion_head = {
+						opinion = {
+							modifier = opinion_angry
+							who = FROM
+							years = 20
+						}
+					}
+					religion_authority = {
+						modifier = destroyed_temple
+						years = 20
+					}
+				}
+			}
+			if = {
+				limit = {
+					holding_type = city
+				}
+				FROM = {
+					hidden_tooltip = {
+						any_vassal = {
+							limit = {
+								is_republic = yes
+							}
+							opinion = {
+							modifier = opinion_angry
+							who = FROM
+							years = 10
+							}
+						}
+					}
+					custom_tooltip = { text = republic_vassal_angry }
+				}
+			}
+			FROM = {
+				wealth = -750
+			}
+			convert_to = CASTLE
+		}
+	}
+	
+	
+	# Convert holding to CITY
+	convert_settlement_city = {
+		filter = owned
+		ai_target_filter = owned
+		
+		from_potential = {
+			is_tribal = no
+			is_nomadic = no
+		}
+		
+		potential = {
+			has_game_rule =  {
+				name = dacs
+				value = balanced
+			}
+			OR = {
+				holding_type = castle
+				holding_type = temple
+			}
+			holder_scope = {
+				character = FROM
+				ai = no
+			}
+			is_capital = yes
+		}
+		
+		allow = {
+			holder = FROM
+			FROM = {
+				wealth = 750
+			}
+			OR = {
+				AND = {
+					holding_type = castle
+					location = {
+						any_province_holding = {
+							is_capital = no
+							holding_type = castle
+						}
+					}
+				}
+				AND = {
+					holding_type = temple
+					location = {
+						any_province_holding = {
+							is_capital = no
+							holding_type = temple
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					holding_type = temple
+				}
+				FROM = {
+					if = {
+						limit = {
+							NOT = {
+								religion_group = arcane_group
+							}
+						}
+						hidden_tooltip = {
+							any_vassal = {
+								limit = {
+									is_priest = yes
+								}
+								opinion = {
+								modifier = opinion_angry
+								who = FROM
+								years = 10
+								}
+							}
+						}
+						custom_tooltip = { text = priest_vassal_angry }
+					}
+					if = {
+						limit = {
+							religion_group = arcane_group
+						}
+						any_vassal = {
+							limit = {
+								OR = {
+									is_priest = yes
+									is_feudal = yes
+								}
+							}
+							opinion = {
+								modifier = opinion_angry
+								who = FROM
+								years = 10
+							}
+						}
+					}
+					religion_head = {
+						opinion = {
+							modifier = opinion_angry
+							who = FROM
+							years = 20
+						}
+					}
+					religion_authority = {
+						modifier = destroyed_temple
+						years = 20
+					}
+				}
+			}
+			if = {
+				limit = {
+					holding_type = castle
+				}
+				FROM = {
+					hidden_tooltip = {
+						any_vassal = {
+							limit = {
+								is_feudal = yes
+							}
+							opinion = {
+							modifier = opinion_angry
+							who = FROM
+							years = 10
+							}
+						}
+					}
+					custom_tooltip = { text = feudal_vassal_angry }
+				}
+			}
+			FROM = {
+				wealth = -750
+			}
+			convert_to = CITY
+		}
+	}
+
+	
+	# Convert holding to TEMPLE
+	convert_settlement_temple = {
+		filter = owned
+		ai_target_filter = owned
+		
+		from_potential = {
+			is_tribal = no
+			is_nomadic = no
+		}
+		
+		potential = {
+			has_game_rule =  {
+				name = dacs
+				value = balanced
+			}
+			OR = {
+				holding_type = city
+				holding_type = castle
+			}
+			holder_scope = {
+				character = FROM
+				ai = no
+			}
+			is_capital = yes
+		}
+		
+		allow = {
+			holder = FROM
+			FROM = {
+				wealth = 750
+			}
+			OR = {
+				AND = {
+					holding_type = city
+					location = {
+						any_province_holding = {
+							is_capital = no
+							holding_type = city
+						}
+					}
+				}
+				AND = {
+					holding_type = castle
+					location = {
+						any_province_holding = {
+							is_capital = no
+							holding_type = castle
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					holding_type = city
+				}
+				FROM = {
+					hidden_tooltip = {
+						any_vassal = {
+							limit = {
+								is_republic = yes
+							}
+							opinion = {
+							modifier = opinion_angry
+							who = FROM
+							years = 10
+							}
+						}
+					}
+					custom_tooltip = { text = republic_vassal_angry }
+				}
+			}
+			if = {
+				limit = {
+					holding_type = castle
+				}
+				FROM = {
+					hidden_tooltip = {
+						any_vassal = {
+							limit = {
+								is_feudal = yes
+							}
+							opinion = {
+							modifier = opinion_angry
+							who = FROM
+							years = 10
+							}
+						}
+					}
+					custom_tooltip = { text = feudal_vassal_angry }
+				}
+			}
+			religion_authority = {
+				modifier = temple_built
+				years = 20
+			}
+			FROM = {
+				religion_head = {
+					opinion = {
+						modifier = opinion_satisfied
+						who = FROM
+						years = 20
+					}
+				}
+			}
+			FROM = {
+				wealth = -750
+			}
+			convert_to = TEMPLE
+		}
+	}
+	
+		##################
+		# FREE DECISIONS #
+		##################
+			
+	# Convert holding to CASTLE
+	convert_settlement_castle_free = {
+		filter = owned
+		ai_target_filter = owned
+		
+		from_potential = {
+			is_tribal = no
+			is_nomadic = no
+		}
+		
+		potential = {
+			has_game_rule =  {
+				name = dacs
+				value = free
+			}
+			OR = {
+				holding_type = city
+				holding_type = temple
+			}
+			holder_scope = {
+				character = FROM
+				ai = no
+			}
+			is_capital = yes
+		}
+		
+		allow = {
+			holder = FROM
+			OR = {
+				AND = {
+					holding_type = city
+					location = {
+						any_province_holding = {
+							is_capital = no
+							holding_type = city
+						}
+					}
+				}
+				AND = {
+					holding_type = temple
+					location = {
+						any_province_holding = {
+							is_capital = no
+							holding_type = temple
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			convert_to = CASTLE
+		}
+	}
+	
+	
+	# Convert holding to CITY
+	convert_settlement_city_free = {
+		filter = owned
+		ai_target_filter = owned
+		
+		from_potential = {
+			is_tribal = no
+			is_nomadic = no
+		}
+		
+		potential = {
+			has_game_rule =  {
+				name = dacs
+				value = free
+			}
+			OR = {
+				holding_type = castle
+				holding_type = temple
+			}
+			holder_scope = {
+				character = FROM
+				ai = no
+			}
+			is_capital = yes
+		}
+		
+		allow = {
+			holder = FROM
+			OR = {
+				AND = {
+					holding_type = castle
+					location = {
+						any_province_holding = {
+							is_capital = no
+							holding_type = castle
+						}
+					}
+				}
+				AND = {
+					holding_type = temple
+					location = {
+						any_province_holding = {
+							is_capital = no
+							holding_type = temple
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			convert_to = CITY
+		}
+	}
+
+	
+	# Convert holding to TEMPLE
+	convert_settlement_temple_free = {
+		filter = owned
+		ai_target_filter = owned
+		
+		from_potential = {
+			is_tribal = no
+			is_nomadic = no
+		}
+		
+		potential = {
+			has_game_rule =  {
+				name = dacs
+				value = free
+			}
+			OR = {
+				holding_type = city
+				holding_type = castle
+			}
+			holder_scope = {
+				character = FROM
+				ai = no
+			}
+			is_capital = yes
+		}
+		
+		allow = {
+			holder = FROM
+			OR = {
+				AND = {
+					holding_type = city
+					location = {
+						any_province_holding = {
+							is_capital = no
+							holding_type = city
+						}
+					}
+				}
+				AND = {
+					holding_type = castle
+					location = {
+						any_province_holding = {
+							is_capital = no
+							holding_type = castle
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			convert_to = TEMPLE
+		}
+	}
+}
